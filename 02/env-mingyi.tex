@@ -1,0 +1,106 @@
+\startenvironment env-mingyi
+\usemodule[zhfonts]
+
+\setuppapersize[A4][A4]
+\definelayout
+  [cover]
+  [backspace=0.05\paperwidth, width=0.95\paperwidth]
+\setuplayout[backspace=20mm, 
+             width=165mm, 
+             rightmargin=20mm, 
+             topspace=20mm, 
+             header=15mm, 
+             footer=10mm, 
+             height=260mm,]
+\setuppagenumbering[alternative=doublesided]
+
+% 标题
+\setupheads[indentnext=yes]
+\definepagebreak[headpagebreak][yes, header, footer, odd]
+\setuphead[chapter,title][header=empty, style=\bfd, page=headpagebreak,after={\blank[1cm]}]
+
+\startuseMPgraphic{DancingBox}
+path p;
+u := \overlaywidth; v := \overlayheight;
+p := fullsquare xyscaled (u, v) randomized 0.07u;
+drawpath p; drawpoints p;
+\stopuseMPgraphic
+\defineoverlay[FrameBG][{\useMPgraphic{DancingBox}}]
+\def\ContentTitle#1{%
+  \inframed[width=fit, 
+            height=fit,
+            frame=off,
+            offset=4pt,
+            loffset=1em,
+            roffset=1em,
+            background=FrameBG]{#1}}
+\define[2]\titlecmd{\ContentTitle{#2}}
+\define[2]\chaptercmd{\hbox to \hsize{\raise 0.5em\hbox{\ContentTitle{#2}}%
+    \hfill\raise 0.5em\hbox{\switchtobodyfont[24pt]\color[middlegray]{#1}}}}
+\setuphead[title][command=\titlecmd]
+\setuphead[chapter][command=\chaptercmd]
+\setuphead[section, subject][style=\bfb]
+
+% 页眉页脚
+\setuppagenumbering[location=]
+
+\newdimen\headerwidth
+\headerwidth=\the\makeupwidth
+\advance\headerwidth by \rightmarginwidth
+\newdimen\LineWidth
+\LineWidth=1pt
+
+\def\HeaderFrame#1{\framed[width={\headerwidth}, frame=off, offset=none]{\bf#1}}
+\def\PageNumberFrame{%
+  \inframed[width=14mm, height=6mm, frame=off, offset=0pt]{\pagenumber}}
+\def\HeadStr#1{\headnumber[#1]\hskip1em\getmarking[#1]}
+\def\RightHeader{\HeaderFrame{\HeadStr{section}\hfill\PageNumberFrame\hbox to -\LineWidth{}}}
+\def\LeftHeader{\HeaderFrame{\hbox to -\LineWidth{}\PageNumberFrame\hfill\HeadStr{chapter}}}
+\def\FooterFrame#1{%
+  \framed[width={\headerwidth}, frame=off, offset=0pt]{#1}}
+\def\BookNameFrame[#1]{%
+  \framed[width=fit, height=fit, frame=off, offset=0pt]{%
+    \rotate[rotation=#1]{概率论——科学逻辑}}}
+\def\RightFooter{\FooterFrame{\hfill\BookNameFrame[-90]}}
+\def\LeftFooter{\FooterFrame{\BookNameFrame[90]\hfill}}
+
+\startsetups Text
+\setupheadertexts[text][\RightHeader][][][\LeftHeader]
+\setupfootertexts[text][\RightFooter][][][\LeftFooter]
+\stopsetups
+
+% 段落
+\setupindenting[first,always,2em]
+\setupinterlinespace[line=1.5em]
+
+% 摘要
+\definestartstop
+  [dictum]
+  [before={\startnarrower[4*middle]}, after={\stopnarrower\blank[big]}]
+
+% 列表
+\setupitemize[paragraph, packed, broad]
+\setupitemize
+  [left=(,
+    right=),
+    margin=4em,
+    stopper=,
+    distance=0em,
+    itemalign=flushright]
+
+% misc
+\setupheadtext[en][pubs=参考文献]
+\setupheadtext[en][content=目录]
+\setupheadtext[en][index=索引]
+\setuplabeltext[en][figure=图\;]
+\setuplabeltext[en][table=表\;]
+\setupcaptions[style=\tfx, headstyle=\normal, align={broad,middle}]
+
+\startsetups footnote:hanzi
+\setscript[hanzi]
+\stopsetups
+\setupnote[footnote][setups={footnote:hanzi}]
+
+\def\itbar#1{\overline{#1\hskip 0.1em}}
+
+\stopenvironment

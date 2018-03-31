@@ -1,0 +1,166 @@
+\environment env-mingyi
+
+\starttext
+
+\input cover
+
+\setuppagenumbering[conversion=numbers]
+\setuppagenumber[number=1]
+\setups{Text}
+
+\chapter[plausible-reasoning]{可信推理}
+
+\chapter[quatitative-rules]{量化规则}
+
+\startdictum
+概率论，不过是生活约化而成的计算。
+  
+\rightaligned{拉普拉斯，1819}
+\stopdictum
+
+\indentation 问题已被形式化了，这是我们所作的公设在数学上的必然结果。这些公设可粗略描述如下：
+
+\startitemize[R]
+\item 命题的可信性由实数表示；
+\item 定性符合常识；
+\item 一致性。
+\stopitemize
+
+\noindent 本章仅基于这些公设推导与推断相关的量化规则。所得结果，曾经有着一段漫长、复杂又令人难以置信的历史。这段历史充满着广义科学方法论方面的教训（见某些章尾部的评注部分）。
+
+\section{乘法规则}
+
+我们首先为逻辑乘 $AB$ 的可信性分别与 $A$ 与 $B$ 的可信性之间的关系找出一个一致性的规则。我们在意的其实是 $AB|C$。由于推理过程本身有些微妙，这需要我们从一些不同的视角去审视。
+
+先考虑将 $AB$ 为真的裁决打碎为对 $A$ 与 $B$ 所作的更为基本的裁决。机器人可以
+
+\startitemize[n]
+\item 裁决 $B$ 为真；\hfill $(B|C)$
+\item 认可 $B$ 为真，裁决 $A$ 为真。\hfill $(A|BC)$
+\stopitemize
+
+\noindent 或者，等同地，
+
+\startitemize[n]
+\item 裁决 $A$ 为真；\hfill $(A|C)$
+\item 认可 $A$ 为真，裁决 $B$ 为真。\hfill $(B|AC)$
+\stopitemize
+
+\noindent 上面，在每种情况中，我们给出了每一步骤相应的可信性。
+
+现在，解释一下第 1 个过程。为了命题 $AB$ 为真，$B$ 必须为真。因而，必须考虑 $B|C$ 的可信性。此外，若 $B$ 为真，则需要进一步保证 $A$ 为真，因此还需要考虑 $A|BC$ 的可信性。但是若 $B$ 为假，则无需裁决 $A$，亦即无需裁决 $A|\itbar{B}C$，便可知晓 $AB$ 为假；若机器人先推理 $B$，那么，$A$ 的可信性仅在 $B$ 为真时才值得考虑。因此，机器人在有了 $B|C$ 与 $A|BC$ 的情况下，就不需要 $A|C$ 了，因为 $A|C$ 并未给它能带来更多的信息。
+
+类似地，$A|B$ 与 $B|A$ 是不需要的；无论 $A$ 与 $B$ 在缺乏 $C$ 的情况下多么可信，都与机器人在知道 $C$ 为真的情况下所作的裁决无关。例如，若机器人知晓地球是圆的，那么在裁决与现在的宇宙学相关的问题时，它就可以忽略那些在它尚不知地球是圆的之时需要考虑的观点。
+
+由于逻辑乘法运算遵循交换律，$AB = BA$，因此上文中的 $A$ 与 $B$ 毫无疑问，可以互换；亦即 $A|C$ 与 $B|AC$ 的知识也能用于确定 $AB|C = BA|C$。对于 $AB$，机器人必定能从这两个过程中得到相同的可信性，这是我们的一致性条件之一，即公设 (\convertnumber{R}{3}a)。
+
+可以用更明确的形式来描述。$(AB|C)$ 可以是 $B|C$ 与 $A|BC$ 的某个函数：
+
+\placeformula[basic-function]
+\startformula
+(AB|C) = F[(B|C), (A|BC)]
+\stopformula
+
+现在，如果上述推理尚不完全清晰，那么就审视一下其他的替代形式。例如，可以假设
+
+\placeformula
+\startformula
+(AB|C) = F[(A|C), (B|C)]
+\stopformula
+
+是容许的形式。但是，很容易揭示，这种形式的关系无法满足公设 (\convertnumber{R}{2}) 的那些定性条件。给定 C，命题 $A$ 或许非常可信，命题 $B$ 或许可信，但是 $AB$ 可能依然非常可信或非常不可信。
+
+例如，下一个遇到的人，蓝眼睛，这相当可信，黑头发，这也相当可信；这两样生理特征同时出现于此人身上，也没什么不合理之处。不过，左眼睛是蓝色的，这相当可信，右眼睛是褐色的，也相当可信，但是若它们同时为真，那就极为不可信。如果使用这种形式的公式，那么就没法考虑这些情况。用这种形式的函数，我们的机器人无法像人类那样去作推理，它甚至连定性的推理都做不到。
+
+还有一些其他的可能的形式。尝试所有的可能形式的方法——\quotation{穷举证明}——可像下面这样进行。先引入一些实数
+
+\placeformula
+\startformula
+u = (AB|C),\quad v = (A|C),\quad w = (B|AC),\quad x = (B|C),\quad y = (A|BC).
+\stopformula
+
+如果 $u$ 被表示成 $u$、$v$、$x$、$y$ 中两个或更多个实数的函数，那么有 11 种可能的形式。可以写出每一种可能，将它置于各种极端条件下，如同褐色眼睛与蓝色眼睛那样（抽象描述：$A$ 蕴含了 $B$ 为假\footnote{译注：$A\Rightarrow\itbar{B}$}）。其他极端条件有，$A = B$，$A = C$，$C\Rightarrow\itbar{A}$，等。Tribus（1969）作了冗长乏味的分析，发现只有两种可能的形式，在某种极端的情况下，遵循着定性符合常识这一公设，它们分别是 $u = F(x, y)$ 与 $u = F(w, v)$，这正是之前我们推理出来的那两种函数形式。
+
+现在，运用第 \in[plausible-reasoning] 章讨论的量化要求。给定的先验信息的任何变化 $C\rightarrow C'$，以及 $B$ 变得更可信，$A$ 没有变化，
+
+\placeformula
+\startformula
+B|C' > B|C
+\stopformula
+
+\placeformula
+\startformula
+A|BC' = A|BC
+\stopformula
+
+根据常识，$AB$ 只会变得更可信，而不是更不可新：
+
+\placeformula
+\startformula
+AB|C'\ge AB|C
+\stopformula
+
+当且仅当 $A|BC$ 为不可能时，相等关系成立。同样，给定先验信息 $C''$，以及
+
+\placeformula
+\startformula
+B|C'' = B|C
+\stopformula
+
+\placeformula
+\startformula
+A|BC'' > A|BC
+\stopformula
+
+就会有
+
+\placeformula
+\startformula
+AB|C'' \ge AB|C
+\stopformula
+
+当且仅当 $B|C$ 为不可能时，相等关系成立（即使此时未去定义 $A|BC$，$AB|C''$ 依然不可能为真）。此外，函数 $F(x, y)$ 必须是连续的，不然，(\in[basic-function]) 右侧的某个可信性的微小递增可能会导致 $AB|C$ 的大幅递增。
+
+总之，$F(x, y)$ 必须是 x 与 y 的连续的单调递增函数。若假设它可微（并非必须如此；见 (\in[function-eq]) 的讨论），便有
+
+\placeformula
+\startformula
+F_1(x, y) \equiv \frac{\partial F}{\partial x} \ge 0
+\stopformula
+
+仅当 $x$ 表示不可能时，上式中的相等关系成立。后文会继续使用这些符号，无论 $F$ 是什么样的函数，$F_i$ 表示 $F$ 的第 $i$ 个参数对应的微分。
+
+接下来，我们动用公设 (\convertnumber{R}{3}a)，\quotation{结构上}的一致性。假设想获得 $(ABC|D)$ 的可信性，即三个命题同时为真的可信性，由于布尔运算遵循结合律 $ABC = (AB)C = A(BC)$，因此有两种方式来做此事。若规则具有一致性，一定能从这两种顺序的运算中获得相同的结果。首先，可以将 $BC$ 视为单一的命题，利用 (\in[basic-function])：
+
+
+\placeformula
+\startformula
+(ABC|D) = F[(BC|D), (A|BCD)]
+\stopformula
+
+然后，对可信性 $(BC|D)$ 应用 (\in[basic-function])，可得：
+
+\startsubformulas[subeq:1]
+\placeformula
+\startformula
+(ABC|D) = F\{F[(C|D), (B|CD)], (A|BCD)\}
+\stopformula
+
+不过，也可以在一开始将 $AB$ 视为单一的命题，这样就可以从另一种顺序推出不同的结果：
+
+\placeformula[subeq:2]
+\startformula
+(ABC|D) = F[(C|D), (AB|CD)] = F\{(C|D), F[(B|CD), (A|BCD)]\}
+\stopformula
+\stopsubformulas
+
+若我们寻找的这个规则是要用于表示推理的一致性方法，那么 (\in[subeq:1]) 与 (\in[subeq:2]) 必定恒等。在这种情况下，我们的机器人所作的一致性推理，其必要条件可表示为一个函数方程，
+
+\placeformula[eq:2]
+\startformula
+F[F(x, y), z] = F[x, F(y, z)]
+\stopformula
+
+在数学里，这个方程历史悠久，源起于 N. H. Abel (1826) 的研究。Acz\'el (1966) 在他的讲述函数方程的巨著中，贴切地成这个方程为\quotation{关联方程}（Associativity Equation），并列举了 98 份讨论或使用这个方程的参考文献。Acz\'el 在不假设函数可微的条件下，求出了通解 (\in[aczel-general-solution])，见下文。
+
+\stoptext
