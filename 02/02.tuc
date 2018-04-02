@@ -4,7 +4,7 @@ utilitydata.comment={
  ["escape"]="[===[ ... ]===]",
  ["file"]="02",
  ["format"]="cont-en",
- ["stamp"]="2018.03.22 19:41",
+ ["stamp"]="2017.08.29 19:35",
  ["version"]=1.3,
 }
 
@@ -34,7 +34,7 @@ utilitydata.job.structure.collected={
    ["type"]="environment",
   },
  },
- ["name"]="",
+ ["name"]="02",
  ["type"]="text",
 }
 
@@ -98,8 +98,8 @@ utilitydata.structures.counters.collected={
   { 1 },
  },
  ["formula"]={
-  { 0, 0, 13 },
-  { 2, 0 },
+  { 0, 0, 17 },
+  { 2, 0, 2, 0, 0, 0, 0, 0 },
  },
  ["graphic"]={
   { 0, 0, 0, 0, 0 },
@@ -211,7 +211,7 @@ utilitydata.structures.lists.collected={
   ["references"]={
    ["internal"]=7,
    ["realpage"]=7,
-   ["reference"]="subeq:1",
+   ["reference"]="mono-req",
    ["section"]=3,
    ["view"]="fit",
   },
@@ -221,9 +221,9 @@ utilitydata.structures.lists.collected={
   ["numberdata"]=19,
   ["prefixdata"]=12,
   ["references"]={
-   ["internal"]=8,
+   ["internal"]=9,
    ["realpage"]=7,
-   ["reference"]="subeq:2",
+   ["reference"]="subeq:1",
    ["section"]=3,
    ["view"]="fit",
   },
@@ -233,9 +233,21 @@ utilitydata.structures.lists.collected={
   ["numberdata"]=21,
   ["prefixdata"]=12,
   ["references"]={
-   ["internal"]=9,
+   ["internal"]=10,
    ["realpage"]=7,
-   ["reference"]="eq:2",
+   ["reference"]="subeq:2",
+   ["section"]=3,
+   ["view"]="fit",
+  },
+ },
+ {
+  ["metadata"]=9,
+  ["numberdata"]=23,
+  ["prefixdata"]=12,
+  ["references"]={
+   ["internal"]=11,
+   ["realpage"]=7,
+   ["reference"]="function-eq",
    ["section"]=3,
    ["view"]="fit",
   },
@@ -249,57 +261,57 @@ utilitydata.structures.pages.collected={
  {
   ["block"]="bodypart",
   ["number"]=1,
-  ["numberdata"]=22,
-  ["prefixdata"]=23,
+  ["numberdata"]=24,
+  ["prefixdata"]=25,
   ["state"]="stop",
  },
  {
   ["block"]="bodypart",
   ["number"]=1,
-  ["numberdata"]=22,
-  ["prefixdata"]=23,
+  ["numberdata"]=24,
+  ["prefixdata"]=25,
   ["state"]="start",
  },
  {
   ["block"]="bodypart",
   ["number"]=1,
-  ["numberdata"]=22,
-  ["prefixdata"]=23,
+  ["numberdata"]=24,
+  ["prefixdata"]=25,
   ["state"]="start",
  },
  {
   ["block"]="bodypart",
   ["number"]=2,
-  ["numberdata"]=22,
-  ["prefixdata"]=23,
+  ["numberdata"]=24,
+  ["prefixdata"]=25,
   ["state"]="start",
  },
  {
   ["block"]="bodypart",
   ["number"]=3,
-  ["numberdata"]=22,
-  ["prefixdata"]=23,
+  ["numberdata"]=24,
+  ["prefixdata"]=25,
   ["state"]="start",
  },
  {
   ["block"]="bodypart",
   ["number"]=4,
-  ["numberdata"]=22,
-  ["prefixdata"]=23,
+  ["numberdata"]=24,
+  ["prefixdata"]=25,
   ["state"]="start",
  },
  {
   ["block"]="bodypart",
   ["number"]=5,
-  ["numberdata"]=22,
-  ["prefixdata"]=23,
+  ["numberdata"]=24,
+  ["prefixdata"]=25,
   ["state"]="start",
  },
  {
   ["block"]="bodypart",
   ["number"]=6,
-  ["numberdata"]=22,
-  ["prefixdata"]=23,
+  ["numberdata"]=24,
+  ["prefixdata"]=25,
   ["state"]="start",
  },
 }
@@ -355,12 +367,6 @@ if not utilitydata.job then utilitydata.job = { } end
 if not utilitydata.job.fileobjreferences then utilitydata.job.fileobjreferences = { } end
 
 utilitydata.job.fileobjreferences.collected={
-}
-
-if not utilitydata.job then utilitydata.job = { } end
-if not utilitydata.job.embedded then utilitydata.job.embedded = { } end
-
-utilitydata.job.embedded.collected={
 }
 
 utilitydata.job.packed={
@@ -441,23 +447,29 @@ utilitydata.job.packed={
    ["prefix"]="no",
    ["segments"]="2:2",
   },
-  { 12 },
+  { 10 },
   {
    ["conversionset"]="formula",
    ["counter"]="formula",
    ["numbers"]=16,
   },
-  { 12, 2 },
+  { 12, 1 },
   {
    ["conversionset"]="formula",
    ["counter"]="formula",
    ["numbers"]=18,
   },
-  { 13 },
+  { 12, 2 },
   {
    ["conversionset"]="formula",
    ["counter"]="formula",
    ["numbers"]=20,
+  },
+  { 13 },
+  {
+   ["conversionset"]="formula",
+   ["counter"]="formula",
+   ["numbers"]=22,
   },
   {
    ["conversionset"]="pagenumber",

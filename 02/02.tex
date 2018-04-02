@@ -123,12 +123,22 @@ AB|C'' \ge AB|C
 
 总之，$F(x, y)$ 必须是 x 与 y 的连续的单调递增函数。若假设它可微（并非必须如此；见 (\in[function-eq]) 的讨论），便有
 
+\startsubformulas[mono-req]
 \placeformula
 \startformula
 F_1(x, y) \equiv \frac{\partial F}{\partial x} \ge 0
 \stopformula
 
-仅当 $x$ 表示不可能时，上式中的相等关系成立。后文会继续使用这些符号，无论 $F$ 是什么样的函数，$F_i$ 表示 $F$ 的第 $i$ 个参数对应的微分。
+仅当 $x$ 表示不可能时，上式中的相等关系成立；还有，
+
+\placeformula
+\startformula
+F_2(x, y) \equiv \frac{\partial F}{\partial y} \ge 0
+\stopformula
+\stopsubformulas
+
+
+后文会继续使用这些符号，无论 $F$ 是什么样的函数，$F_i$ 表示 $F$ 的第 $i$ 个参数对应的微分。
 
 接下来，我们动用公设 (\convertnumber{R}{3}a)，\quotation{结构上}的一致性。假设想获得 $(ABC|D)$ 的可信性，即三个命题同时为真的可信性，由于布尔运算遵循结合律 $ABC = (AB)C = A(BC)$，因此有两种方式来做此事。若规则具有一致性，一定能从这两种顺序的运算中获得相同的结果。首先，可以将 $BC$ 视为单一的命题，利用 (\in[basic-function])：
 
@@ -140,8 +150,8 @@ F_1(x, y) \equiv \frac{\partial F}{\partial x} \ge 0
 
 然后，对可信性 $(BC|D)$ 应用 (\in[basic-function])，可得：
 
-\startsubformulas[subeq:1]
-\placeformula
+\startsubformulas
+\placeformula[subeq:1]
 \startformula
 (ABC|D) = F\{F[(C|D), (B|CD)], (A|BCD)\}
 \stopformula
@@ -156,11 +166,42 @@ F_1(x, y) \equiv \frac{\partial F}{\partial x} \ge 0
 
 若我们寻找的这个规则是要用于表示推理的一致性方法，那么 (\in[subeq:1]) 与 (\in[subeq:2]) 必定恒等。在这种情况下，我们的机器人所作的一致性推理，其必要条件可表示为一个函数方程，
 
-\placeformula[eq:2]
+\placeformula[function-eq]
 \startformula
 F[F(x, y), z] = F[x, F(y, z)]
 \stopformula
 
-在数学里，这个方程历史悠久，源起于 N. H. Abel (1826) 的研究。Acz\'el (1966) 在他的讲述函数方程的巨著中，贴切地成这个方程为\quotation{关联方程}（Associativity Equation），并列举了 98 份讨论或使用这个方程的参考文献。Acz\'el 在不假设函数可微的条件下，求出了通解 (\in[aczel-general-solution])，见下文。
+在数学里，这个方程历史悠久，源起于 N. H. Abel (1826) 的研究。Acz\'el (1966) 在他的讲述函数方程的巨著中，贴切地成这个方程为\quotation{关联方程}（Associativity Equation），并列举了 98 份讨论或使用这个方程的参考文献。Acz\'el 在不假设函数可微的条件下，求出了通解 (\in[aczel-general-solution])，见下文。不过，他的书中（Acz\'el, 1987），用了 11 页的篇幅证明此解的存在。在此，我们给出 R. T. Cox (1961) 在假设函数可微的前提下给出的更短的证明；也可参考附录 B 中的讨论。
+
+显然，(\in[function-eq]) 有一个平凡解，$F(x, y) = \text{常数}$。但是这个解违背了单调性要求 (\in[mono-req])，并且毫无用处可言。除非 (\in[function-eq]) 有一个非平凡解，不然，这条路就走不通了；因此，必须寻求最为广义的非平凡解。先定义一些缩写
+
+\placeformula
+\startformula
+u\equiv F(x, y),\quad v\equiv F(y, z)
+\stopformula
+
+现在，依然认为 $(x, y, z)$ 是互不依赖的变量，待求解的函数方程可写为
+
+\placeformula
+\startformula
+F(x, v) = F(u, z)
+\stopformula
+
+分别对 $x$ 与 $y$ 求微分，按照 (\in[mono-req]) 的记法，可得
+
+\placeformula
+\startformula
+\startmathalignment
+\NC F_1(x, v) \NC = F_1(u, z)F_1(x, y)\NR
+\NC F_2(x, v)F_1(y, z) \NC = F_1(u, z)F_2(x, y)\NR
+\stopmathalignment
+\stopformula
+
+从这两个方程中消除 $F_1(u, z)$，可得
+
+\placeformula
+\startformula
+G(x, v)F_1(y, z) = G(x, y)
+\stopformula
 
 \stoptext

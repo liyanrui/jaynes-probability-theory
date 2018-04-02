@@ -14,33 +14,6 @@
              height=260mm,]
 \setuppagenumbering[alternative=doublesided]
 
-% 标题
-\setupheads[indentnext=yes]
-\definepagebreak[headpagebreak][yes, header, footer, odd]
-\setuphead[chapter,title][header=empty, style=\bfd, page=headpagebreak,after={\blank[2cm]}]
-
-\startuseMPgraphic{DancingBox}
-path p;
-u := \overlaywidth; v := \overlayheight;
-p := fullsquare xyscaled (u, v) randomized 0.07u;
-drawpath p; drawpoints p;
-\stopuseMPgraphic
-\defineoverlay[FrameBG][{\useMPgraphic{DancingBox}}]
-\def\ContentTitle#1{%
-  \inframed[width=fit, 
-            height=fit,
-            frame=off,
-            offset=4pt,
-            loffset=1em,
-            roffset=1em,
-            background=FrameBG]{#1}}
-\define[2]\titlecmd{\ContentTitle{#2}}
-\define[2]\chaptercmd{\hbox to \hsize{\raise 0.5em\hbox{\ContentTitle{#2}}%
-    \hfill\raise 0.5em\hbox{\switchtobodyfont[24pt]\color[middlegray]{#1}}}}
-\setuphead[title][command=\titlecmd]
-\setuphead[chapter][command=\chaptercmd]
-\setuphead[section, subject][style=\bfb]
-
 % 页眉页脚
 \setuppagenumbering[location=]
 
@@ -63,6 +36,41 @@ drawpath p; drawpoints p;
     \rotate[rotation=#1]{概率论——科学逻辑}}}
 \def\RightFooter{\FooterFrame{\hfill\BookNameFrame[-90]}}
 \def\LeftFooter{\FooterFrame{\BookNameFrame[90]\hfill}}
+
+% 标题
+\setupheads[indentnext=yes]
+\definepagebreak[headpagebreak][yes, header, footer, odd]
+\setuphead
+  [chapter,title]
+  [header=empty, 
+    style=\bfd, 
+    page=headpagebreak,
+    after={\blank[2cm]}]
+
+\startuseMPgraphic{DancingBox}
+path p;
+u := \overlaywidth; v := \overlayheight;
+p := fullsquare xyscaled (u, v) randomized 0.07u;
+drawpath p; drawpoints p;
+\stopuseMPgraphic
+\defineoverlay[FrameBG][{\useMPgraphic{DancingBox}}]
+\def\ContentTitle#1{%
+  \framed[width=fit, 
+            height=fit,
+            frame=off,
+            offset=4pt,
+            loffset=1em,
+            roffset=1em,
+            background=FrameBG]{#1}}
+\def\ChapterNumber#1{{\switchtobodyfont[24pt]\color[middlegray]{#1}}}
+\define[2]\titlecmd{\ContentTitle{#2}}
+\define[2]\chaptercmd{\ContentTitle{\ChapterNumber{#1}
+
+#2}}
+\setuphead[title][command=\titlecmd]
+\setuphead[chapter][command=\chaptercmd]
+\setuphead[section, subject][style=\bfb]
+
 
 \startsetups Text
 \setupheadertexts[text][\RightHeader][][][\LeftHeader]
