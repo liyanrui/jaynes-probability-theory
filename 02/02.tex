@@ -182,14 +182,14 @@ u\equiv F(x, y),\quad v\equiv F(y, z)
 
 现在，依然认为 $(x, y, z)$ 是互不依赖的变量，待求解的函数方程可写为
 
-\placeformula
+\placeformula[eq-target]
 \startformula
 F(x, v) = F(u, z)
 \stopformula
 
 分别对 $x$ 与 $y$ 求微分，按照 (\in[mono-req]) 的记法，可得
 
-\placeformula
+\placeformula[elim]
 \startformula
 \startmathalignment
 \NC F_1(x, v) \NC = F_1(u, z)F_1(x, y)\NR
@@ -199,9 +199,58 @@ F(x, v) = F(u, z)
 
 从这两个方程中消除 $F_1(u, z)$，可得
 
-\placeformula
+\placeformula[eq-U]
 \startformula
 G(x, v)F_1(y, z) = G(x, y)
 \stopformula
+
+其中，$G(x, y)\equiv F_2(x, y)/F_1(x, y)$。显然，(\in[elim]) 的左部一定是不依赖 $z$。可将 (\in[eq-U]) 等价地写为
+
+\placeformula[eq-V]
+\startformula
+G(x, v)F_2(y, z) = G(x, y)G(y, z)
+\stopformula
+
+用 $U$ 与 $V$ 分别表示 (\in[eq-U]) 与 (\in[eq-V]) 的左部，可以得出 $\partial V/\partial y = \partial U/\partial z$。因而 $G(x, y)G(y, z)$ 必定不依赖 $y$。具有这一性质的最具一般性的函数 $G(x, y)$ 为
+
+\placeformula[general-func]
+\startformula
+G(x, y) = r\frac{H(x)}{H(y)}
+\stopformula
+
+其中，$r$ 为常数，$H(x)$ 为任意函数。基于 $F$ 的单调性，可确定 $G > 0$，因此需要 $r > 0$，至于 $H(x)$ 的正负则无关大体。应用 (\in[general-func])，则 (\in[eq-U]) 与 (\in[eq-V]) 变成：
+
+\placeformula
+\startformula
+F_1(y, z) = \frac{H(v)}{H(y)} 
+\stopformula
+
+\placeformula
+\startformula
+F_2(y, z) = r\frac{H(v)}{H(z)} 
+\stopformula
+
+关系 $dv=dF(y, z)=F_1dy + F_2dz$ 可化为
+
+\placeformula
+\startformula
+\frac{dv}{H(v)} = \frac{dy}{H(y)} + r\frac{dz}{H(z)}
+\stopformula
+
+或者化为积分形式
+
+\placeformula
+\startformula
+w[F(y, z)] = w(v) = w(y)w'(z)
+\stopformula
+
+其中
+
+\placeformula
+\startformula
+w(x) = \text{exp}\left\{\int_{}^{x}\frac{dx}{H(x)}\right\}
+\stopformula
+
+积分符号无下界，意味着 $w$ 会有一个任意的倍增因子。但是，将 (\in[eq-target]) 
 
 \stoptext

@@ -55,18 +55,19 @@ drawpath p; drawpoints p;
 \stopuseMPgraphic
 \defineoverlay[FrameBG][{\useMPgraphic{DancingBox}}]
 \def\ContentTitle#1{%
-  \framed[width=fit, 
-            height=fit,
-            frame=off,
-            offset=4pt,
-            loffset=1em,
-            roffset=1em,
-            background=FrameBG]{#1}}
-\def\ChapterNumber#1{{\switchtobodyfont[24pt]\color[middlegray]{#1}}}
+  \framed
+    [width=fit,
+      height=fit,
+      align=middle,
+      frame=off,
+      offset=4pt,
+      loffset=1em,
+      roffset=1em,
+      background=FrameBG]{#1}}
+\def\ChapterNumber#1{\hbox{\color[middlegray]{#1}}}
 \define[2]\titlecmd{\ContentTitle{#2}}
-\define[2]\chaptercmd{\ContentTitle{\ChapterNumber{#1}
-
-#2}}
+\define[2]\chaptercmd{\hbox to\hsize{%
+    \hfill\ContentTitle{#1\hskip1em #2}\hfill}}
 \setuphead[title][command=\titlecmd]
 \setuphead[chapter][command=\chaptercmd]
 \setuphead[section, subject][style=\bfb]
