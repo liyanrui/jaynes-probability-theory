@@ -150,7 +150,7 @@ F_2(x, y) \equiv \frac{\partial F}{\partial y} \ge 0
 
 然后，对可信性 $(BC|D)$ 应用 (\in[basic-function])，可得：
 
-\startsubformulas
+\startsubformulas[expand-way]
 \placeformula[subeq:1]
 \startformula
 (ABC|D) = F\{F[(C|D), (B|CD)], (A|BCD)\}
@@ -239,18 +239,50 @@ F_2(y, z) = r\frac{H(v)}{H(z)}
 
 或者化为积分形式
 
-\placeformula
+\placeformula[eq-int]
 \startformula
 w[F(y, z)] = w(v) = w(y)w'(z)
 \stopformula
 
 其中
 
-\placeformula
+\placeformula[w-func]
 \startformula
 w(x) = \text{exp}\left\{\int_{}^{x}\frac{dx}{H(x)}\right\}
 \stopformula
 
-积分符号无下界，意味着 $w$ 会有一个任意的倍增因子。但是，将 (\in[eq-target]) 
+积分符号无下界，意味着 $w$ 会有一个任意的倍增因子。但是，将 (\in[eq-target]) 代入函数 $w(\cdot)$ 并应用 (\in[eq-int])，可得 $w(x)w^r(v) = w(u)w^r(z)$；再次应用 (\in[eq-int])，函数方程便可化为
+
+\placeformula
+\startformula
+w(x)w^r(y)[w(z)]^{r^2} = w(x)w^r(y)w^r(z)
+\stopformula
+
+若 $r = 1$，便可获得一个非平凡解，最终结果可表示为以下两种形式：
+
+\placeformula
+\startformula
+w[F(x, y)] = w(x)w(y)
+\stopformula
+
+或
+
+\placeformula[aczel-general-solution]
+\startformula
+F(x, y) = w^{-1}[w(x)w(y)]
+\stopformula
+
+因此，逻辑乘法所遵守的结合律与交换律必须体现为以下的函数形式
+
+\placeformula[product-rule]
+\startformula
+w(AB|C) = w(A|BC)w(B|C) = w(B|AC)w(A|C)
+\stopformula
+
+我们将这种形式称为{\bf 乘法规则}。由 (\in[w-func]) 的构造可知，$w(x)$ 必定是个正的连续的单调函数，至于它是递增的还是递减的，这有赖于 $H(x)$ 的符号；目前，它另有深意。
+
+结果得到了 (\in[product-rule])，某种意义上，它是公设 (\convertnumber{R}{3}a) 所述一致性的必要条件。不过，对于任意多个联结的命题，(\in[product-rule]) 显然也能保证这种一致性的存在。例如，用 (\in[expand-way]) 的办法可以将 $(ABCDEFG|H)$ 展开为数目繁多的不同形式；但是，只要 (\in[product-rule]) 成立，这些形式会产生同一个结果。
+
+
 
 \stoptext
