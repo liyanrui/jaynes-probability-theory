@@ -283,14 +283,57 @@ w(AB|C) = w(A|BC)w(B|C) = w(B|AC)w(A|C)
 
 结果得到了 (\in[product-rule])，某种意义上，它是公设 (\convertnumber{R}{3}a) 所述一致性的必要条件。不过，对于任意多个联结的命题，(\in[product-rule]) 显然也能保证这种一致性的存在。例如，用 (\in[expand-way]) 的办法可以将 $(ABCDEFG|H)$ 展开为数目繁多的不同形式；但是，只要 (\in[product-rule]) 成立，这些形式的结果必定相同。
 
-定性要符合常识，这一要求对 $w(x)$ 有着更为严格的限定。例如，根据 (\in[[product-rule]]) 所给出的形式，假设在给定 $C$ 的情况下 $A$ 为真，那么在由 $C$ 的知识所营造的\quotation{逻辑环境}里，从当且仅当一个为真时另一个也必定为真这一意义来说，命题 $AB$ 与 $B$ 并无区别。基于第 1 节讨论的最基本的公理，同样为真的命题一定具备相同的可信性\footnote{见 1.5 节。}：
+定性要符合常识，这一要求对 $w(x)$ 有着更为严格的限定。例如，根据 (\in[product-rule]) 所给出的形式，假设在给定 $C$ 的情况下 $A$ 为真，那么在由 $C$ 的知识所营造的\quotation{逻辑环境}里，从当且仅当一个为真时另一个也必定为真这一意义来说，命题 $AB$ 与 $B$ 并无区别。基于第 1 节讨论的最基本的公理，同样为真的命题一定具备相同的可信性\footnote{见 1.5 节。}：
 
 \placeformula
 \startformula
 AB|C = B|C
 \stopformula
 
+还有
 
+\placeformula
+\startformula
+A|BC = A|C
+\stopformula
 
+由于给定 $C$ 的时候 $A$ 是确信的（亦即 $C$ 蕴含 $A$），那么给定任何其他不与 $C$ 矛盾的 $B$，$A$ 依然是确信的。在这种情况下，(\in[product-rule]) 约化为
+
+\placeformula
+\startformula
+w(B|C) = w(A|C)w(B|C)
+\stopformula
+
+对于机器人而言，无论 $B$ 有多么可信或不可信，该式必定成立。因此，函数 $w(x)$ 必定具有以下性质
+
+\placeformula
+\startformula
+w(A|C) = 1\;\text{表示确信性}
+\stopformula
+
+现在，在给定 $C$ 的情况下，假设 $A$ 不可信，那么在给定 $C$ 时，命题 $AB$ 也不可信：
+
+\placeformula
+\startformula
+AB|C = A|C
+\stopformula
+
+若给定 $C$ 的情况下，$A$ 不确信（亦即 $C$ 蕴含 $\itbar{A}$），那么给定任何不与 $C$ 矛盾的更充分的信息 $B$，$A$ 依然不可信：
+
+\placeformula
+\startformula
+A|BC = A|C
+\stopformula
+
+在这种情况下，(\in[product-rule]) 可化为
+
+\placeformula[eq-zero]
+\startformula
+w(A|C) = w(A|C)w(B|C)
+\stopformula
+
+无论 $B$ 有多么可信，这个方程必定成立。$w(A|C)$ 只有两个可能的值能够满足这个条件，要么为 $0$，要么为 $+\infty$（排除了 $-\infty$，不然基于连续性，$w(B|C)$ 必须为负值；于是 (\in[eq-zero]) 自相矛盾）。
+
+综上所述，定性要符合常识，这决定了 $w(x)$ 必须是一个正值的连续单调函数。它可能递增，也可能递减。若它递增，取值范围必须从 0 到 1，前者表不确信，后者表确信。若它递减，取值范围必须从 $+\infty$ 到 1，前者表不确信，后者表确信。至于它在这两种区间里具体如何变化，我们所给出的公设则没有对其进行限定。
 
 \stoptext
