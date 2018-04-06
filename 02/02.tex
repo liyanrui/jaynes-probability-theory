@@ -10,12 +10,91 @@
 
 \chapter[plausible-reasoning]{可信推理}
 
+\startdictum
+逻辑学所关心的问题，要么是肯定或否定的，要么是完全不确定的。总之，（应当庆幸）没什么问题需要推理。世上真正的逻辑应该是概率计算——关乎可能性的量化运算，它存在甚至应该存在于理性者的思维之中。
+  
+\rightaligned{James Clerk Maxwell，1850}
+\stopdictum
+
+在漆黑的夜晚，一名警察在空无一人街道上巡逻。突然，他听到了警铃惊响，循声望去，街对面一家珠宝店的窗户洞开，一位蒙面的绅士，肩负一袋昂贵的珠宝，向外爬出。警察不假思索，立即断定此人绝非善类。他是基于什么得出这一结论的呢？
+
+\section{演绎推理与可信推理}
+
+警察的结论显然不是通过从证据出发的逻辑推导而得到。任何犯罪，皆能为之编造出完美的无罪辩护。譬如，那位绅士可能是珠宝店的主人。当天夜里，他从一个化妆舞会回家，发现没带钥匙。当他走到自己的店铺时，一辆驶过的卡车扔出一块石头击破了窗户。他为了保护自己的财产不得已而上演了警察所看到的一幕。
+
+尽管警察的推理过程并非逻辑推导，但是我们得承认他的结论在一定程度上也是正确的。警察所看到的那一幕，不能作为证据，去证明那位绅士犯罪，但是却能够让自己的结论看上去更为可信。这种推理方式或许是我们的本能。有些事，例如今天是否下雨，由于缺乏足够的信息，无法进行演绎推理，但是又必须当机立断。这样的事情在我们的清醒的时间里几乎无时无刻不在发生。
+
+这种推理貌似寻常，其过程却非常微妙。人类用了超过 24 个世纪来讨论它，迄今依然没有完全令人满意的答案。我们在这方面取得了一些有用的且鼓舞人心的新进展。我们用明确的定理代替了不靠谱的直觉判断，并用一些非常基本且近乎无法避免的理性标准所唯一确定的规则代替了那些特设过程。
+
+有关这些问题的所有讨论，始于几个例子，它们反映了演绎推理与可信推理的对立。演绎推理（证明式推理），亦即亚里士多德的工具论，总是能够归结为两个强三段论的反复运用，即
+
+\placeformula
+\startformula
+\startmathmatrix[n=4]
+\NC\text{如果 A 为真，则 B 为真}\NR
+\NC\text{A 为真}\NR
+\NC\text{\hbox to 7cm{\thinrule}}\NR
+\NC\text{所以，B 为真}\NR
+\stopmathmatrix
+\stopformula
+
+与
+
+\placeformula
+\startformula
+\startmathmatrix[n=4]
+\NC\text{如果 A 为真，则 B 为真}\NR
+\NC\text{B 为假}\NR
+\NC\text{\hbox to 7cm{\thinrule}}\NR
+\NC\text{所以，A 为假}\NR
+\stopmathmatrix
+\stopformula
+
+这就是我们乐意时时使用的推理方式，但是很不幸，大部分情况下我们缺乏这种推理所需要的信息，只好退而求其次，使用弱三段论：
+
+\placeformula
+\startformula
+\startmathmatrix[n=4]
+\NC\text{如果 A 为真，则 B 为真}\NR
+\NC\text{B 为真}\NR
+\NC\text{\hbox to 7cm{\thinrule}}\NR
+\NC\text{所以，A 更可信}\NR
+\stopmathmatrix
+\stopformula
+
+证据不足以证明 A 为真，但是若 A 的结果之一得到确证，我们就会对 A 为真更有信心。例如，设
+
+\startformula
+\startalign
+  \NC A \equiv \NC \text{最晚上午十点下雨。}\NR
+  \NC B \equiv \NC \text{上午十点之前多云。}\NR
+\stopalign
+\stopformula
+
+在上午 9:45 看到云，并不能断定将会下雨。我们的常识是服从弱三段论的，它会督促我们改变计划与行动，因此如果那些云足够黑，我们就会相信会下雨。
+
+这个例子也揭示了大前提，「如果 A 那么 B」表示 B 仅仅是 A 的逻辑结果，并非物理因果意义上的结果。物理因果，结果在时间上必须晚于原因。上午十点中下雨并非上午 9:45 多云的物理原因，但是正确的逻辑关系并非错误的因果指向（多云 $\Rightarrow$ 雨），而是（雨 $\Rightarrow$ 多云）这种非因果但正确的指向。
+
+之所以在一开始便强调逻辑联系，是因为关于推断 \footnote{译注：注意推断与推理的区别} 的一些讨论与应用陷入了严重的误区。这些误区正是由于未能辨清逻辑蕴含与物理因果之间的区别而造成的。Simon 与 Rescher (1996) 深入分析了二者的区别。他们注意到，像表达物理因果那样解释逻辑蕴含的所有尝试，都会因为缺乏第二种三段论这样的逆否形式而失败。也就是说，如果我们尝试将大前提解释为「A 是 B 的物理原因」，那么就很难接受「非 B 是非 A 的物理原因」。在第 3 章中可以看到，以物理因果的形式来解释可信推断，也没有取得更好的进展。
+
+另一个弱三段论，其大前提未变，
+
+\placeformula
+\startformula
+\startmathmatrix[n=4]
+\NC\text{如果 A 为真，则 B 为假}\NR
+\NC\text{A 为假}\NR
+\NC\text{\hbox to 7cm{\thinrule}}\NR
+\NC\text{所以，B 更不可信}\NR
+\stopmathmatrix
+\stopformula
+
 \chapter[quatitative-rules]{量化规则}
 
 \startdictum
 概率论，不过是生活约化而成的计算。
   
-\rightaligned{拉普拉斯，1819}
+\rightaligned{Laplace，1819}
 \stopdictum
 
 \indentation 问题已被形式化了，这是我们所作的公设在数学上的必然结果。这些公设可粗略描述如下：

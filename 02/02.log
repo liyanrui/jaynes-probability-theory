@@ -33,6 +33,7 @@ pages           > flushing realpage 1, userpage 1, subpage 1
 pages           > flushing realpage 2, userpage 1
 close source    > level 3, order 9, name 'cover.tex'
 structure       > sectioning > chapter @ level 2 : 0.1 -> 可信推理
+structure       > sectioning > section @ level 3 : 0.1.1 -> 演绎推理与可信推理
 pages           > flushing realpage 3, userpage 1
 pages           > flushing realpage 4, userpage 2
 structure       > sectioning > chapter @ level 2 : 0.2 -> 量化规则
@@ -103,10 +104,10 @@ system          > stop used files
 
 system          > start commandline options
 
-system          > currentrun="1"
+system          > currentrun="2"
 system          > fulljobname="./02"
 system          > input="./02"
-system          > kindofrun="1"
+system          > kindofrun="2"
 system          > maxnofruns="9"
 system          > no-parse-first-line="true"
 
@@ -129,30 +130,30 @@ modules         > stop used modules
 
 mkiv lua stats  > used config file: selfautoparent:/texmf/web2c/texmfcnf.lua
 mkiv lua stats  > used cache path: /home/garfileo/opt/context/tex/texmf-cache/luatex-cache/context/5fe67e0bfe781ce0dde776fb1556f32e
-mkiv lua stats  > resource resolver: loadtime 0.012 seconds, 0 scans with scantime 0.000 seconds, 0 shared scans, 41 found files, scanned paths: <none>
-mkiv lua stats  > stored bytecode data: 410 modules (0.324 sec), 93 tables (0.020 sec), 503 chunks (0.344 sec)
+mkiv lua stats  > resource resolver: loadtime 0.011 seconds, 0 scans with scantime 0.000 seconds, 0 shared scans, 41 found files, scanned paths: <none>
+mkiv lua stats  > stored bytecode data: 410 modules (0.342 sec), 93 tables (0.020 sec), 503 chunks (0.361 sec)
 mkiv lua stats  > traced context: maxstack: 1287, freed: 4, unreachable: 1283
 mkiv lua stats  > cleaned up reserved nodes: 64 nodes, 11 lists of 453
-mkiv lua stats  > node memory usage: 4 glue, 6 kern, 2 penalty, 23 attribute, 56 glue_spec, 6 attribute_list, 2 temp, 2 user_defined
-mkiv lua stats  > node list callback tasks: 7 unique task lists, 8 instances (re)created, 1278 calls
-mkiv lua stats  > h-node processing time: 0.016 seconds including kernel
-mkiv lua stats  > attribute processing time: 0.010 seconds front- and backend
+mkiv lua stats  > node memory usage: 5 glue, 6 kern, 2 penalty, 27 attribute, 56 glue_spec, 7 attribute_list, 2 temp, 2 user_defined
+mkiv lua stats  > node list callback tasks: 7 unique task lists, 8 instances (re)created, 1520 calls
+mkiv lua stats  > h-node processing time: 0.017 seconds including kernel
+mkiv lua stats  > attribute processing time: 0.013 seconds front- and backend
 mkiv lua stats  > used backend: pdf (backend for directly generating pdf output)
 mkiv lua stats  > jobdata time: 0.004 seconds saving, 0.001 seconds loading
-mkiv lua stats  > callbacks: 2634 direct, 1279 indirect, 3913 total
+mkiv lua stats  > callbacks: 3125 direct, 1358 indirect, 4483 total
 mkiv lua stats  > randomizer: resumed with value 0.60861064959317
 mkiv lua stats  > loaded tex modules: 1 requested, all found (*-zhfonts)
 mkiv lua stats  > loaded patterns: en::2, load time: 0.000
-mkiv lua stats  > interactive elements: 0 references, 2 destinations
+mkiv lua stats  > interactive elements: 0 references, 3 destinations
 mkiv lua stats  > result saved in file: 02.pdf, compresslevel 3, objectcompresslevel 3
 mkiv lua stats  > loaded fonts: 8 files: simhei.ttf, simsun.ttc, latinmodern-math.otf, lmroman10-regular.otf, texgyrepagella-bold.otf, texgyrepagella-regular.otf, xitsmath-bold.otf, xitsmath-regular.otf
-mkiv lua stats  > font engine: otf 3.103, afm 1.513, tfm 1.000, 37 instances, 23 shared in backend, 0 common vectors, 23 common hashes, load time 2.266 seconds 
-mkiv lua stats  > metapost processing time: 0.147 seconds, loading: 0.024, execution: 0.034, n: 3, average: 0.068, instances: 1, memory: 2.493 M
-mkiv lua stats  > math processing time: 0.021 seconds 
+mkiv lua stats  > font engine: otf 3.103, afm 1.513, tfm 1.000, 37 instances, 23 shared in backend, 0 common vectors, 23 common hashes, load time 2.219 seconds 
+mkiv lua stats  > metapost processing time: 0.146 seconds, loading: 0.024, execution: 0.033, n: 3, average: 0.068, instances: 1, memory: 2.493 M
+mkiv lua stats  > math processing time: 0.022 seconds 
 mkiv lua stats  > page group warning: transparencies are used but no pagecolormodel is set
 mkiv lua stats  > used platform: linux-64, type: unix, binary subtree: texmf-linux-64
 mkiv lua stats  > used engine: luatex version 1.07 with functionality level 6661, banner: this is luatex, version 1.07.0 (tex live 2018)
-mkiv lua stats  > control sequences: 49217 of 65536 + 100000
-mkiv lua stats  > lua properties: engine: lua 5.3, used memory: 245 MB (ctx: 246 MB), hash type: lua, hash chars: min(64,40), symbol mask: utf (τεχ)
-mkiv lua stats  > runtime: 3.457 seconds, 10 processed pages, 10 shipped pages, 2.893 pages/second
+mkiv lua stats  > control sequences: 49220 of 65536 + 100000
+mkiv lua stats  > lua properties: engine: lua 5.3, used memory: 242 MB (ctx: 243 MB), hash type: lua, hash chars: min(64,40), symbol mask: utf (τεχ)
+mkiv lua stats  > runtime: 3.479 seconds, 10 processed pages, 10 shipped pages, 2.874 pages/second
 
