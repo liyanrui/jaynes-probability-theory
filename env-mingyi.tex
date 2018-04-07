@@ -47,10 +47,11 @@ end
 
 \def\HeaderFrame#1{\framed[width={\headerwidth}, frame=off, offset=none]{\bf#1}}
 \def\PageNumberFrame{%
-  \inframed[width=14mm, height=6mm, frame=off, offset=0pt]{\pagenumber}}
+  \inframed[width=14mm, height=6mm, frame=off, offset=0pt]{\tfx\pagenumber}}
 \def\HeadStr#1{\headnumber[#1]\hskip1em\getmarking[#1]}
 \def\RightHeader{\HeaderFrame{\HeadStr{section}\hfill\PageNumberFrame\hbox to -\LineWidth{}}}
-\def\LeftHeader{\HeaderFrame{\hbox to -\LineWidth{}\PageNumberFrame\hfill\HeadStr{chapter}}}
+\def\LeftHeader{\HeaderFrame{\hbox to -\LineWidth{}{\PageNumberFrame}\hfill\HeadStr{chapter}}}
+
 \def\FooterFrame#1{%
   \framed[width={\headerwidth}, frame=off, offset=0pt]{#1}}
 \def\BookNameFrame[#1]{%
