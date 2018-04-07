@@ -1,6 +1,14 @@
 \startenvironment env-mingyi
 \usemodule[zhfonts]
 
+\setupzhfonts
+  [serif]
+  [bold=kaiti,
+   italic=kaiti,
+   bolditalic=kaiti]
+%\setupzhfonts[math][modem]
+\setupmathematics[integral=nolimits] % 调整积分的上下界位置
+
 \setuppapersize[A4][A4]
 \definelayout
   [cover]
@@ -23,6 +31,20 @@
 \newdimen\LineWidth
 \LineWidth=1pt
 
+\startluacode
+function zhvert(arg)
+    for c in arg:utfcharacters() do
+        if #c >=3 then
+            context.rotate({rotation='90'}, c)
+            context([[\kern.2em]])
+        else
+            context([[\kern.5em ]])
+        end
+    end
+end
+\stopluacode
+\def\zhvert#1{\ctxlua{zhvert('#1')}}
+
 \def\HeaderFrame#1{\framed[width={\headerwidth}, frame=off, offset=none]{\bf#1}}
 \def\PageNumberFrame{%
   \inframed[width=14mm, height=6mm, frame=off, offset=0pt]{\pagenumber}}
@@ -33,9 +55,9 @@
   \framed[width={\headerwidth}, frame=off, offset=0pt]{#1}}
 \def\BookNameFrame[#1]{%
   \framed[width=fit, height=fit, frame=off, offset=0pt]{%
-    \rotate[rotation=#1]{概率论——科学逻辑}}}
+    \rotate[rotation=#1]{\zhvert{概率论}\raise.1em\hbox{——}\zhvert{科学逻辑}}}}
 \def\RightFooter{\FooterFrame{\hfill\BookNameFrame[-90]}}
-\def\LeftFooter{\FooterFrame{\BookNameFrame[90]\hfill}}
+\def\LeftFooter{\FooterFrame{\BookNameFrame[-90]\hfill}}
 
 % 标题
 \setupheads[indentnext=yes]
@@ -111,5 +133,13 @@ drawpath p; drawpoints p;
 \setupnote[footnote][setups={footnote:hanzi}]
 
 \def\itbar#1{\overline{#1\hskip 0.1em}}
+
+\def\syllogism#1#2#3{%
+  \startmathmatrix[n=3]
+    \NC\text{\framed[frame=off, offset=0pt]{#1}}\NR
+    \NC\text{#2}\NR
+    \NC\text{\framed[frame=off, topframe=on]{\hskip 1em #3 \hskip 1em}}\NR
+  \stopmathmatrix}
+
 
 \stopenvironment
