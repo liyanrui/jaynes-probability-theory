@@ -27,7 +27,9 @@
 
 \newdimen\headerwidth
 \headerwidth=\the\makeupwidth
-\advance\headerwidth by \rightmarginwidth
+\newdimen\footerwidth
+\footerwidth=\the\makeupwidth
+\advance\footerwidth by .9\rightmarginwidth
 \newdimen\LineWidth
 \LineWidth=1pt
 
@@ -46,14 +48,13 @@ end
 \def\zhvert#1{\ctxlua{zhvert('#1')}}
 
 \def\HeaderFrame#1{\framed[width={\headerwidth}, frame=off, offset=none]{\bf#1}}
-\def\PageNumberFrame{%
-  \inframed[width=14mm, height=6mm, frame=off, offset=0pt]{\tfx\pagenumber}}
+\def\PageNumberFrame{\inframed[frame=off, offset=0pt]{\tfx\pagenumber}}
 \def\HeadStr#1{\headnumber[#1]\hskip1em\getmarking[#1]}
 \def\RightHeader{\HeaderFrame{\HeadStr{section}\hfill\PageNumberFrame\hbox to -\LineWidth{}}}
 \def\LeftHeader{\HeaderFrame{\hbox to -\LineWidth{}{\PageNumberFrame}\hfill\HeadStr{chapter}}}
 
 \def\FooterFrame#1{%
-  \framed[width={\headerwidth}, frame=off, offset=0pt]{#1}}
+  \framed[width={\footerwidth}, frame=off, offset=0pt]{#1}}
 \def\BookNameFrame[#1]{%
   \framed[width=fit, height=fit, frame=off, offset=0pt]{%
     \rotate[rotation=#1]{\zhvert{概率论}\raise.1em\hbox{——}\zhvert{科学逻辑}}}}
@@ -69,6 +70,7 @@ end
     style=\bfd, 
     page=headpagebreak,
     after={\blank[2cm]}]
+\setuphead[chapter][separator=000]
 
 \startuseMPgraphic{DancingBox}
 path p;
@@ -142,5 +144,7 @@ drawpath p; drawpoints p;
     \NC\text{\framed[frame=off, topframe=on]{\hskip 1em #3 \hskip 1em}}\NR
   \stopmathmatrix}
 
+\defineseparatorset[none][][]
+\setupformulas[numberseparatorset=none]
 
 \stopenvironment
