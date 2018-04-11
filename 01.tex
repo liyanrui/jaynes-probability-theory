@@ -152,7 +152,102 @@ A + B
 
 在表示复杂的命题时，我们沿用普通代数中的括号用法来描述命题组合的顺序（有时无需括号但仅仅出于清晰表述的需要而用）。若没有括号，那么代数层次规则就变得像便携计算器里那样：$AB + C$ 表示的是 $(AB) + C$，而不是 $A(B + C)$。
 
+短横线表示对命题的否定：
 
+\placeformula
+\startformula
+\itbar{A} \equiv A\text{ 为假}
+\stopformula
+
+$A$ 与 $\itbar{A}$ 的关系是互反的：
+
+\placeformula
+\startformula
+A = \itbar{A}\text{ 为假}
+\stopformula
+
+不管短横线落在方程的哪一侧，都不会影响这个关系的成立。注意，对于短横线的使用要谨慎一些。例如，基于上述约定，有
+
+\placeformula
+\startformula
+\itbar{AB} = AB\text{ 为假}
+\stopformula
+
+\placeformula
+\startformula
+\itbar{A}\,\itbar{B} = A\text{ 与 }B\text{ 皆为假}
+\stopformula
+
+$\itbar{AB}$ 与 $\itbar{A}\,\itbar{B}$ 是不同的命题，前者并非 $\itbar{A}$ 与 $\itbar{B}$ 的逻辑积，而是它们的逻辑和，即 $\itbar{AB} = \itbar{A} + \itbar{B}$。
+
+基于上述知识，布尔代数可借助一些相当简明的基本等式来体现，这些等式表示以下性质：
+
+\placeformula
+\startformula
+\startalign[n=2,align={left,left}]
+\NC\text{幂等性：}
+\NC\quad\startmathcases
+    \NC AA = A\NR
+    \NC A + A = A\NR
+\stopmathcases\NR
+
+\NC\text{交换性：}
+\NC\quad\startmathcases
+    \NC AB = BA\NR
+    \NC A + B = B + A\NR
+\stopmathcases\NR
+				   
+\NC\text{结合性：}
+\NC\quad\startmathcases
+    \NC A(BC) = (AB)C = ABC\NR
+    \NC A + (B + C) = (A + B) + C = A + B + C\NR
+\stopmathcases\NR
+
+\NC\text{分配性：}
+\NC\quad\startmathcases
+    \NC A(B + C) = AB + AC\NR
+    \NC A + (BC) = (A + B)(A + C)\NR
+\stopmathcases\NR
+
+\NC\text{对偶性：}
+\NC\quad\startmathcases
+    \NC\text{若 } C = AB\text{，则 } \itbar{C} = \itbar{A} + \itbar{B}\NR
+    \NC \text{若 } D = A + B\text{，则 } \itbar{D} = \itbar{A}\itbar{B}\NR
+\stopmathcases\NR
+\stopalign
+\stopformula
+
+基于这些性质，可以证明无限多的更复杂的关系。例如，我们将要用到的一个很基本的定理：
+
+\placeformula
+\startformula
+\text{若 }\itbar{B} = AD\text{，则 }A\itbar{B} = \itbar{B}\text{ 且 }B\itbar{A} = \itbar{A}
+\stopformula
+
+\blank[big]
+\middlealigned{\bf 蕴含}
+\blank[small]
+
+下面这个命题
+
+\placeformula[implication]
+\startformula
+A\Rightarrow B
+\stopformula
+
+可读作「$A$ 蕴含（Imply） $B$」，它并非断言 $A$ 为真或 $B$ 为真，仅仅意味着 $A\itbar{B}$ 为假或 $(\itbar{A} + B)$ 为真。这个命题也可以写为逻辑方程 $A = AB$。也就是说，对于 (\in[implication])而言，若 $A$ 为真，则 $B$ 必为真；或者，若 $B$ 为假，则 $A$ 必为假。这恰好对应强三段论 (\in[syllogism-1]) 与 (\in[syllogism-2])。
+
+从另一个角度看，若 $A$ 为假，则 (\in[implication]) 与 $B$ 无关；若 $B$ 为真，上述命题与 $A$ 无关。这恰好对应着我们之前提出的弱三段论 (\in[weak-1]) 与 (\in[weak-2])。从某种意义上说，「弱三段论」这个术语容易令人产生误解。基于弱三段论的可信推理理论并非逻辑学的「弱化」形式，而是逻辑学的扩展；它所关心的内容，传统演绎逻辑无法涵盖。在下一章就会揭示（见 (\in[2-69]) 和 (\in[2-70])）演绎逻辑不过是可信推理的一种特例。
+
+\blank[big]
+\middlealigned{\bf 棘手之处}
+\blank[small]
+
+要注意，在日常语言中，有人会将「蕴含」理解为「暗示」或「意味」，从而将 $A\Rightarrow B$ 理解为在逻辑上 $B$ 可由 $A$ 推导出来。然而在正式的逻辑学中，「$A$ 蕴含 $B$」仅意味着命题 $A$ 与 $AB$ 有相同的真值。一般而言，$B$ 在逻辑上是否可由 $A$ 推导出来，只有命题 $A$ 与 $B$ 是不够的，它依赖我们信以为真并且可在推导过程所需的全部命题 $(A, A', A'',\cdots)$。Devinatz（1968, p. 3）与 Hamilton（1988, p. 5）将逻辑蕴含视为一种二元运算，给出了它的真值表；结果表明 $A\Rightarrow B$ 只有在 $A$ 为真且 $B$ 为假时为假，在其他情况下 $A\Rightarrow B$  皆为真！
+
+乍看上去令人惊讶；然而，实际上，若 $A$ 与 $B$ 皆为真，则 $A = AB$，因而 $A\Rightarrow B$ 为真；在形式逻辑中，每个真实陈述都能蕴含其他的真实陈述。另一方面，若 $A$ 为假，则对于所有 $Q$ 而言，$AQ$ 为假，因而 $A = AB$ 且 $A = A\itbar{B}$ 皆为真；一个虚假命题能够蕴含所有命题。如果我们将蕴含理解为逻辑推导（亦即 $B$ 与 $\itbar{B}$ 皆由 $A$ 推导出来），结果就是每个虚假命题在逻辑上必然能够导出矛盾。然而，像「贝多芬活得比柏辽兹更久」这样的虚假命题在逻辑上却很难导出矛盾（因为贝多芬活得比许多与柏辽兹同龄的人更久）。
+
+显然，仅仅知道命题 $A$ 与 $B$ 皆为真，该信息不足以用于判断二者之一在逻辑上是否可从另一个推导出来。从一个命题集合从逻辑上推导出一个命题，这一问题在第二章中所讨论的歌德尔定理中再作详细介绍。「Imply」这个单词在日常语言与逻辑学中含义上的显著不同是令人头疼的问题，若不能正确的认识到这一点，便会引出严重的错误；当初选用「蕴含」这个词并不妥当，在逻辑学的传统的介绍中没有充分强调这一点。
 
 \section{运算的完备集}
 
