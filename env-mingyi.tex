@@ -57,7 +57,7 @@ end
   \framed[width={\footerwidth}, frame=off, offset=0pt]{#1}}
 \def\BookNameFrame[#1]{%
   \framed[width=fit, height=fit, frame=off, offset=0pt]{%
-    \rotate[rotation=#1]{\zhvert{概率论}\raise.1em\hbox{——}\zhvert{科学逻辑}}}}
+    \rotate[rotation=#1]{\zhvert{概率论}\raise.15em\hbox{——}\zhvert{科学逻辑}}}}
 \def\RightFooter{\FooterFrame{\hfill\BookNameFrame[-90]}}
 \def\LeftFooter{\FooterFrame{\BookNameFrame[-90]\hfill}}
 
@@ -96,7 +96,6 @@ drawpath p; drawpoints p;
 \setuphead[title][command=\titlecmd]
 \setuphead[chapter][command=\chaptercmd]
 \setuphead[section, subject][style=\bfb]
-
 
 \startsetups Text
 \setupheadertexts[text][\RightHeader][][][\LeftHeader]
