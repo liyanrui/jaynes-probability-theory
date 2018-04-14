@@ -135,14 +135,14 @@
 AB
 \stopformula
 
-称为{\bf 逻辑乘}或{\bf 交}，所表示的命题是「$A$ 与 $B$ 皆真」。显然，把它们的次序颠倒一下也没关系；$AB$ 与 $BA$ 是一回事。下面这个表达式
+称为{\bf 逻辑乘}或{\bf 合取}，所表示的命题是「$A$ 与 $B$ 皆真」。显然，把它们的次序颠倒一下也没关系；$AB$ 与 $BA$ 是一回事。下面这个表达式
 
 \placeformula
 \startformula
 A + B
 \stopformula
 
-被称为{\bf 逻辑和}或{\bf 并}，表示「$A$ 与 $B$ 至少有一个为真」，$B + A$ 同理。这些符号仅仅是为了便于命题的书写，它们并不表示数值。
+被称为{\bf 逻辑和}或{\bf 析取}，表示「$A$ 与 $B$ 至少有一个为真」，$B + A$ 同理。这些符号仅仅是为了便于命题的书写，它们并不表示数值。
 
 给定的两个命题 $A$ 与 $B$，有一种情况是，当且仅当其中一个为真时，另一个为真；此时，我们称二者具有相同的{\bf 真值}。这种情况可能仅仅是一种简单的重言（例如，$A$ 与 $B$ 在字面上说的是一回事），也可能是经过了繁琐的数学推导最终证明 $A$ 是 $B$ 的充分必要条件。从逻辑学的观点来看，无论用什么方法，只要确定 $A$ 与 $B$ 具有相同的真值，那么它们就是逻辑等价的命题。任何可证明一方为真的证据也能证明另一方为真。在更进一步的推理过程中，$A$ 与 $B$ 具有相同的含义。
 
@@ -159,7 +159,7 @@ A + B
 \itbar{A} \equiv A\text{ 为假}
 \stopformula
 
-$A$ 与 $\itbar{A}$ 的关系是互反的：
+$A$ 与 $\itbar{A}$ 的关系是互逆的：
 
 \placeformula
 \startformula
@@ -251,9 +251,9 @@ A\Rightarrow B
 
 \section{运算的完备集}
 
-我们关心的是设计我们的机器人所需要的演绎逻辑的一些特征。我们已经定义了四种运算或「联结词」，通过它们，可从命题 $A$ 和 $B$ 开始，定义其他命题：逻辑乘或交 $AB$，逻辑和或并 $A + B$，蕴含 $A\Rightarrow B$，以及取反 $\itbar{A}$。以所有可能的方式重复组合这些运算，便可生成任意个新命题，诸如
+我们关心的是设计我们的机器人所需要的演绎逻辑的一些特征。我们已经定义了四种运算或「联结词」，通过它们，可从命题 $A$ 和 $B$ 开始，定义其他命题：逻辑乘或合取 $AB$，逻辑和或析取 $A + B$，蕴含 $A\Rightarrow B$，以及取反 $\itbar{A}$。以所有可能的方式重复组合这些运算，便可生成任意个新命题，诸如
 
-\placeformula[[1-15]
+\placeformula[1-15]
 \startformula
 C\equiv (A + \itbar{B})(\itbar{A} + A\itbar{B}) + \itbar{A}B(A + B)
 \stopformula
@@ -264,9 +264,200 @@ C\equiv (A + \itbar{B})(\itbar{A} + A\itbar{B}) + \itbar{A}B(A + B)
 
 由于现阶段我们的关心的只是亚里士多德命题，任何像 (\in[1-15]) 这样的逻辑函数 $C = f(A, B)$ 仅有两个可能的「值」，真与假；同样地，「独立变量」$A$ 和 $B$ 的值也只能从这二者中去取。
 
-至此，逻辑学家可能会反对我们的记法，称符号 $A$ 已经用于指代为某个确定的命题了，其存在性已不可变；因此，不应当将一个逻辑函数写为 $C = f(A, B)$，而应当引入新的符号，将其写为 $z = f(x, y)$，其中 $x$，$y$，$z$ 是「陈述变量」，用于替换 $A$，$B$，$C$ 这些特定的陈述。然而，若 $A$ 表示某个确定但非特定的命题，它依然可以是真，也可以是假。
+至此，逻辑学家可能会反对我们的记法，称符号 $A$ 已经用于指代为某个确定的命题了，其存在性已不可变；因此，不应当将一个逻辑函数写为 $C = f(A, B)$，而应当引入新的符号，将其写为 $z = f(x, y)$，其中 $x$，$y$，$z$ 是「陈述变量」，用于替换 $A$，$B$，$C$ 这些特定的陈述。然而，若 $A$ 表示某个确定但非特定的命题，它依然可以是真，也可以是假。我们只需要将像 (\in[1-15]) 这样的方程理解为对于定义 $A$ 和 $B$ 的所有方式皆为真，便可以达到相同的效果；亦即，我们用的不是陈述变量，而是可变的陈述。
 
-But if A stands for some fixed but unspecified proposition, then it can still be either true or false.
+在形式 $C = f(A, B)$ 的关系中，我们关心定义于离散「空间」 $S$ 之上的逻辑函数，该离散空间由 $2^2 = 4$ 个点构成，亦即这些逻辑函数定义在 $A$ 和 $B$ 取值为 $\{TT, TF, FT, FF\}$ 时所构成的空间上；并且在每个点上，$f(A, B)$ 可独立地从 $\{T,F\}$ 中取值。因而，刚好有 $2^4 = 16$ 个逻辑函数\footnote{译注：4 个二进制位的编码空间。}，不会更多。形如 $B = f(A_1, \cdots, A_n)$ 这种囊括 $n$ 个命题的的表示，是定义在由 $2^M$ 个点构成的离散空间上的逻辑函数，并且恰好有 $2^M$ 个这样的函数。
+
+在 $n = 1$ 的情况中，有四个逻辑函数 $\{f_a(A),\cdots,f_4(A)\}$，它们可能的取值形成下面的真值表：
+
+%%%%%% 三线表示例
+%\setupxtable[offset=4pt,align={broad,middle,lohi},frame=off]
+%\placetable[none][tab:wealthdecline]
+%    {}
+%    {\startxtable
+%      \startxtablehead[foregroundstyle=bold,topframe=on, rulethickness=1.5pt]
+%      \startxrow
+%          \startxcell[nx=2] \ConTeXt\ 文稿各级标题宏 \stopxcell
+%          \startxcell[ny=2,width=2.5cm] 含义 \stopxcell
+%      \stopxrow
+%      \startxrow[foregroundstyle=bold, rulethickness=0.75pt]
+%          \startxcell 有编号标题 \stopxcell
+%          \startxcell 无编号标题 \stopxcell
+%      \stopxrow
+%      \stopxtablehead
+%      \startxtablebody[align={broad,ragleft,lohi}]
+%      \startxrow[topframe=on,rulethickness=0.75pt]
+%          \startxcell \type{\part} \stopxcell
+%          \startxcell  \stopxcell
+%          \startxcell[topframe=on,rulethickness=0.75pt] 部分 \stopxcell
+%      \stopxrow
+%      \stopxtablebody
+%      \startxtablefoot[bottomframe=on,rulethickness=1.5pt]
+%      \startxrow
+%          \startxcell \type{\subsubsubsubsection} \stopxcell
+%          \startxcell \type{\subsubsubsubsubject} \stopxcell
+%          \startxcell 次次次小节 \stopxcell
+%      \stopxrow
+%      \stopxtablefoot
+%      \stopxtable}
+
+\placetable[none][tab:wealthdecline]{}
+{\startxtable
+  \startxtablehead[topframe=on, rulethickness=1.5pt]
+  \startxrow
+  \startxcell[width=2cm] $A$ \stopxcell
+  \startxcell[width=2cm] T \stopxcell
+  \startxcell[width=2cm] F \stopxcell
+  \stopxrow
+  \stopxtablehead
+  \startxtablebody
+  \startxrow[topframe=on,rulethickness=0.75pt]
+  \startxcell $f_1(A)$ \stopxcell
+  \startxcell T  \stopxcell
+  \startxcell T \stopxcell
+  \stopxrow
+  \startxrow
+  \startxcell $f_2(A)$ \stopxcell
+  \startxcell T  \stopxcell
+  \startxcell F \stopxcell
+  \stopxrow
+  \startxrow
+  \startxcell $f_3(A)$ \stopxcell
+  \startxcell F \stopxcell
+  \startxcell T \stopxcell
+  \stopxrow          
+  \stopxtablebody
+  \startxtablefoot[bottomframe=on,rulethickness=1.5pt]
+  \startxrow
+  \startxcell $f_4(A)$ \stopxcell
+  \startxcell F \stopxcell
+  \startxcell F \stopxcell
+  \stopxrow
+  \stopxtablefoot
+  \stopxtable
+}
+
+根据真值表，可通过穷举的方法定义这 4 个逻辑函数。通过检验，显然它们恰好是
+
+\placeformula
+\startformula
+\startalign
+\NC f_1(A) \NC = A + \itbar{A}\NR
+\NC f_2(A) \NC = A\NR
+\NC f_3(A) \NC = \itbar{A}\NR
+\NC f_4(A) \NC = A\itbar{A}\NR
+\stopalign
+\stopformula
+
+因此，我们穷举证实了通过三种运算——合取、析取、取反，足以生成单个命题的全部逻辑函数。
+
+对于一般性的 $n$ 而言，首先考虑一些特定函数，它们仅在 $S$ 的一个点上为真。当 $n = 2$ 时，有 $2^n = 4$ 个这样的函数，其真值表如下：
+
+\placetable[none][tab:wealthdecline]{}
+{\startxtable
+  \startxtablehead[topframe=on, rulethickness=1.5pt]
+  \startxrow
+  \startxcell[width=2cm] $A$, $B$ \stopxcell
+  \startxcell[width=2cm] TT \stopxcell
+  \startxcell[width=2cm] TF \stopxcell
+  \startxcell[width=2cm] FT \stopxcell
+  \startxcell[width=2cm] FF \stopxcell
+  \stopxrow
+  \stopxtablehead
+  \startxtablebody
+  \startxrow[topframe=on,rulethickness=0.75pt]
+  \startxcell $f_1(A)$ \stopxcell
+  \startxcell T \stopxcell
+  \startxcell F \stopxcell
+  \startxcell F \stopxcell
+  \startxcell F \stopxcell
+  \stopxrow
+  \startxrow
+  \startxcell $f_2(A)$ \stopxcell
+  \startxcell F \stopxcell
+  \startxcell T \stopxcell
+  \startxcell F \stopxcell
+  \startxcell F \stopxcell
+  \stopxrow
+  \startxrow
+  \startxcell $f_3(A)$ \stopxcell
+  \startxcell F \stopxcell
+  \startxcell F \stopxcell
+  \startxcell T \stopxcell
+  \startxcell F \stopxcell
+  \stopxrow          
+  \stopxtablebody
+  \startxtablefoot[bottomframe=on,rulethickness=1.5pt]
+  \startxrow
+  \startxcell $f_4(A)$ \stopxcell
+  \startxcell F \stopxcell
+  \startxcell F \stopxcell
+  \startxcell F \stopxcell
+  \startxcell T \stopxcell
+  \stopxrow
+  \stopxtablefoot
+  \stopxtable
+}
+
+通过检验，它们恰好是 4 个基本的合取运算：
+
+\placeformula[1-17]
+\startformula
+\startalign
+\NC f_1(A) \NC = A + \itbar{A}\NR
+\NC f_2(A) \NC = A\NR
+\NC f_3(A) \NC = \itbar{A}\NR
+\NC f_4(A) \NC = A\itbar{A}\NR
+\stopalign
+\stopformula
+
+现在考虑在 $S$ 上某些特定的点上的任一逻辑函数；例如，$f_5(A, B)$ 和 $f_6(A, B)$：
+
+\placetable[none][tab:wealthdecline]{}
+{\startxtable
+  \startxtablehead[topframe=on, rulethickness=1.5pt]
+  \startxrow
+  \startxcell[width=2cm] $A$, $B$ \stopxcell
+  \startxcell[width=2cm] TT \stopxcell
+  \startxcell[width=2cm] TF \stopxcell
+  \startxcell[width=2cm] FT \stopxcell
+  \startxcell[width=2cm] FF \stopxcell
+  \stopxrow
+  \stopxtablehead
+  \startxtablebody
+  \startxrow[topframe=on,rulethickness=0.75pt]
+  \startxcell $f_5(A)$ \stopxcell
+  \startxcell F \stopxcell
+  \startxcell T \stopxcell
+  \startxcell F \stopxcell
+  \startxcell T \stopxcell
+  \stopxrow
+  \stopxtablebody
+  \startxtablefoot[bottomframe=on,rulethickness=1.5pt]
+  \startxrow
+  \startxcell $f_6(A)$ \stopxcell
+  \startxcell T \stopxcell
+  \startxcell F \stopxcell
+  \startxcell T \stopxcell
+  \startxcell T \stopxcell
+  \stopxrow
+  \stopxtablefoot
+  \stopxtable
+}
+
+我们断言，每一个这样的函数都是 (\in[1-17]) 的这些合取运算的逻辑和，它们在相同的点上为真（这并非无足轻重，读者应当验证一番）。因而，
+
+\placeformula
+\startformula
+\startalign
+\NC f_5(A, B) \NC = f_2(A, B) + f_4(A, B)\NR
+\NC \NC = A\itbar{B} + \itbar{A}\,\itbar{B}\NR
+\NC \NC = (A + \itbar{A})\itbar{B}\NR
+\NC \NC = \itbar{B}
+\stopalign
+\stopformula
+
+
 
 \section{公设}
 
