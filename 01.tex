@@ -175,14 +175,14 @@ A = \itbar{A}\text{ 为假}
 
 \placeformula
 \startformula
-\itbar{A}\,\itbar{B} = A\text{ 与 }B\text{ 皆为假}
+\itbar{A}\itbar{B} = A\text{ 与 }B\text{ 皆为假}
 \stopformula
 
-$\itbar{AB}$ 与 $\itbar{A}\,\itbar{B}$ 是不同的命题，前者并非 $\itbar{A}$ 与 $\itbar{B}$ 的逻辑积，而是它们的逻辑和，即 $\itbar{AB} = \itbar{A} + \itbar{B}$。
+$\itbar{AB}$ 与 $\itbar{A}\itbar{B}$ 是不同的命题，前者并非 $\itbar{A}$ 与 $\itbar{B}$ 的逻辑积，而是它们的逻辑和，即 $\itbar{AB} = \itbar{A} + \itbar{B}$。
 
 基于上述知识，布尔代数可借助一些相当简明的基本等式来体现，这些等式表示以下性质：
 
-\placeformula
+\placeformula[1-12]
 \startformula
 \startalign[n=2,align={left,left}]
 \NC\text{幂等性：}
@@ -451,13 +451,59 @@ C\equiv (A + \itbar{B})(\itbar{A} + A\itbar{B}) + \itbar{A}B(A + B)
 \startformula
 \startalign
 \NC f_5(A, B) \NC = f_2(A, B) + f_4(A, B)\NR
-\NC \NC = A\itbar{B} + \itbar{A}\,\itbar{B}\NR
+\NC \NC = A\itbar{B} + \itbar{A}\itbar{B}\NR
 \NC \NC = (A + \itbar{A})\itbar{B}\NR
-\NC \NC = \itbar{B}
+\NC \NC = \itbar{B}\NR
 \stopalign
 \stopformula
 
+同样地，
 
+\placeformula
+\startformula
+\startalign
+\NC f_6(A, B) \NC = f_1(A, B) + f_3(A, B) + f_4(A, B)\NR
+\NC \NC = AB + \itbar{A}B + \itbar{A}\itbar{B}\NR
+\NC \NC = B + \itbar{A}\itbar{B}\NR
+\NC \NC = \itbar{A} + B\NR
+\stopalign
+\stopformula
+
+更确切地说，$f_6(A, B)$ 是 $f_6(A, B) = (A\Rightarrow B)$，即蕴含，其值如上述真值表所示。在 $S$ 的至少一点上为真的任一逻辑函数 $f(A, B)$ 皆可用 (\in[1-17]) 这些基本合取的逻辑和的方式来构造。像这样的函数共有 $2^4 - 1 = 15$ 个。剩下的那个函数，它的值总是为假，足以用来表示矛盾，$f_{16}(A, B) = A\itbar{A}$。
+
+这种方法（在逻辑学教科书里将其称为「约化至析取范式」）适用于任意 $n$。例如，在 $n = 5$ 的情况中，有 $2^5 = 32$ 个基本的合取
+
+\placeformula
+\startformula
+\{ABCDE,\,ABCD\itbar{E},\,ABC\itbar{D}E,\cdots,\itbar{A}\itbar{B}\itbar{C}\itbar{D}\itbar{E}\}
+\stopformula
+
+还有 $2^{32} = 4\,294\,967\,296$ 个不同的逻辑函数 $f_i(A,B,CD,E) = A\itbar{A}$，其中有 $4\,294\,967\,295$ 个可以写成基本合取的逻辑和，只剩下矛盾：
+
+\placeformula
+\startformula
+f_{4294967296} = A\itbar{A}
+\stopformula
+
+因而，通过「思维中的建构」便可验证三种运算
+
+\placeformula
+\startformula
+\{\text{合取，析取，取反}\},\quad\text{亦即}\quad \{\text{与，或，非}\}
+\stopformula
+
+足以生成所有可能的逻辑函数；或者，简单地说，它们形成了一个运算的完备集。
+
+(\in[1-12]) 的对偶性揭示了一个更小的集合的存在，因为 $A$ 和 $B$ 的析取同于对它们皆为假的否定：
+
+\placeformula
+\startformula
+A + B = \itbar{\itbar{A}\itbar{B}}
+\stopformula
+
+因而，两种运算 $(\text{与，非})$ 就足以构成演绎逻辑的完备集\footnote{需要思考：这是否意味着，写任何一个计算机程序，只需要两条命令？}。在确定可信推理规则的完备集时，这一事实非常重要；见第 \in[quantitive-rules] 章。
+
+显然，现在的这些运算，我们无法剔除一个，仅留下另一个，亦即，「与」运算不能约化为取反，而取反也不能通过任意数量的「与」运算来表示。
 
 \section{公设}
 
