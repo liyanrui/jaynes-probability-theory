@@ -92,9 +92,9 @@
 
 \section{会思考的计算机}
 
-许多人热衷于宣称，永远也不可能造出替代人脑的机器——人脑能干的许多事，机器永远也做不到。冯·诺依曼于 1948 年在普林斯顿所作的一次报告中对这一言论给出了巧妙的回应，我有幸聆听了那场报告。作为对来自听众的代表性问题（那个问题是「不过是一台机器，它不可能真正思考，对吧？」）的回答，他说：你坚持有的事是一台机器做不到的。如果你能将一台机器做不到的那件事精确地告诉我，那么我总能制造一台专门来做那件事的机器。
+许多人热衷于宣称，永远也不可能造出替代人脑的机器——人脑能干的许多事，机器永远也做不到。冯·诺依曼于 1948 年在普林斯顿所作的一次报告中对这一言论给出了巧妙的回应，我有幸聆听了那场报告。作为对来自听众的代表性问题（那个问题是「不过是一台机器，它不可能真正思考，对吧？」）的回答，他说：你坚持有的事是机器做不到的。倘若你能把机器做不到的那件事精确地告诉我，我就总能造出专门来做那件事的机器。
 
-原则上，一台机器无法完成的运算正是那些我们无法详尽描述的运算，或不能在有限步骤下完成的运算。可能有人会提到歌德尔不完备性，不可判定性，以及永不停机的图灵机等。要回答这类质疑，只需指出这些东西是因人脑的存在而生。正如冯·诺依曼所言，要制造会思考的机器，最根本的限制在于我们未能确切的理解「思维」的构成。
+原则上，一台机器无法完成的运算正是那些我们无法详尽描述的运算，或不能在有限步骤下完成的运算。可能有人会提到歌德尔不完备性，不可判定性，以及永不停机的图灵机等。要回答这类质疑，只需指出这些东西是因人脑的存在而生。正如冯·诺依曼所言，要制造会思考的机器，最根本的限制在于我们尚未确切理解「思维」的构成。
 
 然而在我们对常识的研究中，我们将会触摸到一些与思维机制有关的非常清晰的观点。每次通过预定义一组明确的运算，将一个能重现部分常识的数学模型建立起来，它就会向我们展示如何「构造一台机器」（例如，写一个计算机程序）。这台机器在不完备的信息之上运转，并通过那几条弱三段论的量化版本进行可信推理，而不是演绎推理。
 
@@ -555,7 +555,119 @@ A\downarrow B = \itbar{A + B} = \itbar{A}\itbar{B}
 
 \placeformula[desiderata-1]
 \startformula
-\text{(\convertnumber{R}{1})}\quad\text{可信度用实数表示。}
+\text{(\convertnumber{R}{1})}\quad\text{\it 可信度用实数表示。}
 \stopformula
+
+实际上，祈求 (\convertnumber{R}{1}) 是强加在我们身上的，因为机器人的大脑必须通过执行一些明确的物理过程方能运转。不过，这也是理论上的需要（见附录 A）；任何具有一致性的理论，不可能不具备与祈求 (\convertnumber{R}{1}) 等价的性质。
+
+我们采纳了一个自然但并非必须的约定：可信性越强，对应的数越大。假设存在连续性也会方便一些，只是眼下尚无法阐述清楚这一点；直观地说：比无限小大一点的可信性应该只对应于比无限小大一点的数。
+
+机器人赋予某个命题 $A$ 的可信性，通常依赖于我们是否曾告诉它的某个命题 $B$ 为真。沿用 Keynes (1921) 与 Cox (1961) 的记法，我们用符号将此事表示为
+
+\placeformula
+\startformula
+A|B
+\stopformula
+
+我们将此式称为「给定 $B$ 为真，$A$ 为真的条件可信性」，或简称为「$A$ 受于 $B$」\footnote{译注：取自古代统治者宣称君权「受命于天」的说法。}。它代表着某个实数。因而，例如
+
+\placeformula
+\startformula
+A|BC
+\stopformula
+
+（可将其读为「$A$ 受于 $BC$」）表示在给定 $B$ 与 $C$ 为真的情况下 $A$ 为真的可信性。或者，
+
+\placeformula
+\startformula
+A + B|CD
+\stopformula
+
+表示在给定 $C$ 与 $D$ 为真的情况下 $A$ 与 $B$ 至少有一个为真的可信性；凡此种种，不一而足。由于我们已经决定用更大的数来表示更大的可信性，因此
+
+\placeformula[1-32]
+\startformula
+(A|B) > (C|B)
+\stopformula
+
+说的是，给定 $B$，$A$ 比 $C$ 更可信。在这种记法中，尽管不带括号的 $A|B$ 这种形式就是在表示可信性，但是为了表达上的清晰，我们经常会给它加上括号。因而，(\in[1-32]) 等同于
+
+\placeformula
+\startformula
+A|B > C|B
+\stopformula
+
+不过，(\in[1-32]) 看起来会更清晰一些。
+
+为了避开不可能的问题，我们不打算让这个机器人陷入源自不可能或互相矛盾的前提的推理噩梦；这些噩梦不可能有「正确」答案。因此，如果 $B$ 和 $C$ 相互矛盾，我们就不去定义 $A|BC$。无论何时，当这样的符号出现的时候，就意味着 $B$ 和 $C$ 是相容的命题。
+
+还有，我们不希望这个机器人的思考方式与你和我的思考方式南辕北辙。因此，我们会把它设计成以人类的推理方式去推理，至少在定性方面如此，如前文所述的弱三段论与一些类似方式。
+
+因而，如果它有旧的信息 $C$，这个信息以提升 $A$ 的可信性的方式被更新为 $C'$：
+
+\placeformula
+\startformula
+(A|C') > (A|C)
+\stopformula
+
+但是，$B$ 受于 $A$ 的可信性并未变化：
+
+\placeformula
+\startformula
+(B|AC') = (B|AC)
+\stopformula
+
+这可以让「$A$ 与 $B$ 皆为真」的可信性只会提升，不会下降：
+
+\placeformula
+\startformula
+(AB|C') \ge (AB|C)
+\stopformula
+
+「$A$ 为假」的可信性一定会下降：
+
+\placeformula
+\startformula
+(\itbar{A}|C') < (\itbar{A}|C)
+\stopformula
+
+这种定性需求简单地给出了「方向感」，使得机器人的推理能够进行下去。上式并未给出可信性的变化过程。前面所作的连续性假设（这也是定性符合常识的条件之一）要求：在 $A|C$ 的可信性微小变化的情况下，机器人仅让 $AB|C$ 与 $\itbar{A}|C$ 发生微小变化。在下一章，我们会展示如何使用这些定性要求，也会说明为什么需要它们。此刻，我们将这些要求简单概括为：
+
+\placeformula[desiderata-2]
+\startformula
+\text{(\convertnumber{R}{2})}\quad\text{\it 定性符合常识。}
+\stopformula
+
+最后，我们想让这个机器人再多一个值得拥有的属性：总是能一致地作推理。这个属性，真诚的人，心之所向，不能常至。我们对「一致性」的理解表述为以下三个方面：
+
+
+\startsubformulas[desiderata-3a]
+\placeformula
+\startformula
+\text{(\convertnumber{R}{3a})}\quad\hbox to .7\hsize{\startmathmatrix[n=2, align={left}]
+\NC \text{\it 如果一个结论能够通过多种方式推理出来，那么每一种可能方式}\NR
+\NC \text{\it 的结果必定相同。}\NR
+\stopmathmatrix}
+\stopformula
+
+\placeformula[desiderata-3b]
+\startformula
+\text{(\convertnumber{R}{3a})}\quad\hbox to .7\hsize{\startmathmatrix[n=3, align={left}]
+\NC \text{\it 机器人总是会考虑所有与问题相关的证据。它不会随意忽略某些}\NR
+\NC \text{\it 信息，仅基于剩下的信息给出结论。换言之，这个机器人是完全}\NR
+\NC \text{\it 非意识形态化的。}\NR
+\stopmathmatrix}
+\stopformula
+
+\placeformula[desiderata-3c]
+\startformula
+\text{(\convertnumber{R}{3a})}\quad\hbox to .7\hsize{\startmathmatrix[n=3, align={left}]
+\NC \text{\it 机器人总是会...}\NR
+\NC \text{\it 信息，仅基于剩下的信息给出结论。换言之，这个机器人是完全}\NR
+\NC \text{\it 非意识形态化的。}\NR
+\stopmathmatrix}
+\stopformula
+\stopsubformulas
+
 
 \section{评论}
