@@ -13,13 +13,12 @@
 \definelayout
   [cover]
   [backspace=0.05\paperwidth, width=0.95\paperwidth]
-\setuplayout[backspace=20mm, 
-             width=165mm, 
-             rightmargin=20mm, 
-             topspace=20mm, 
+\setuplayout[backspace=26mm, 
+             width=158mm, 
+             topspace=30mm,
+             hight=242mm,
              header=15mm, 
-             footer=10mm, 
-             height=260mm,]
+             footer=10mm]
 \setuppagenumbering[alternative=doublesided]
 
 % 页眉页脚
@@ -57,7 +56,7 @@ end
   \framed[width={\footerwidth}, frame=off, offset=0pt]{#1}}
 \def\BookNameFrame[#1]{%
   \framed[width=fit, height=fit, frame=off, offset=0pt]{%
-    \rotate[rotation=#1]{\zhvert{概率论}\raise.15em\hbox{——}\zhvert{科学逻辑}}}}
+    \hskip2em\rotate[rotation=#1]{\zhvert{概率论}\raise.15em\hbox{——}\zhvert{科学逻辑}}\hskip2em}}
 \def\RightFooter{\FooterFrame{\hfill\BookNameFrame[-90]}}
 \def\LeftFooter{\FooterFrame{\BookNameFrame[-90]\hfill}}
 
