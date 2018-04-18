@@ -501,7 +501,7 @@ f_{4294967296} = A\itbar{A}
 A + B = \overline{(\itbar{A}\itbar{B})}
 \stopformula
 
-因而，两种运算 $(\text{与，非})$ 就足以构成演绎逻辑的完备集\footnote{需要思考：这是否意味着，写任何一个计算机程序，只需要两条命令？}。在确定可信推理规则的完备集时，这一事实非常重要；见第 \in[quantitive-rules] 章。
+因而，两种运算 $(\text{与，非})$ 就足以构成演绎逻辑的完备集\footnote{需要思考：这是否意味着，写任何一个计算机程序，只需要两条命令？}。在确定可信推理规则的完备集时，这一事实非常重要；见第 \in[quantitative-rules] 章。
 
 显然，现在的这些运算，我们无法剔除一个，而只保留另一个，亦即，「与」运算不能约化为取反，而取反也不能通过任意数量的「与」运算来表示。但是，这并没有否定合取与取反这两种运算可以约化为第三种尚未引入的运算的可能性，以致单一的逻辑运算便可构成完备集。
 
@@ -547,7 +547,7 @@ A\downarrow B = \itbar{A + B} = \itbar{A}\itbar{B}
 
 关于演绎逻辑的这一趟短途旅程，对于我们的目的而言已经足够了。更深入的知识有许多教科书可以参考；例如 Copi (1994) 给出了亚里士多德逻辑的现代处理方式。对于非亚里士多德形式，并在哥德尔不完备性、可计算性、可确定性、图灵机等问题上有特殊强调的问题，可参考 Hamilton (1988)。
 
-现在，我们将注意力转向我们对逻辑所作的扩展。这一扩展遵循下面要讨论的一些条件。我们将这些条件称为「祈求」而非「公理」，因为它们并不断言何事为真，而是仅陈述怎样才是令人满意的目标。这些目标是否能够无矛盾地达成，是否确定任何唯一的逻辑扩展，是数学分析上的事情，而这些分析在第 \in[quantitive-rules] 章给出。
+现在，我们将注意力转向我们对逻辑所作的扩展。这一扩展遵循下面要讨论的一些条件。我们将这些条件称为「祈求」而非「公理」，因为它们并不断言何事为真，而是仅陈述怎样才是令人满意的目标。这些目标是否能够无矛盾地达成，是否确定任何唯一的逻辑扩展，是数学分析上的事情，而这些分析在第 \in[quantitative-rules] 章给出。
 
 \section{基本祈求}
 
@@ -555,10 +555,10 @@ A\downarrow B = \itbar{A + B} = \itbar{A}\itbar{B}
 
 \placeformula[desiderata-1]
 \startformula
-\text{(\convertnumber{R}{1})}\quad\text{\it 可信度用实数表示。}
+\text{(\Roman{1})}\quad\text{\it 可信度用实数表示。}
 \stopformula
 
-实际上，祈求 (\convertnumber{R}{1}) 是强加在我们身上的，因为机器人的大脑必须通过执行一些明确的物理过程方能运转。不过，这也是理论上的需要（见附录 A）；任何具有一致性的理论，不可能不具备与祈求 (\convertnumber{R}{1}) 等价的性质。
+实际上，祈求 (\Roman{1}) 是强加在我们身上的，因为机器人的大脑必须通过执行一些明确的物理过程方能运转。不过，这也是理论上的需要（见附录 A）；任何具有一致性的理论，不可能不具备与祈求 (\Roman{1}) 等价的性质。
 
 我们采纳了一个自然但并非必须的约定：可信性越强，对应的数越大。假设存在连续性也会方便一些，只是眼下尚无法阐述清楚这一点；直观地说：比无限小大一点的可信性应该只对应于比无限小大一点的数。
 
@@ -635,7 +635,7 @@ A|B > C|B
 
 \placeformula[desiderata-2]
 \startformula
-\text{(\convertnumber{R}{2})}\quad\text{\it 定性符合常识。}
+\text{(\Roman{2})}\quad\text{\it 定性符合常识。}
 \stopformula
 
 最后，我们想让这个机器人再多一个值得拥有的属性：总是能一致地作推理。这个属性，真诚的人，心之所向，不能常至。我们对「一致性」的理解表述为以下三个方面：
@@ -644,7 +644,7 @@ A|B > C|B
 \startsubformulas[desiderata-3a]
 \placeformula
 \startformula
-\text{(\convertnumber{R}{3a})}\quad\hbox to .7\hsize{\startmathmatrix[n=2, align={left}]
+\text{(\Roman{3}a)}\quad\quad\hbox to .75\hsize{\startmathmatrix[n=2, align={left}]
 \NC \text{\it 如果一个结论能够通过多种方式推理出来，那么每一种可能方式}\NR
 \NC \text{\it 的结果必定相同。}\NR
 \stopmathmatrix}
@@ -652,22 +652,31 @@ A|B > C|B
 
 \placeformula[desiderata-3b]
 \startformula
-\text{(\convertnumber{R}{3a})}\quad\hbox to .7\hsize{\startmathmatrix[n=3, align={left}]
-\NC \text{\it 机器人总是会考虑所有与问题相关的证据。它不会随意忽略某些}\NR
-\NC \text{\it 信息，仅基于剩下的信息给出结论。换言之，这个机器人是完全}\NR
-\NC \text{\it 非意识形态化的。}\NR
+\text{(\Roman{3}b)}\quad\quad\hbox to .75\hsize{\startmathmatrix[n=2, align={left}]
+\NC \text{\it 这个机器人总是会考虑所有与问题相关的证据。它不会随意忽略}\NR
+\NC \text{\it 某些信息，仅基于剩下的信息给出结论。换言之，它是完全非意}\NR
+\NC \text{\it 识形态化的}\NR
 \stopmathmatrix}
 \stopformula
 
 \placeformula[desiderata-3c]
 \startformula
-\text{(\convertnumber{R}{3a})}\quad\hbox to .7\hsize{\startmathmatrix[n=3, align={left}]
-\NC \text{\it 机器人总是会...}\NR
-\NC \text{\it 信息，仅基于剩下的信息给出结论。换言之，这个机器人是完全}\NR
-\NC \text{\it 非意识形态化的。}\NR
+\text{(\Roman{3}c)}\quad\quad\hbox to .75\hsize{\startmathmatrix[n=3, align={left}]
+\NC \text{\it 这个机器人总是通过相等的可行性赋值来表示相等的知识状态。}\NR
+\NC \text{\it 亦即，若它对两个问题所具备的知识状态相同（除了命题的标记}\NR
+\NC \text{\it 有所区别之外），它就必须为这两个问题赋以相同的可信性。}\NR
 \stopmathmatrix}
 \stopformula
 \stopsubformulas
 
+祈求 (\Roman{1})、(\Roman{2}) 和 (\Roman{3}a) 是基本的「结构」要求，为我们的机器人大脑的内部运作而设，而 (\Roman{3}b) 和 (\Roman{3}c) 是「界面」条件，揭示了机器人的行为应当如何与外界建立联系。
+
+大多数学生会惊讶于我们对祈求的探寻至此而终。上述条件，唯一性地确定了我们的机器人在作推理时凭借的规则；亦即，操控可信性的数学运算集仅有一个。这些规则在第 \in[quantitative-rules] 章中推出。
+
+（许多章的末尾，我们会给出一些非正式的评论，其中包含了我们所搜集的一些不同角度的谈论、背景材料等。忽略这些并不影响本书的主线。）
 
 \section{评论}
+
+出于维护各种各样的政治、经济、道德、宗教、心理、环境、饮食以及艺术的教条化的地位，政治家、广告商、推销员和传教士深谙易犯错的人类的思想易于愚弄。他们凭借聪明的措辞，令人忘乎所以从而悖离上述祈求。我们要试图保证我们的机器人不会轻易让他们得逞。
+
+我们要强调一下机器人与人脑的另一个区别。根据祈求 (\Roman{1})，机器人对于任何命题的心智状态皆表示为实数。显然，对于任何给定的命题，我们的看法有多个「坐标」。对于一个命题，你和我（同时）形成的判断，不仅关乎它是否可信，也关乎它是否值得，是否重要，是否有用，是否有趣，是否好笑，是否道德正确，等等。如果我们假设每一个这样的判断可以表示为一个数字，那么就可以将人类思想状态的完备描述表示为一个维数相当大的空间里的向量。
