@@ -71,7 +71,7 @@ end
 \def\LeftFooter{\FooterFrame{\BookNameFrame[-90]\hfill}}
 
 % 标题
-\setupheads[indentnext=yes]
+\setupheads[indentnext=yes, separator=--]
 \definepagebreak[headpagebreak][yes, header, footer, odd]
 \setuphead
   [chapter,title]
@@ -79,7 +79,6 @@ end
     style=\bfd, 
     page=headpagebreak,
     after={\blank[2cm]}]
-\setuphead[chapter][separator=000]
 
 \startuseMPgraphic{DancingBox}
 path p;
@@ -152,6 +151,11 @@ drawpath p; drawpoints p;
     \NC\text{\framed[frame=off, topframe=on]{\hskip 1em #3 \hskip 1em}}\NR
   \stopmathmatrix}
 
+% 插图与公式编号  x.1 -> x-1
+\setupcaptions[prefixsegments=chapter,prefixconnector=-]
+\setupformulas[prefixsegments=chapter,prefixconnector=-]
+
+% 将公式符号 x.y.a -> x.ya
 \defineseparatorset[none][][]
 \setupformulas[numberseparatorset=none]
 
