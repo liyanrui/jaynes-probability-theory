@@ -9,6 +9,16 @@
 %\setupzhfonts[math][modem]
 \setupmathematics[integral=nolimits] % 调整积分的上下界位置
 
+\def\linkcolor{darkblue}
+\setupinteraction
+  [state=start,
+  focus=standard,
+  style=normal,
+  color=\linkcolor,
+  contrastcolor=\linkcolor]
+\setupinteractionscreen[option=bookmark]
+\placebookmarks[title, chapter,section][title, chapter,section][force=yes]
+
 \setuppapersize[A4][A4]
 \definelayout
   [cover]

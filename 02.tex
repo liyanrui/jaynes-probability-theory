@@ -159,7 +159,7 @@ F_2(x, y) \equiv \frac{\partial F}{\partial y} \ge 0
 F[F(x, y), z] = F[x, F(y, z)]
 \stopformula
 
-在数学里，这个方程历史悠久，源起于 N. H. Abel (1826) 的研究。Acz\'el (1966) 在他的讲述函数方程的巨著中，贴切地成这个方程为\quotation{关联方程}（Associativity Equation），并列举了 98 份讨论或使用这个方程的参考文献。Acz\'el 在不假设函数可微的条件下，求出了通解 (\in[aczel-general-solution])，见下文。不过，他的书中（Acz\'el, 1987），用了 11 页的篇幅证明此解的存在。在此，我们给出 R. T. Cox (1961) 在假设函数可微的前提下给出的更短的证明；也可参考附录 B 中的讨论。
+在数学里，这个方程历史悠久，源起于 N. H. Abel (1826) 的研究。Acz\'el (1966) 在他的讲述函数方程的巨著中，贴切地称这个方程为\quotation{关联方程}（Associativity Equation），并列举了 98 份讨论或使用这个方程的参考文献。Acz\'el 在不假设函数可微的条件下，求出了通解 (\in[aczel-general-solution])，见下文。不过，他的书中（Acz\'el, 1987），用了 11 页的篇幅证明此解的存在。在此，我们给出 R. T. Cox (1961) 在假设函数可微的前提下给出的更短的证明；也可参考附录 B 中的讨论。
 
 显然，(\in[function-eq]) 有一个平凡解，$F(x, y) = \text{常数}$。但是这个解违背了单调性要求 (\in[mono-req])，并且毫无用处可言。除非 (\in[function-eq]) 有一个非平凡解，不然，这条路就走不通了；因此，必须寻求最为广义的非平凡解。先定义一些缩写
 
@@ -325,3 +325,48 @@ w(A|C) = w(A|C)w(B|C)
 综上所述，定性要符合常识，这决定了 $w(x)$ 必须是一个正值的连续单调函数。它可能递增，也可能递减。若它递增，取值范围必须从 0 到 1，前者表不可信，后者表确信。若它递减，取值范围必须从 $+\infty$ 到 1，前者表不可信，后者表确信。至于它在这两种区间里具体如何变化，我们所给出的公设则没有对其进行限定。
 
 然而，这两种可能的表示在内涵上并不相同。给定任意函数 $w_1(x)$，令它符合上述标准并且用 $+\infty$ 表示不可信，便可以定义一个新函数 $\displaystyle w_2(x) = \frac{1}{w_1(x)}$，这个函数同样可被接受，它是以 0 来表示不可信。因而，作为一种约定，若我们采纳 $0\le w(x)\le 1$，不失一般性；也就是说，就内涵而言，我们所作的公设里面的所有的一致性皆被包含于这种形式。（读者不妨检验一下，未尝不可选择相反的那种约定，从这一点发展出一套完整的理论，也包括它的全部应用，结果是一样的，只不过方程在形式上有些另类，但内涵是相同的。）
+
+\section{加法规则}
+
+由现在所考虑的命题为亚里士多德逻辑类型——非真即假，逻辑乘 $A\itbar{A}$ 总是为假，逻辑和 $A + \itbar{A}$ 总是为真。在某些方面，$A$ 为假的可信性一定依赖于它为真的可信性。\footnote{译注：$A$ 的可信性依赖于 $\itbar{A}$ 的可信性。} 如果定义 $u\equiv w(A|B)$，$v\equiv w(\itbar{A}|B)$，那么必定存在某种函数关系
+
+\placeformula[2-36]
+\startformula
+v = S(u)
+\stopformula
+
+显然，定性符合尝试，这一祈求要求，在 $0\le u\le 1$ 时，$S(u)$ 是一个连续单调递减函数，其极值 $S(0) = 1$，$S(1) = 0$。不过，它不可能是这些性质的任意函数，因为它必须一个事实保持一致，该事实是 $AB$ 或 $A\itbar{B}$ 的乘法规则可写为：
+
+\placeformula[2-37]
+\startformula
+w(AB|C) = w(A|C)w(B|AC)
+\stopformula
+
+\placeformula[2-38]
+\startformula
+w(A\itbar{B}|C) =  w(A|C)w(\itbar{B}|AC)
+\stopalign
+\stopformula
+
+因而，使用 (\in[2-36]) 和 (\in[2-38])，方程 (\in[2-37]) 变成
+
+\placeformula[2-39]
+\startformula
+w(AB|C) = w(A|C)S[w(\itbar{B}|AC)] = w(A|C)S\left[\frac{w(A\itbar{B}|C)}{w(A|C)}\right]
+\stopformula
+
+我们再用一次交换性：$w(AB|C)$ 对于 $A$ 和 $B$ 对称，因此一致性\footnote{译注：祈求 (\Roman{3})}要求
+
+\placeformula[2-40]
+\startformula
+w(A|C)S\left[\frac{w(A\itbar{B}|C)}{w(A|C)}\right] = w(B|C)S\left[\frac{w(B\itbar{A}|C)}{w(B|C)}\right]
+\stopformula
+
+对于所有命题 $A$、$B$、$C$，该式一定成立；特别是，当
+
+\placeformula[2-41]
+\startformula
+\itbar{B} = AD
+\stopformula
+
+时，$D$ 为任何新的命题，此时 \in[2-40]) 一定成立。
