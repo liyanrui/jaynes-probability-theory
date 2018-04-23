@@ -241,7 +241,7 @@ w(x) = \text{exp}\left\{\int_{}^{x}\frac{dx}{H(x)}\right\}
 
 积分符号无下界，意味着 $w$ 会有一个任意的倍增因子。但是，将 (\in[eq-target]) 代入函数 $w(\cdot)$ 并应用 (\in[eq-int])，可得 $w(x)w^r(v) = w(u)w^r(z)$；再次应用 (\in[eq-int])，函数方程便可化为
 
-\placeformula
+\placeformula[2-25]
 \startformula
 w(x)w^r(y)[w(z)]^{r^2} = w(x)w^r(y)w^r(z)
 \stopformula
@@ -355,7 +355,7 @@ w(A\itbar{B}|C) =  w(A|C)w(\itbar{B}|AC)
 w(AB|C) = w(A|C)S[w(\itbar{B}|AC)] = w(A|C)S\left[\frac{w(A\itbar{B}|C)}{w(A|C)}\right]
 \stopformula
 
-我们再用一次交换性：$w(AB|C)$ 对于 $A$ 和 $B$ 对称，因此一致性\footnote{译注：祈求 (\Roman{3})}要求
+我们再用一次交换性：$A$ 和 $B$ 在 $w(AB|C)$ 中是对称的，因此一致性\footnote{译注：祈求 (\Roman{3})}要求
 
 \placeformula[2-40]
 \startformula
@@ -369,11 +369,55 @@ w(A|C)S\left[\frac{w(A\itbar{B}|C)}{w(A|C)}\right] = w(B|C)S\left[\frac{w(B\itba
 \itbar{B} = AD
 \stopformula
 
-时，(\in[2-40]) 也一定成立，$D$ 为任何新的命题。但是，如前文 (\in[1-13]) 所述，我们有：
+时，$D$ 为任何新的命题，此时 (\in[2-40]) 一定成立。不过，如 (\in[1-13]) 所述，有：
 
 \placeformula[2-42]
 \startformula
 A\itbar{B} = \itbar{B}\quad\quad B\itbar{A} = \itbar{A}
 \stopformula
 
-并且在 (\in[2-40]) 中，
+(\in[2-40]) 中的某些项可以写成
+
+\placeformula[2-43]
+\startformula
+\startmathalignment[n=3]
+\NC w(A\itbar{B}|C) \NC = w(\itbar{B}|C) \NC = S[w(B|C)] \NR
+\NC w(B\itbar{A}|C) \NC = w(\itbar{A}|C) \NC = S[w(A|C)] \NR
+\stopmathalignment
+\stopformula
+
+因而，若使用缩写
+
+\placeformula[2-44]
+\startformula
+x\equiv w(A|C)\,,\quad\quad y\equiv w(B|C)
+\stopformula
+
+(\in[2-40])\footnote{译注：原书是 (\in[2-25])，应该有误。} 就变成了函数方程
+
+\placeformula[2-45]
+\startformula
+xS\left[\frac{S(y)}{x}\right] = yS\left[\frac{S(x)}{y}\right],\quad\quad
+\startmathmatrix
+\NC 0 \le S(y) \le x \NR
+\NC 0 \le x \le 1 \NR
+\stopmathmatrix
+\stopformula
+
+这个方程表示了 $S(x)$ 为了与乘法规则一致而必须具备的一种比例性质。在 $y = 1$ 这种特殊情况下，这个方程便约化为
+
+\placeformula[2-46]
+\startformula
+S[S(x)] = x
+\stopformula
+
+这表明 $S(x)$ 是一个自反函数；$S(x) = S^{-1}(x)$。因此，从 (\in[2-36]) 可以推出 $u = S(v)$。不过，这不过是表示了一个显而意见的事实，$A$ 与 $\itbar{A}$ 成相反关系；这与哪一个命题是用头戴短横线的字母来表示没有关系。之前，我们在 (\in[1-8]) 已经提到了此事；若之前还不够明显，那么现在必须认识到这一点。
+
+下面探究一下 (\in[2-45]) 中的有效域。命题 $D$ 是随意的，因此通过选择不同的 $D$，便可以得到 $w(D|AC)$ 的所有值
+
+\placeformula[2-47]
+\startformula
+0 \le w(D|AC) \le 1
+\stopformula
+
+但是，$S(y) = w(AD|C) = w(A|C)w(D|AC)$，因此 (\in[2-47]) 正是 (\in[2-45]) 所述的 $(0 \le S(y) \le x)$。$x$ 和 $y$ 在这个域里是对称的；将二者互换，这个域不变。在几何上，该域
