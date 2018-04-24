@@ -420,4 +420,20 @@ S[S(x)] = x
 0 \le w(D|AC) \le 1
 \stopformula
 
-但是，$S(y) = w(AD|C) = w(A|C)w(D|AC)$，因此 (\in[2-47]) 正是 (\in[2-45]) 所述的 $(0 \le S(y) \le x)$。$x$ 和 $y$ 在这个域里是对称的；将二者互换，这个域不变。在几何上，该域
+但是，$S(y) = w(AD|C) = w(A|C)w(D|AC)$，因此 (\in[2-47]) 正是 (\in[2-45]) 所述的 $(0 \le S(y) \le x)$。$x$ 和 $y$ 在这个域里是对称的；将二者互换，这个域不变。在几何上，这个域由 $xy$ 平面上单位正方形 $(0\le x, y\le 1)$ 内的点组成，并且这些点位于曲线 $y = S(x)$ 的上方。
+
+实际上，基于 (\in[2-45]) 所描述的点对这条曲线的无限逼近，便可以确定该曲线的形状。因为，若设 $y = S(x) + \epsilon$，那么当 $\epsilon \rightarrow 0^{+}$ 时，(\in[2-45]) 中的两边趋向于 $S(1) = 0$，只不过速度不同。因此，一切取决于 $\delta\rightarrow 0$ 的时候 $S(1 - \delta)$ 趋向于 0 的确切途径。为了研究这个，我们通过
+
+\placeformula[2-48]
+\startformula
+\frac{S(x)}{y} = 1 - \text{exp}\{-q\}
+\stopformula
+
+定义了一个新的变量 $q(x, y)$。然后，挑选 $\delta = \text{exp}\{-q\}$，通过
+
+\placeformula[2-49]
+\startformula
+S(1 - \delta) = S(1 - \text{exp}\{-q\}) = \text{exp}\{-J(q)\}
+\stopformula
+
+定义函数 $J(q)$，然后探究 $q\rightarrow\infty$ 时 $J(q)$ 的渐近形式。

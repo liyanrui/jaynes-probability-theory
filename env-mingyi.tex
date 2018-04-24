@@ -9,15 +9,17 @@
 %\setupzhfonts[math][modem]
 \setupmathematics[integral=nolimits] % 调整积分的上下界位置
 
-\def\linkcolor{darkblue}
 \setupinteraction
   [state=start,
-  focus=standard,
-  style=normal,
-  color=\linkcolor,
-  contrastcolor=\linkcolor]
+    title={概率论},
+    subtitle={科学逻辑},
+    keyword={概率论, 逻辑学},
+    author={E. T. Jaynes（著） 明夷船（译）},
+    focus=standard,
+    style=normal]
+
 \setupinteractionscreen[option=bookmark]
-\placebookmarks[title, chapter,section][title, chapter,section][force=yes]
+\placebookmarks[title, chapter,section][title, chapter][force=yes]
 
 \setuppapersize[A4][A4]
 \definelayout
