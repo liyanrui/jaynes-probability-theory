@@ -14,7 +14,7 @@
     title={概率论},
     subtitle={科学逻辑},
     keyword={概率论, 逻辑学},
-    author={E. T. Jaynes（著） 明夷船（译）},
+    author={E. T. Jaynes（著） 李延瑞（译）},
     focus=standard,
     style=normal]
 
@@ -27,10 +27,13 @@
   [backspace=0.05\paperwidth, width=0.95\paperwidth]
 \setuplayout[backspace=26mm, 
              width=158mm, 
-             topspace=30mm,
-             hight=242mm,
-             header=15mm, 
-             footer=10mm]
+             top=19mm,
+             topdistance=1mm,
+             header=5mm,
+             headerdistance=6mm,
+             hight=259.5mm,
+             bottomdistance=1mm,
+             bottom=1.65mm]
 \setuppagenumbering[alternative=doublesided]
 
 % 页眉页脚
@@ -44,20 +47,6 @@
 \newdimen\LineWidth
 \LineWidth=1pt
 
-\startluacode
-function zhvert(arg)
-    for c in arg:utfcharacters() do
-        if #c >=3 then
-            context.rotate({rotation='90'}, c)
-            context([[\kern.2em]])
-        else
-            context([[\kern.5em ]])
-        end
-    end
-end
-\stopluacode
-\def\zhvert#1{\ctxlua{zhvert('#1')}}
-
 \def\doubleruletext#1{%
   \framed[width={\headerwidth},
     frame=off,
@@ -67,18 +56,22 @@ end
     bottomframe=on,
     offset=1pt]{#1}}
 \def\HeaderFrame#1{\doubleruletext{\doubleruletext{\bf #1}}}
-\def\PageNumberFrame{\inframed[frame=off]{\tfx\pagenumber}}
-\def\HeadStr#1{\headnumber[#1]\hskip1em\getmarking[#1]}
-\def\RightHeader{\HeaderFrame{\HeadStr{section}\hfill\PageNumberFrame\hbox to -\LineWidth{}}}
-\def\LeftHeader{\HeaderFrame{\hbox to -\LineWidth{}{\PageNumberFrame}\hfill\HeadStr{chapter}}}
+\def\ChapterHeaderStr{\headnumber[chapter]\hskip 1em\getmarking[chapter]}
+\def\TitleHeaderStr{\getmarking[title]}
+\def\BookName{\HeaderFrame{概率论——科学逻辑}}
 
-\def\FooterFrame#1{%
-  \framed[width={\footerwidth}, frame=off, offset=0pt]{#1}}
-\def\BookNameFrame[#1]{%
-  \framed[width=fit, height=fit, frame=off, offset=0pt]{%
-    \hskip2em\rotate[rotation=#1]{\zhvert{概率论}\raise.15em\hbox{——}\zhvert{科学逻辑}}\hskip2em}}
-\def\RightFooter{\FooterFrame{\hfill\BookNameFrame[-90]}}
-\def\LeftFooter{\FooterFrame{\BookNameFrame[-90]\hfill}}
+\startsetups FrontMatter
+\def\PageNumber{\inframed[frame=off]{\tfx\convertnumber{R}{\pagenumber}}}  
+\setuppagenumber[number=1]
+\setupheadertexts[text][\BookName][][][\HeaderFrame{\TitleHeaderStr}]
+\setupfootertexts[text][][\PageNumber][\PageNumber][]
+\stopsetups
+
+\startsetups BodyMatter
+\def\PageNumber{\inframed[frame=off]{\tfx\pagenumber}}
+\setupheadertexts[text][\BookName][][][\HeaderFrame{\ChapterHeaderStr}]
+\setupfootertexts[text][][\PageNumber][\PageNumber][]
+\stopsetups
 
 % 标题
 \setupheads[indentnext=yes, separator=--]
@@ -114,11 +107,6 @@ drawpath p; drawpoints p;
 \setuphead[title][command=\titlecmd]
 \setuphead[chapter][command=\chaptercmd]
 \setuphead[section, subject][style=\bfb]
-
-\startsetups Text
-\setupheadertexts[text][\RightHeader][][][\LeftHeader]
-\setupfootertexts[text][\RightFooter][][][\LeftFooter]
-\stopsetups
 
 % 段落
 \setupindenting[first,always,2em]
