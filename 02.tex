@@ -444,3 +444,27 @@ S(1 - \delta) = S(1 - \text{exp}\{-q\}) = \text{exp}\{-J(q)\}
 \startformula
 \frac{S(y)}{x} = 1 - \text{exp}\{-(\alpha + q)\} + O(\text{exp}\{-2q\})
 \stopformula
+
+其中
+
+\placeformula[2-51]
+\startformula
+\alpha(x)\equiv\log\left[\frac{-xS'(x)}{S(x)}\right] > 0
+\stopformula
+
+使用这些作为替换，函数方程 (\in[2-45]) 变为
+
+\placeformula[2-52]
+\startformula
+J(q + \alpha) - J(q) = \log\left[\frac{x}{S(x)}\right] + \log(1 - \text{exp}\{-q\}) + O(\text{exp}\{-2q\})
+\stopformula
+
+当 $q\rightarrow\infty$ 时，上式的后两项以指数的速度趋向于 0，因此 $J(q)$ 必定是渐近线性的，其斜率
+
+\placeformula[2-53]
+\startformula
+b = \alpha^{-1}\log\left[\frac{x}{S(x)}\right]
+\stopformula
+
+为正值。
+

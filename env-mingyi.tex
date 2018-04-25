@@ -58,8 +58,16 @@ end
 \stopluacode
 \def\zhvert#1{\ctxlua{zhvert('#1')}}
 
-\def\HeaderFrame#1{\framed[width={\headerwidth}, frame=off, offset=none]{\bf#1}}
-\def\PageNumberFrame{\inframed[frame=off, offset=0pt]{\tfx\pagenumber}}
+\def\doubleruletext#1{%
+  \framed[width={\headerwidth},
+    frame=off,
+    rulethickness=0.5pt,
+    location=lohi,
+    depth=-0.25em,
+    bottomframe=on,
+    offset=1pt]{#1}}
+\def\HeaderFrame#1{\doubleruletext{\doubleruletext{\bf #1}}}
+\def\PageNumberFrame{\inframed[frame=off]{\tfx\pagenumber}}
 \def\HeadStr#1{\headnumber[#1]\hskip1em\getmarking[#1]}
 \def\RightHeader{\HeaderFrame{\HeadStr{section}\hfill\PageNumberFrame\hbox to -\LineWidth{}}}
 \def\LeftHeader{\HeaderFrame{\hbox to -\LineWidth{}{\PageNumberFrame}\hfill\HeadStr{chapter}}}
