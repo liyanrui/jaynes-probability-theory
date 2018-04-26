@@ -28,49 +28,52 @@
 \setuplayout[backspace=26mm, 
              width=158mm, 
              topspace=20mm,
-             header=8mm,
-             headerdistance=2mm,
-             textheight=270mm]
+             header=7mm,
+             headerdistance=3mm,
+             height=259.5mm,
+             footerdistance=3mm,
+             footer=7mm]
 \setuppagenumbering[alternative=doublesided]
 
 % 页眉页脚
 \setuppagenumbering[location=]
-
-\newdimen\headerwidth
-\headerwidth=\the\makeupwidth
-\newdimen\footerwidth
-\footerwidth=\the\makeupwidth
-\advance\footerwidth by .9\rightmarginwidth
-\newdimen\LineWidth
-\LineWidth=1pt
-
-\def\doubleruletext#1{%
-  \framed[width={\headerwidth},
+\def\innerframe#1{%
+  \framed[width=broad,
     frame=off,
+    height=1.3em,
     rulethickness=0.5pt,
     location=lohi,
     bottomframe=on,
-    offset=1pt]{#1}}
-\def\HeaderFrame#1{\doubleruletext{\doubleruletext{\bf #1}}}
+    offset=overlay]{#1}}
+\def\outerframe#1{%
+  \framed[width=broad,
+    frame=off,
+    height=1.6em,
+    rulethickness=0.5pt,
+    location=lohi,
+    bottomframe=on,
+    offset=overlay]{#1}}
+\def\HeaderFrame#1{%
+  \outerframe{\innerframe{\switchtobodyfont[10.5pt]{#1}}}}
 \def\ChapterHeaderStr{\headnumber[chapter]\hskip 1em\getmarking[chapter]}
 \def\TitleHeaderStr{\getmarking[title]}
 \def\BookName{\HeaderFrame{概率论——科学逻辑}}
 
 \startsetups FrontMatter
-\def\PageNumber{\inframed[frame=off]{\tfx\convertnumber{R}{\pagenumber}}}  
+\def\PageNumber{\switchtobodyfont[10.5pt]{\convertnumber{R}{\pagenumber}}}
 \setuppagenumber[number=1]
 \setupheadertexts[text][\BookName][][][\HeaderFrame{\TitleHeaderStr}]
 \setupfootertexts[text][][\PageNumber][\PageNumber][]
 \stopsetups
 
 \startsetups BodyMatter
-\def\PageNumber{\inframed[frame=off]{\tfx\pagenumber}}
+\def\PageNumber{\switchtobodyfont[10.5pt]{\pagenumber}}
 \setupheadertexts[text][\BookName][][][\HeaderFrame{\ChapterHeaderStr}]
 \setupfootertexts[text][][\PageNumber][\PageNumber][]
 \stopsetups
 
 % 标题
-\setupheads[indentnext=yes, separator=--]
+\setupheads[indentnext=yes]
 \definepagebreak[headpagebreak][yes, header, footer, odd]
 \setuphead
   [chapter,title]
