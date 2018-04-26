@@ -27,13 +27,10 @@
   [backspace=0.05\paperwidth, width=0.95\paperwidth]
 \setuplayout[backspace=26mm, 
              width=158mm, 
-             top=19mm,
-             topdistance=1mm,
-             header=5mm,
-             headerdistance=6mm,
-             hight=259.5mm,
-             bottomdistance=1mm,
-             bottom=1.65mm]
+             topspace=20mm,
+             header=8mm,
+             headerdistance=2mm,
+             textheight=270mm]
 \setuppagenumbering[alternative=doublesided]
 
 % 页眉页脚
@@ -52,7 +49,6 @@
     frame=off,
     rulethickness=0.5pt,
     location=lohi,
-    depth=-0.25em,
     bottomframe=on,
     offset=1pt]{#1}}
 \def\HeaderFrame#1{\doubleruletext{\doubleruletext{\bf #1}}}
