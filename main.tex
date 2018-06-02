@@ -4,13 +4,19 @@
 
 \input cover
 
-\setuppagenumbering[conversion=numbers]
-\setuppagenumber[number=1]
-\setups{Text}
-
+\showlayout
+\startfrontmatter
+\setups{FrontMatter}
 \input preface
+\stopfrontmatter
+
+\startbodymatter
+\setuppagenumber[number=1]
+\setuppagenumbering[conversion=numbers]
+\setups{BodyMatter}
 \input 01
 \input 02
+\stopbodymatter
 
 
 \stoptext
