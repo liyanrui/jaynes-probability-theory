@@ -355,21 +355,21 @@ w(A\itbar{B}|C) =  w(A|C)w(\itbar{B}|AC)
 w(AB|C) = w(A|C)S[w(\itbar{B}|AC)] = w(A|C)S\left[\frac{w(A\itbar{B}|C)}{w(A|C)}\right]
 \stopformula
 
-我们再用一次交换性：$A$ 和 $B$ 在 $w(AB|C)$ 中是对称的，因此一致性\footnote{译注：祈求 (\Roman{3})}要求
+我们再用一次交换性：$A$ 和 $B$ 在 $w(AB|C)$ 中是对称的，由一致性\footnote{译注：祈求 (\Roman{3})}可得
 
 \placeformula[2-40]
 \startformula
 w(A|C)S\left[\frac{w(A\itbar{B}|C)}{w(A|C)}\right] = w(B|C)S\left[\frac{w(B\itbar{A}|C)}{w(B|C)}\right]
 \stopformula
 
-对于所有命题 $A$、$B$、$C$，该式一定成立；特别是，当
+所有命题 $A$、$B$、$C$，这一方程必定成立；特别是，当
 
 \placeformula[2-41]
 \startformula
 \itbar{B} = AD
 \stopformula
 
-时，$D$ 为任何新的命题，此时 (\in[2-40]) 一定成立。不过，如 (\in[1-13]) 所述，有：
+时，$D$ 为任何新的命题，(\in[2-40]) 必定成立。不过，如 (\in[1-13]) 所述，有：
 
 \placeformula[2-42]
 \startformula
@@ -413,16 +413,16 @@ S[S(x)] = x
 
 这表明 $S(x)$ 是一个自反函数；$S(x) = S^{-1}(x)$。因此，从 (\in[2-36]) 可以推出 $u = S(v)$。不过，这不过是表示了一个显而意见的事实，$A$ 与 $\itbar{A}$ 成相反关系；这与哪一个命题是用头戴短横线的字母来表示没有关系。之前，我们在 (\in[1-8]) 已经提到了此事；若之前还不够明显，那么现在必须认识到这一点。
 
-下面探究一下 (\in[2-45]) 中的有效域。命题 $D$ 是随意的，因此通过选择不同的 $D$，便可以得到 $w(D|AC)$ 的所有值
+下面探究一下 (\in[2-45]) 中的有效域。命题 $D$ 是随意的，因此通过选择不同的 $D$，便可以在
 
 \placeformula[2-47]
 \startformula
 0 \le w(D|AC) \le 1
 \stopformula
 
-但是，$S(y) = w(AD|C) = w(A|C)w(D|AC)$，因此 (\in[2-47]) 正是 (\in[2-45]) 所述的 $(0 \le S(y) \le x)$。$x$ 和 $y$ 在这个域里是对称的；将二者互换，这个域不变。在几何上，这个域由 $xy$ 平面上单位正方形 $(0\le x, y\le 1)$ 内的点组成，并且这些点位于曲线 $y = S(x)$ 的上方。
+时，得到 $w(D|AC)$ 的所有值。但是，$S(y) = w(AD|C) = w(A|C)w(D|AC)$，因此 (\in[2-47]) 恰好能够促成 (\in[2-45]) 所述的 $(0 \le S(y) \le x)$。$x$ 和 $y$ 在该域中是对称的；将二者互换，该域不变。在几何上，该域由 $xy$ 平面上单位正方形 $(0\le x, y\le 1)$ 内的点组成，并且这些点位于曲线 $y = S(x)$ 的上方。
 
-实际上，基于 (\in[2-45]) 所描述的点对这条曲线的无限逼近，便可以确定该曲线的形状。因为，若设 $y = S(x) + \epsilon$，那么当 $\epsilon \rightarrow 0^{+}$ 时，(\in[2-45]) 中的两边趋向于 $S(1) = 0$，只不过速度不同。因此，一切取决于 $\delta\rightarrow 0$ 的时候 $S(1 - \delta)$ 趋向于 0 的确切途径。为了研究这个，我们通过
+实际上，通过 (\in[2-45]) 描述点对这条曲线的无限逼近，便可确定这条曲线的形状。因为，若设 $y = S(x) + \epsilon$，那么当 $\epsilon \rightarrow 0^{+}$ 时，(\in[2-45]) 中的两边趋向于 $S(1) = 0$，只不过速度不同。因此，一切取决于 $\delta\rightarrow 0$ 的时候 $S(1 - \delta)$ 趋向于 0 的确切途径。为了研究这一现象，我们通过
 
 \placeformula[2-48]
 \startformula
