@@ -442,29 +442,54 @@ S(1 - \delta) = S(1 - \text{exp}\{-q\}) = \text{exp}\{-J(q)\}
 
 \placeformula[2-50]
 \startformula
+S(1 - \delta) = S[S(X)] + \text{exp}\{-q\}S(x)S'[S(x)] + O(\text{exp}\{-2q\})
+\stopformula
+
+使用 (\in[2-46]) 以及它的导数 $S'S[S(x)]S'(x) = 1$，上式约化为
+
+\placeformula[2-51]
+\startformula
 \frac{S(y)}{x} = 1 - \text{exp}\{-(\alpha + q)\} + O(\text{exp}\{-2q\})
 \stopformula
 
 其中
 
-\placeformula[2-51]
+\placeformula[2-52]
 \startformula
 \alpha(x)\equiv\log\left[\frac{-xS'(x)}{S(x)}\right] > 0
 \stopformula
 
 使用这些作为替换，函数方程 (\in[2-45]) 变为
 
-\placeformula[2-52]
+\placeformula[2-53]
 \startformula
 J(q + \alpha) - J(q) = \log\left[\frac{x}{S(x)}\right] + \log(1 - \text{exp}\{-q\}) + O(\text{exp}\{-2q\})
 \stopformula
 
-当 $q\rightarrow\infty$ 时，上式的后两项以指数的速度趋向于 0，因此 $J(q)$ 必定是渐近线性的，其斜率
+当 $q\rightarrow\infty$ 时，上式的后两项以指数的速度趋向于 0，因此 $J(q)$ 必定是渐近线性的，
 
-\placeformula[2-53]
+\placeformula[2-54]
+\startformula
+J(q) \sim \alpha + bq + O(\text{exp}\{-2q\})
+\stopformula
+
+其斜率
+
+\placeformula[2-55]
 \startformula
 b = \alpha^{-1}\log\left[\frac{x}{S(x)}\right]
 \stopformula
 
-为正值。
+为正值。对于不同的 $x$ 值构成的连续统，及至 $\alpha(x)$ 的值构成的连续统，因为 (\in[2-53]) 必定成立，所以在 $\alpha$ 的变化周期内，(\in[2-54]) 不存在周期项。但是根据定义，$J$ 仅是 $q$ 的函数，因此 (\in[2-55]) 的右侧项一定独立于 $x$。由 (\in[2-52]) 可得
 
+\placeformula[2-56]
+\startformula
+\frac{x}{S(x)} = \left[\frac{-xS'(x)}{S(x)}\right]^b,\quad\quad 0 < b < \infty
+\stopformula
+
+或者，调整一下，$S(x)$ 必须满足微分方程
+
+\placeformula[2-57]
+\startformula
+S^{m - 1}{\mathrm{d}}S + x^{m - 1}{\mathrm{d}}x = 0 
+\stopformula
