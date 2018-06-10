@@ -511,9 +511,59 @@ S(x) = (1 - x^m)^{\frac{1}{m}}, \quad\quad
 
 由于我们对函数方程 (\in[2-45]) 的推导用了针对 $B$ 的特殊选择 (\in[2-41])，至此我们仅仅证明了 (\in[2-58]) 是一般性的一致性要求 (\in[2-40] 的必要条件。为了检验其充分性，将 (\in[2-58]) 代入 (\in[2-40])，可得
 
-\placeformula[2-58]
+\placeformula[2-59]
 \startformula
 w^m(A|C) - w^m(A\itbar{B}|C) = w^m(B|C) - w^m(B\itbar{A}|C)
 \stopformula
 
-通过 (\in[2-28]) 与 (\in[2-38]) 很容易验证上式成立。因而，(\in[2-58]) 保证 $S(x)$ 具备 (\in[2-40]) 意义上的一致性的充分必要条件。
+通过 (\in[2-28]) 与 (\in[2-38]) 很容易验证上式成立。因而，(\in[2-58]) 保证 $S(x)$ 满足 (\in[2-40]) 意义上的一致性的充分必要条件。
+
+至此，可对我们所得的结果作一些总结。逻辑乘法的关联性要求可信性 $x = A|B$ 的某种单调函数 $w(x)$ 必须遵守乘法规则 (\in[2-28])。我们的结果 (\in[2-58]) 描述了 $w(x)$ 也必须遵守加法规则：
+
+\placeformula[2-60]
+\startformula
+w^m(A|B) + w^m(\itbar{A}|B) = 1
+\stopformula
+
+$m$ 为正数。当然，乘法规则本身可被等价地写成
+
+\placeformula[2-61]
+\startformula
+w^m(AB|C) = w^m(A|C)w^m(B|AC) = w^m(B|C)w^m(A|BC)
+\stopformula
+
+实际上，$m$ 值可以忽略，因为无论其取值为何，皆能定义
+
+\placeformula[2-62]
+\startformula
+p(x) \equiv w^m(x)
+\stopformula
+
+这样，乘法与加法规则的形式就变为
+
+\placeformula[2-63]
+\startformula
+p(AB|C) = p(A|C)P(B|AC) = p(B|C)p(A|BC)
+\stopformula
+
+\placeformula[2-64]
+\startformula
+p(A|B) + p(\itbar{A}|B) = 1
+\stopformula
+
+事实上，这样做不失一般性，因为我们对 $w(x)$ 仅有的要求是 $w(x)$ 是一个连续单调递增函数，$w = 0$ 表示不可能，$w = 1$ 表示确定。如果 $w(x)$ 满足这一要求，那么 $w^m(x)$ 也必定满足这一要求，$0 < m < \infty$。因此，声称我们能够使用不同的 $m$ 值并不会给我们带来任何原本在 $w(x)$ 上所没有的自由。我们的祈求所容许的所有可能性均被包含在 (\in[2-63]) 和 (\in[2-64]) 之中了，其中 $p(x)$ 为任意的连续单调递增函数且 $0\le p(x)\le 1$。
+
+对于可信推断而言，要形成一个完备的规则集，用于确定由 $\{A_1,\cdots,A_n\}$ 构成的任意逻辑函数 $f(A_1,\cdots,A_n)$ 的可信性，还需要更多的关系吗？凭借乘法规则 (\in[2-63]) 与加法规则 (\in[2-64])，我们有了计算合取 $AB$ 与取反 $\itbar{A}$ 的可信性的公式。然而，我们已经注意到了，在 (\in[1-23]) 的讨论中，合取与取反可以构成运算完备集，通过它们可以构造所有的逻辑函数。
+
+因而，我们推测基本规则的探索活动已经完成；通过反复应用乘法规则与加法规则，在布尔代数中由 $\{A_1,\cdots,A_n\}$ 产生的任何命题的可信性皆能计算出来。
+
+为了验证这一点，我们首先为逻辑和 $A + B$ 寻找一个公式。反复应用乘法规则与加法规则，可得
+
+\placeformula[2-65]
+\startformula
+\startmathmatrix[align={middle, middle, left}]
+\NC p(A+B|C) \NC = \NC 1 - P(\itbar{AB}|C) = 1 - p(\itbar{A}|C)p(\itbar{B}|\itbar{A}C)\NR
+\NC \NC = \NC 1 - p(\itbar{A}|C)[1 - p(B|\itbar{A}C)] = p(A|C) + p(\itbar{A}B|C)\NR
+\NC \NC = \NC p(A|C) + p(B|C)p(\itbar{A}|BC) = p(A|C) + p(B|C)[1 - p(A|BC)]\NR
+\stopmathmatrix
+\stopformula
