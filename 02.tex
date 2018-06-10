@@ -398,7 +398,7 @@ x\equiv w(A|C)\,,\quad\quad y\equiv w(B|C)
 \placeformula[2-45]
 \startformula
 xS\left[\frac{S(y)}{x}\right] = yS\left[\frac{S(x)}{y}\right],\quad\quad
-\startmathmatrix
+\startmathmatrix[align=left]
 \NC 0 \le S(y) \le x \NR
 \NC 0 \le x \le 1 \NR
 \stopmathmatrix
@@ -487,9 +487,33 @@ b = \alpha^{-1}\log\left[\frac{x}{S(x)}\right]
 \frac{x}{S(x)} = \left[\frac{-xS'(x)}{S(x)}\right]^b,\quad\quad 0 < b < \infty
 \stopformula
 
-或者，调整一下，$S(x)$ 必须满足微分方程
+或者，$S(x)$ 必须满足微分方程
 
 \placeformula[2-57]
 \startformula
 S^{m - 1}{\mathrm{d}}S + x^{m - 1}{\mathrm{d}}x = 0 
 \stopformula
+
+其中 $m\equiv 1/b$ 为正数常量。这个方程仅有一个解
+
+\placeformula[2-58]
+\startformula
+S(x) = (1 - x^m)^{\frac{1}{m}}, \quad\quad
+\startmathmatrix[align=left]
+\NC 0 \le x \le 1 \NR
+\NC 0 < m < \infty \NR
+\stopmathmatrix
+\stopformula
+
+满足 $S(0) = 1$，并且 (\in[2-58]) 显然是 (\in[2-45]) 的解。
+
+所得结果 (\in[2-58]) 最早由 R. T. Cox (1946) 通过假设 $S(x)$ 二阶可微而推导出来。不需要以 $S(x)$ 可微为前提，Acz\'el (1966) 也推导出了同样的结果。（但是在当前的应用中假设 $S(x)$ 可微对于我们而言无碍，因为若这个函数方程的解为不可微的函数，我们就应该放弃整个理论的构建，原因是定性与常识冲突。）无论如何，(\in[2-58]) 是满足函数方程 (\in[2-45]) 与左边界条件 $S(0) = 1$ 的最具一般性的解；于是我们进而发现它自动满足右边界条件 $S(1) = 0$。
+
+由于我们对函数方程 (\in[2-45]) 的推导用了针对 $B$ 的特殊选择 (\in[2-41])，至此我们仅仅证明了 (\in[2-58]) 是一般性的一致性要求 (\in[2-40] 的必要条件。为了检验其充分性，将 (\in[2-58]) 代入 (\in[2-40])，可得
+
+\placeformula[2-58]
+\startformula
+w^m(A|C) - w^m(A\itbar{B}|C) = w^m(B|C) - w^m(B\itbar{A}|C)
+\stopformula
+
+通过 (\in[2-28]) 与 (\in[2-38]) 很容易验证上式成立。因而，(\in[2-58]) 保证 $S(x)$ 具备 (\in[2-40]) 意义上的一致性的充分必要条件。
