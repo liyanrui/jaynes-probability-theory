@@ -580,3 +580,15 @@ p(A + B | C) = p(A|C) + p(B|C) - p(AB|C)
 \startframedtext[width=broad]
 \exercise{} 能够像 (\in[2-66]) 那样基于乘法与加法规则为 $p(C|A + B)$ 找到通用的公式吗？如果能，就把它推导出来，否则就解释一下为什么不能。
 \stopframedtext
+
+\startframedtext[width=broad]
+\exercise{} 假设存在命题集合 $\{A_1,\cdots,A_n\}$ 在 $X$ 上相互独立：$p(A_iA_j|X) = p(A_i|X)\delta_{ij}$。证明 $p(C|(A_1 + \cdots + A_n)X)$ 为各个 $P(C|A_iX)$ 的加权平均：
+
+\placeformula[2-67]
+\startformula
+p(C|(A_1 + \cdots + A_n)X) = p(C|A_1X + \cdots + A_nX) = \frac{\sum_i p(A_i|X)p(C|A_iX)}{\sum_i p(A_i|X)}
+\stopformula
+
+为了扩展 (\in[2-66])，我们注意到 (\in[1-17]) 
+
+\stopframedtext
