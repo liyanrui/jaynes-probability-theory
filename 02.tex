@@ -562,8 +562,21 @@ p(A|B) + p(\itbar{A}|B) = 1
 \placeformula[2-65]
 \startformula
 \startmathmatrix[align={middle, middle, left}]
-\NC p(A+B|C) \NC = \NC 1 - P(\itbar{AB}|C) = 1 - p(\itbar{A}|C)p(\itbar{B}|\itbar{A}C)\NR
+\NC p(A+B|C) \NC = \NC 1 - P(\itbar{A}\itbar{B}|C) = 1 - p(\itbar{A}|C)p(\itbar{B}|\itbar{A}C)\NR
 \NC \NC = \NC 1 - p(\itbar{A}|C)[1 - p(B|\itbar{A}C)] = p(A|C) + p(\itbar{A}B|C)\NR
 \NC \NC = \NC p(A|C) + p(B|C)p(\itbar{A}|BC) = p(A|C) + p(B|C)[1 - p(A|BC)]\NR
 \stopmathmatrix
 \stopformula
+
+最终可得
+
+\placeformula[2-66]
+\startformula
+p(A + B | C) = p(A|C) + p(B|C) - p(AB|C)
+\stopformula
+
+这是最实用的通用加法法则。显然，在 $B = \itbar{A}$ 时，基本加法法则 (\in[2-64]) 是 (\in[2-66]) 的特例。
+
+\startframedtext[width=broad]
+\exercise{} 能够像 (\in[2-66]) 那样基于乘法与加法规则为 $p(C|A + B)$ 找到通用的公式吗？如果能，就把它推导出来，否则就解释一下为什么不能。
+\stopframedtext

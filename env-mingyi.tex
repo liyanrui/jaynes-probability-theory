@@ -74,6 +74,14 @@
 \stopsetups
 
 % 标题
+\definehead[exercise][subsection]
+\setuphead
+  [exercise]
+  [alternative=text,
+    style=bold,
+    before={{\bf 习题 }},
+    numbercommand={\determineheadnumber[subsection]\currentheadnumber\gobbleoneargument}]
+
 \setupheads[indentnext=yes]
 \definepagebreak[headpagebreak][yes, header, footer, odd]
 \setuphead
