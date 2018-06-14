@@ -152,10 +152,10 @@ drawpath p; drawpoints p;
 \def\itbar#1{\overline{#1\hskip 0.1em}\hskip 0.2em}
 
 \def\syllogism#1#2#3{%
-  \startmathmatrix[n=3]
+  \startmathmatrix
     \NC\text{\framed[frame=off, offset=0pt]{#1}}\NR
     \NC\text{#2}\NR
-    \NC\text{\framed[frame=off, topframe=on]{\hskip 1em #3 \hskip 1em}}\NR
+    \NC\text{\framed[frame=off, topframe=on]{\hbox to 1em{}#3\hbox to 1em{}}}\NR
   \stopmathmatrix}
 
 % 插图与公式编号  x.1 -> x-1

@@ -604,7 +604,74 @@ p(C|(A_1 + \cdots + A_n)X) = p(C|A_1X + \cdots + A_nX) = \frac{\sum_i p(A_i|X)p(
 
 \placeformula[2-68]
 \startformula
-\startmathmatrix
-\NC\syllogism{A\Rightarrow B}{A 为真}{B 为真}\NC\hbox to .10\hsize{}\NC\syllogism{A\Rightarrow B}{B 为假}{A 为假}\NR
-\stopmathmatrix
+\syllogism{$A\Rightarrow B$}{$A$ 为真}{$B$ 为真}\quad\quad\syllogism{$A\Rightarrow B$}{$B$ 为假}{$A$ 为假}\NR
 \stopformula
+
+若用 $C$ 表示它们的大前提：
+
+\placeformula[2-69]
+\startformula
+C\equiv A\Rightarrow B
+\stopformula
+
+则这些三段论便会以下面的形式分别与乘法规则 (\in[2-63]) 相对应：
+
+\placeformula[2-70]
+\startformula
+p(B|AC) = \frac{p(AB|C)}{p(A|C)}\quad\quad p(A|\itbar{B}C) = \frac{p(A\itbar{B}|C)}{p(\itbar{B}|C)}
+\stopformula
+
+但是，根据 (\in[2-68])，有 $p(AB|C) = p(A|C)$ 和 $p(A\itbar{B}|C) = 0$，因此 (\in[2-70]) 可约化为
+
+\placeformula[2-71]
+\startformula
+p(B|AC) = 1\quad\quad p(A|\itbar{B}C) = 0
+\stopformula
+
+与三段论 (\in[2-68]) 所述一致。因而这种联系很简单：{\bf 亚里士多德的演绎逻辑是可信推理规则的极限形式，意味着机器人对它所得到的结论越来越确定。}
+
+但是我们的规则还有演绎逻辑不具备的东西：若三段论 (\in[weak-1]) 与 (\in[weak-2]) 的量化形式。为了证明原始定性描述总是遵循当前规则，需要注意第一个弱三段论
+
+\placeformula[2-72]
+\startformula
+\syllogism{$A\Rightarrow B$}{$B$ 为真}{所以，$A$ 更可信}
+\stopformula
+
+以下面的形式
+
+\placeformula[2-73]
+\startformula
+p(A|BC) = p(A|C)\frac{p(B|AC)}{p(B|C)}
+\stopformula
+
+与乘法规则 (\in[2-63]) 相对应。但是，根据 (\in[2-68])，$p(B|AC) = 1$，且因 $p(B|C)\le 1$，所以可得
+
+\placeformula[2-74]
+\startformula
+p(A|BC) \ge p(A|C)
+\stopformula
+
+结果与弱三段论相符。同理，弱三段论 (\in[weak-2])
+
+\placeformula[2-75]
+\startformula
+\syllogism{$A\Rightarrow B$}{$A$ 为假}{所以，$B$ 更不可信}
+\stopformula
+
+以下面的形式
+
+\placeformula[2-76]
+\startformula
+p(B|\itbar{A}C) = p(B|C)\frac{p(\itbar{B}|AC)}{p(B|C)}
+\stopformula
+
+与乘法规则相对应。但是根据 (\in[2-74])，有 $p(A\itbar{A}B)\le p(\itbar{A}|C)$，因此由 (\in[2-76]) 可得
+
+\placeformula[2-77]
+\startformula
+p(B|\itbar{A}C) \le p(B|C)
+\stopformula
+
+结果与上述弱三段论相符。
+
+最后，那个警察的弱三段论 (\in[weak-3])，在抽象描述时似乎非常弱，也被我们的乘法规则以 (\in[2-73]) 的形式涵盖在内。现在让 $C$ 表示背景信息（）
