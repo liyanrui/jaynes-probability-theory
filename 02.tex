@@ -702,4 +702,41 @@ p(A|BC) > p(A|C)
 
 再者，迄今为止，没有什么告诉我们在问题的一开始应当如何为可信性赋以真实的数值，以使这个机器人开始它的计算。这个机器人如何将背景信息的初始编码转化为确定的可信性数值？为此，我们必须求助于尚未使用的\quotation{界面}祈求 (\in[desiderata-3c]) 的 (\Roman{3}b) 和 (\Roman{3}b)。
 
-下面的分析以有趣且匪夷所思的方式回答了这两个问题。
+下面的分析以有趣且匪夷所思的方式回答了这两个问题。我们先来考虑 $\{A_1,A_2,A_3\}$ 这三个命题中至少一个为真的可信性，即 $(A_1 + A_2 + A_3|B)$ 的可信性。通过对扩展的加法规则 (\in[2-66]) 的两次应用便可确定这个命题的可信性。第一次可得
+
+\placeformula[2-80]
+\startformula
+p(A_1 + A_2 + A_3|B) = p(A_1 + A_2|B) + p(A_3|B) - p(A_1A_3 + A_2A_3|B)
+\stopformula
+
+其中首先将 $(A_1 + A_2)$ 视为一个单一命题，然后使用逻辑关系
+
+\placeformula[2-81]
+\startformula
+(A_1 + A_2)A_3 = A_1A_3 + A_2A_3
+\stopformula
+
+再次应用 (\in[2-66])，可得下面的 7 项：
+
+\placeformula[2-82]
+\startformula
+\startmathmatrix[align={middle, middle, left}]
+\NC p(A_1 + A_2 + A_3|B) \NC = \NC p(A_1|B) + p(A_2|B) + p(A_3|B)\NR
+\NC \NC \NC -p(A_1A_2|B) - p(A_2A_3|B) - p(A_3A_2|B)\NR
+\NC \NC \NC +p(A_1A_2A_3|B)\NR
+\stopmathmatrix
+\stopformula
+
+现在假设这些命题相互独立；亦即，证据 $B$ 暗示着这些命题中任意两个能够同时为真：
+
+\placeformula[2-83]
+\startformula
+p(A_iA_j|B) = p(A_i|B)\delta_{ij}
+\stopformula
+
+这样 (\in[2-82]) 的后四项就被消除了，结果为
+
+\placeformula[2-84]
+\startformula
+p(A_1 + A_2 + A_3|B) = p(A_1|B) + p(A_2|B) + p(A_3|B)
+\stopformula
