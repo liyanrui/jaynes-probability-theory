@@ -740,3 +740,23 @@ p(A_iA_j|B) = p(A_i|B)\delta_{ij}
 \startformula
 p(A_1 + A_2 + A_3|B) = p(A_1|B) + p(A_2|B) + p(A_3|B)
 \stopformula
+
+增加更多的命题 $A_4$，$A_5$ 等，通过归纳法很容易证明，对于 $n$ 个相互独立的命题 $\{A_1,\cdots,A_n\}$，可将 (\in[2-84]) 推广为
+
+\placeformula[2-85]
+\startformula
+p(A_1 + \cdots + A_m|B) = \sum_{i = 1}^{m}p(A_i|B)\quad 1\le m \le n
+\stopformula
+
+从现在开始，我们会不断使用这个规则。
+
+传统的阐述是将 (\in[2-85]) 作为一个基本的公理而引入的，由此可见，定义公理有多么任性。上述途径证明了这个规则是简单的一致性定性条件的演绎。将 (\in[2-85]) 视为基本关系，这一观点是我们要致力避免的（见本章的评论部分）。
+
+现在假设命题集合 $\{A_1,\cdots,A_n\}$ 不仅相互独立，而且详尽；亦即，背景信息 $B$ 保证有且仅有一个命题必定为真。在这种情况下，$m = n$，(\in[2-85]) 的结果必定 1：
+
+\placeformula[2-86]
+\startformula
+\sum_{i = 1}^{n}p(A_i|B) = 1
+\stopformula
+
+只凭这一点还不足以确定各个数值 $p(A_i|B)$。
