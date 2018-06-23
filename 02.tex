@@ -813,3 +813,28 @@ p(A_1|B)_{\Roman{1}} = p(A_2|B)_{\Roman{1}}
 换言之，问题 \Roman{1} 中的命题 $A_1$ 和 $A_2$ 必须被赋以相等的可信性（当然在问题 \Roman{2} 中也是如此）。
 
 至此，取决于你在这个学科中的个性和背景，你可能会对 (\in[2-91]) 这样的结果觉得极为吃惊或极为失望。我们刚才所给出的讨论是面向可行性赋值的群不变原理（Group invariance principle）的第一个\quotation{宝宝}版本。在考虑\quotation{无信息先验分布}的赋值这种一般性问题时，在本书第 12 章\footnote{原书写为第 6 章，有误。}中会对这个原理进行大幅扩展。
+
+更为一般地，设 $\{A''_1,\cdots,A''_n\}$ 是 $\{A_1,\cdots,A_n\}$ 的任意一种排列，将确定 $p(A''_i|B)$ 作为问题 \Roman{3}。若这种排列为 $A''_k\equiv A_i$，便会存在 $n$ 个变换方程，每个方程的形式为
+
+\placeformula[2-92]
+\startformula
+p(A_i|B)_{\Roman{1}} = p(A''_k|B)_{\Roman{3}}
+\stopformula
+
+它揭示了问题 \Roman{1} 与 \Roman{3} 如何彼此关联；无论信息 $B$ 如何，这些关系都会成立。
+
+但是现在如果信息 $B$ 在所有命题 $A_i$ 之间并无差异，机器人就会对问题 \Roman{3} 中的命题集合 $\{A''_1,\cdots,A''_n\}$ 有着相同的知识状态，如同它对问题 \Roman{1} 中的集合 $\{A_1,\cdots,A_n\}$ 那样；我们的一致性祈求再次需要机器人为相同知识状态的命题赋予相同的可信性，从而得到 $n$ 个对称条件\footnote{按照上文中的说法，应该叫对称方程。}
+
+\placeformula[2-93]
+\startformula
+p(A_k|B)_{\Roman{1}} = p(A''_k|B)_{\Roman{3}}\quad\quad k = 1, 2, \cdots, n
+\stopformula
+
+由 (\in[2-92]) 和 (\in[2-93])，可得 $n$ 个方程
+
+\placeformula[2-94]
+\startformula
+p(A_i|B)_{\Roman{1}} = p(A_k|B)_{\Roman{1}}
+\stopformula
+
+现在，无论我们用于定义问题 \Roman{3} 的特定排列是怎样的，这些关联必定成立。
