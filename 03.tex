@@ -1,3 +1,27 @@
 \chapter[quantitative-rules]{初等采样理论}
 
+至此，我们所拥有并且有效的数学基础由基本的乘法和加法规则构成：
 
+\placeformula[3-1]
+\startformula
+P(AB|C) = P(A|BC)P(B|C) = P(B|AC)P(A|C)
+\stopformula
+
+\placeformula[3-2]
+\startformula
+P(A|B) + P(\itbar{A}|B) = 1
+\stopformula
+
+从它们可以导出扩展的加法规则：
+
+\placeformula[3-3]
+\startformula
+P(A + B|C) = P(A|C) + P(B|C) - P(AB|C)
+\stopformula
+
+使用一致性的祈求 (\Roman{3}c)，亦即无差异性原理：如果一组假设 $(H_1,H_2,\cdots,H_N)$ 在背景信息 $B$ 上相互独立且详尽，并且 $B$ 不会偏好这些假设中的任何一个，那么
+
+\placeformula[3-4]
+\startformula
+P(H_i|B) = \frac{1}{N}\quad\quad 1\le i \le N
+\stopformula
