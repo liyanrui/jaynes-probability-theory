@@ -41,8 +41,42 @@ P(A|B) = \frac{M}{N}
 
 \section{无放回采样}
 
-为了让 Bernoulli 瓮更为明确，我们定义了以下命题。
+为了让 Bernoulli 瓮更为明确，我们定义了以下命题：
 
-\startnarrower[2*middle]
-$B\equiv$ 有个瓮，里面有 $N$ 个球。它们的编号是 $(1,2,\cdots,N)$，其中有 $M$ 个球是红色的，其余的是白色的。除此之外，这些球的各方面都相同。
-\stopnarrower
+\definedescription[mydefinition][location=left, before=, after=, headstyle=\tf, width=broad, distance=0.25em]
+\def\myproposition#1{\hbox to 1.5em{#1}$\equiv$}
+\mydefinition{\myproposition{$B$}} 有个瓮，里面有 $N$ 个球。它们的编号是 $(1,2,\cdots,N)$，其中有 $M$ 个球是红色的，其余的是白色的，$0\le M \le N$。除此之外，这些球的各方面都相同。闭着眼从瓮中取一个球，观察并记录它的颜色，再把它放回去。重复这一过程 $n$ 次，$0\le n \le N$。\par
+\mydefinition{\myproposition{$R_i$}} 第 $i$ 次取的球为红色。\par
+\mydefinition{\myproposition{$W_i$}} 第 $i$ 次取的球为白色。\par
+
+根据 $B$，能够取的球仅有红色和白色，有
+
+\placeformula[3-6]
+\startformula
+P(R_i|B) + P(W_i|B) = 1\quad\quad 1\le i \le N
+\stopformula
+
+它等同于说，在知识 $B$ 所创立的\quotation{逻辑环境}里，命题 $R_i$ 与 $W_i$ 的关系是互反的，即
+
+\placeformula[3-7]
+\startformula
+\itbar{R_i} = W_i\quad\quad \itbar{W_i} = R_i
+\stopformula
+
+并且，对于第一次取球，(\in[3-5]) 变为
+
+\placeformula[3-8]
+\startformula
+P(R_i|B) = \frac{M}{N}
+\stopformula
+
+\placeformula[3-9]
+\startformula
+P(W_i|B) = 1 - \frac{M}{N}
+\stopformula
+
+现在来看这意味着什么。概率赋值 (\in[3-8]) 和 (\in[3-9]) 所断言的并非瓮的物理属性或其内容；它们描述的是机器人在取球之前所具备的{\bf 知识状态}。实际上，倘若机器人的知识状态与上面定义的 $B$ 有所不同（例如，它知道红球和白球在瓮内的位置，或者它不知道 $N$ 和 $M$ 多大），那么它为 $R_i$ 和 $W_i$ 所赋的概率必然与 (\in[3-8]) 和 (\in[3-9]) 不同，而瓮的现实属性却不会变。
+
+因此，称用瓮来做实验以\quotation{验证}(\in[3-8])，这种说法，如同在狗身上做实验来验证一个孩子对他的狗的喜爱，毫无逻辑可言。眼下，我们关心的是来自不完备信息的一致性推理所涉及的逻辑，而不是瓮中取出什么东西这一物理现象的断言（任何情况下，着都是不可能做到的，因为信息 $B$ 不完备）。
+
+最终，我们的机器人将会能够作出一些非常肯定的现实预测。这些预测能够接近，但是（除非在一些退化的情况下）并不能真正达到逻辑演绎的确定性；但是，在我们能够说出什么量能够被准确预测并且为此需要何种信息之前，理论还需要进一步发展。换言之，由机器人在不同知识状态下所赋的概率与实验中可观察到的事实，这二者之间的关系可能并非随意建立的；
