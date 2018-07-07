@@ -79,4 +79,67 @@ P(W_i|B) = 1 - \frac{M}{N}
 
 因此，称用瓮来做实验以\quotation{验证}(\in[3-8])，这种说法，如同在狗身上做实验来验证一个孩子对他的狗的喜爱，毫无逻辑可言。眼下，我们关心的是来自不完备信息的一致性推理所涉及的逻辑，而不是瓮中取出什么东西这一物理现象的断言（任何情况下，着都是不可能做到的，因为信息 $B$ 不完备）。
 
-最终，我们的机器人将会能够作出一些非常肯定的现实预测。这些预测能够接近，但是（除非在一些退化的情况下）并不能真正达到逻辑演绎的确定性；但是，在我们能够说出什么量能够被准确预测并且为此需要何种信息之前，理论还需要进一步发展。换言之，由机器人在不同知识状态下所赋的概率与实验中可观察到的事实，这二者之间的关系可能并非随意建立的；
+最终，我们的机器人将会能够作出一些非常肯定的现实预测。这些预测能够接近，但是（除非在一些退化的情况下）并不能真正达到逻辑演绎的确定性；但是，在我们能够说出什么量能够被准确预测并且为此需要何种信息之前，理论还需要进一步发展。换言之，由机器人在不同知识状态下所赋的概率与实验中可观察到的事实，这二者之间的关系可能并非随意建立的；我们有充分的理由仅仅使用可由概率论规则推导出来的那些关系，这是是我们现在正要去做的的事。
+
+当我们向机器人索取与第二次抽取相关的概率时，机器人的知识状态便会出现变化。例如，开始的两次取球，取到的皆为红球的概率是多大？根据乘法规则，这个概率为
+
+\placeformula[3-10]
+\startformula
+P(R_1R_2|B) = P(R_1|B)P(R_2|R_1B)
+\stopformula
+
+在最后一个因子中，机器人必须考虑第一所取的红球已经从瓮中移除，因此瓮中所剩下的 $(N - 1)$ 个球中有 $(M - 1)$ 个是红球。因而
+
+\placeformula[3-11]
+\startformula
+P(R_1R_2|B) = \frac{M}{N}\frac{M - 1}{N - 1}
+\stopformula
+
+沿着这一思路，前 $r$ 次连续取球，所取之球皆为红球的概率为
+
+\placeformula[3-12]
+\startformula
+\startmathalignment[style=\displaystyle]
+\NC P(R_1R_2\cdots R_r|B) \NC = \frac{M(M - 1)\cdots (M - r + 1)}{N(N - 1)\cdots (N - r + 1)}\NR
+\NC \NC = \frac{M!(N - r)!}{(M - r)!N!}\quad\quad r\le M\NR
+\stopmathalignment
+\stopformula
+
+倘若我们用伽马函数关系 $n! = \Gamma(n + 1)$ 来定义阶乘，则限制条件 $r\le M$ 并非必须，因为当 $r > M$ 时，负整数的阶乘结果为无穷大，于是 (\in[3-12]) 的结果自动为 0。
+
+前 $w$ 次取球，取到的球皆为白球的概率与 (\in[3-12]) 相似，只是要将 $M$ 换成 $(N - M)$：
+
+\placeformula[3-13]
+\startformula
+P(W_1W_2\cdots W_w|B) = \frac{(N - M)!(N - w)!}{(N - M - w)!N!}
+\stopformula
+
+假设前 $r$ 次取球，取到的皆为红球，那么在 $(r + 1, r + 2, \cdots,r + w)$ 次取球，取到的皆为白球的概率，需要在 (\in[3-13]) 的基础上考虑 $N$ 和 $M$ 已分别缩减为 $(N - r)$ 和 $(M - r)$：
+
+\placeformula[3-14]
+\startformula
+P(W_1W_2\cdots W_w|R_1\cdots R_rB) = \frac{(N - M)!(N - r - w)!}{(N - M - w)!(N - r)!}
+\stopformula
+
+因此，通过乘法规则，在 $n$ 次取球的过程中，取出 $r$ 个红球之后，又取出 $w = n - r$ 个白球的概率，由 (\in[3-12]) 和 (\in[3-14]) 可得
+
+\placeformula[3-15]
+\startformula
+P(R_1\cdots R_rW_{r + 1}\cdots W_n|R_1\cdots R_rB) = \frac{M!(N - M)!(N - n)!}{(M - r)!(N - M - w)!N!}
+\stopformula
+
+$(N - r)!$ 项被约掉了。
+
+尽管这个结果基于红球和白球特定的取出顺序推导出来，但是以任何特定顺序在 $n$ 次取球中取出 $r$ 个红球，概率都是相同的。为了看清这一点，需要采用下面的方式
+
+\placeformula[3-16]
+\startformula
+\frac{M!}{(M - r)!} = M(M - 1)\cdots (M - r + 1)
+\stopformula
+
+对 (\in[3-15]) 的其他比率作更完全地展开。于是 (\in[3-15]) 的右部变为
+
+\placeformula[3-17]
+\startformula
+\frac{M(M - 1)\cdots (M - r + 1)(N - M)(N - M - 1)\cdots (N - M - w + 1)}{N(N - 1)\cdots (N - n + 1)}
+\stopformula
