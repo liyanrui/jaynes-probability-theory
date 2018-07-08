@@ -82,6 +82,10 @@
     before={{\bf 习题 }},
     numbercommand={\headnumber[chapter].\determineheadnumber[subsection]\currentheadnumber\gobbleoneargument}]
 
+\definestartstop
+  [Exercise]
+  [before={\startframedtext[width=broad]\exercise{}}, after={\stopframedtext}]
+
 \setupheads[indentnext=yes]
 \definepagebreak[headpagebreak][yes, header, footer, odd]
 \setuphead
@@ -171,5 +175,8 @@ drawpath p; drawpoints p;
 
 % 罗马数字
 \def\Roman#1{\convertnumber{R}{#1}}
+
+% 组合
+\definemathmatrix[pmatrix][left={\left(\,}, right={\,\right)}]
 
 \stopenvironment
