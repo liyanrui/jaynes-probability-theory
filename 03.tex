@@ -251,4 +251,245 @@ H(R) \equiv\sum_{r = 0}^Rh(r)
 
 通常，$H(R)$ 的细节是不重要的，就我们的目的而言，知道中值和四等分就足够了。这样，在机器人的预测及其准确性方面，$(\text{中值})\pm (\text{四分位距离})$ 提供了一个好的思路\footnote{译注：有误，应该是区间 $[\text{低四等分},\,\text{高四等分}]$。}。亦即，在提供给机器人的信息上，$r$ 的真值落入这个区间之内的可能性与落在该区间之外是相同的。同样地，$r$ 落入第一个到第五个六等分区间 机器人给出的概率值 $(\frac{5}{6}) - \frac{1}{6} = \frac{2}{3}$（换言之，$2:1$ 的几率）；$r$ 落入第一个十等分到第九个十等分的几率是 $8:2 = 4:1$，以此类推。
 
-对于这些我们在过去经常用到的这些分布，尽管可以发展出相当混乱的近似公式，但是现在很容易通过计算机精确
+对于这些我们在过去经常用到的这些分布，尽管可以发展出相当混乱的近似公式，但是现在很容易通过计算机算出精确的分布。例如，W. H. Press 等 (1986) 给出了两个程序，在 $a$、$b$ 和 $c$ 值任意的情况下，它们可以算出广义复超几何分布。表 \in[t-3-1] 与 \in[t-3-2] 分别给出了 $N = 100$、$M = 50$、$n = 10$ 和 $N = 100$、$M = 10$、$n = 50$ 这两种情况下的超几何分布。在后者中，不可能取出多于 $10$ 个球，因此 $r > 10$ 的条目都是 $h(r) = 0$，$H(r) = 1$，因此在表中对它们未作统计。惊人的事实是，$h(r)$ 正值对应的条目是相同的，亦即超几何分布在交换 $M$ 和 $n$ 的情况下具有对称性质
+
+\placeformula[3-29]
+\startformula
+h(r|N, M, n) = h(r|N, n, M)
+\stopformula
+
+无论我们是从包含 50 个红球的瓮中取十个球，还是从包含十个红球的瓮中取 50 个球，在样本抽取过程中取到 $r$ 个红球的概率是相同的。这个性质很容易通过详细检验 (\in[3-22]) 而得以验证；从超几何函数 (\in[3-23]) 的 $a$ 与 $b$ 的对称性来看，这一点也显而易见。
+
+表 \in[t-3-1] 与 \in[t-3-2] 还有着另外一个显而易见的对称性，关于分布尖峰的对称性：$h(r|100, 50， 10) = h(10 - r|100, 50, 10)$。不过，通常情况下并非如此。将 $N$ 的值改为 $99$，就会导致轻微地非对称尖峰，如表 \in[t-3-3] 所示。表 \in[t-3-1] 的尖峰的出现，原因在于：如果交换 $M$ 和 $(N - M)$，并且同时交换 $r$ 和 $(n - r)$，那么就相当于\quotation{红球}和\quotation{白球}这两个单词的交换，因此分布未变：
+
+\placeformula[3-30]
+\startformula
+h(n - r|N, N - M, n) = h(r|N, M, n)
+\stopformula
+
+但是当 $M = \frac{N}{2}$，上式可约化为对称形式
+
+\placeformula[3-31]
+\startformula
+h(n - r|N, M, n) = h(r|N, M, n)
+\stopformula
+
+这正是在表 \in[t-3-1] 中我们所看到的尖峰的对称性。根据 (\in[3-29])，当 $n = \frac{N}{2}$ 时，尖峰也是对称的。
+
+\placetable[here][t-3-1]{超几何分布：$N,M,n=100,10,50$}
+{\startxtable[offset=0pt]
+  \setupinterlinespace[line=1.2em]
+  \startxtablehead[topframe=on, rulethickness=1.5pt]
+  \startxrow
+  \startxcell[width=3cm] $r$ \stopxcell
+  \startxcell[width=3cm] $h(r)$ \stopxcell
+  \startxcell[width=3cm] $H(r)$ \stopxcell
+  \stopxrow
+  \stopxtablehead
+  \startxtablebody[height=fit]
+  \startxrow[topframe=on,rulethickness=0.75pt]
+  \startxcell 0 \stopxcell
+  \startxcell 0.000593  \stopxcell
+  \startxcell 0.000593 \stopxcell
+  \stopxrow
+  \startxrow
+  \startxcell 1 \stopxcell
+  \startxcell 0.007237 \stopxcell
+  \startxcell 0.007830 \stopxcell
+  \stopxrow
+  \startxrow
+  \startxcell 2 \stopxcell
+  \startxcell 0.037993 \stopxcell
+  \startxcell 0.045824 \stopxcell
+  \stopxrow
+  \startxrow
+  \startxcell 3 \stopxcell
+  \startxcell 0.113096 \stopxcell
+  \startxcell 0.158920 \stopxcell
+  \stopxrow
+  \startxrow
+  \startxcell 4 \stopxcell
+  \startxcell 0.211413 \stopxcell
+  \startxcell 0.370333 \stopxcell
+  \stopxrow
+  \startxrow
+  \startxcell 5 \stopxcell
+  \startxcell 0.259334 \stopxcell
+  \startxcell 0.629667 \stopxcell
+  \stopxrow
+  \startxrow
+  \startxcell 6 \stopxcell
+  \startxcell 0.211413 \stopxcell
+  \startxcell 0.841080 \stopxcell
+  \stopxrow
+  \startxrow
+  \startxcell 7 \stopxcell
+  \startxcell 0.113096 \stopxcell
+  \startxcell 0.954177 \stopxcell
+  \stopxrow
+  \startxrow
+  \startxcell 8 \stopxcell
+  \startxcell 0.037993 \stopxcell
+  \startxcell 0.992170 \stopxcell
+  \stopxrow
+  \startxrow
+  \startxcell 9 \stopxcell
+  \startxcell 0.007237 \stopxcell
+  \startxcell 0.999407 \stopxcell
+  \stopxrow
+  \stopxtablebody
+  \startxtablefoot[bottomframe=on,rulethickness=1.5pt]
+  \startxrow
+  \startxcell 10 \stopxcell
+  \startxcell 0.000593 \stopxcell
+  \startxcell 1.000000 \stopxcell
+  \stopxrow
+  \stopxtablefoot
+  \stopxtable
+}
+
+\placetable[here][t-3-2]{超几何分布：$N,M,n=100,50,10$}
+{\startxtable[offset=0pt]
+  \setupinterlinespace[line=1.2em]
+  \startxtablehead[topframe=on, rulethickness=1.5pt]
+  \startxrow
+  \startxcell[width=3cm] $r$ \stopxcell
+  \startxcell[width=3cm] $h(r)$ \stopxcell
+  \startxcell[width=3cm] $H(r)$ \stopxcell
+  \stopxrow
+  \stopxtablehead
+  \startxtablebody[height=fit]
+  \startxrow[topframe=on,rulethickness=0.75pt]
+  \startxcell 0 \stopxcell
+  \startxcell 0.000593  \stopxcell
+  \startxcell 0.000593 \stopxcell
+  \stopxrow
+  \startxrow
+  \startxcell 1 \stopxcell
+  \startxcell 0.007237 \stopxcell
+  \startxcell 0.007830 \stopxcell
+  \stopxrow
+  \startxrow
+  \startxcell 2 \stopxcell
+  \startxcell 0.037993 \stopxcell
+  \startxcell 0.045824 \stopxcell
+  \stopxrow
+  \startxrow
+  \startxcell 3 \stopxcell
+  \startxcell 0.113096 \stopxcell
+  \startxcell 0.158920 \stopxcell
+  \stopxrow
+  \startxrow
+  \startxcell 4 \stopxcell
+  \startxcell 0.211413 \stopxcell
+  \startxcell 0.370333 \stopxcell
+  \stopxrow
+  \startxrow
+  \startxcell 5 \stopxcell
+  \startxcell 0.259334 \stopxcell
+  \startxcell 0.629667 \stopxcell
+  \stopxrow
+  \startxrow
+  \startxcell 6 \stopxcell
+  \startxcell 0.211413 \stopxcell
+  \startxcell 0.841080 \stopxcell
+  \stopxrow
+  \startxrow
+  \startxcell 7 \stopxcell
+  \startxcell 0.113096 \stopxcell
+  \startxcell 0.954177 \stopxcell
+  \stopxrow
+  \startxrow
+  \startxcell 8 \stopxcell
+  \startxcell 0.037993 \stopxcell
+  \startxcell 0.992170 \stopxcell
+  \stopxrow
+  \startxrow
+  \startxcell 9 \stopxcell
+  \startxcell 0.007237 \stopxcell
+  \startxcell 0.999407 \stopxcell
+  \stopxrow
+  \stopxtablebody
+  \startxtablefoot[bottomframe=on,rulethickness=1.5pt]
+  \startxrow
+  \startxcell 10 \stopxcell
+  \startxcell 0.000593 \stopxcell
+  \startxcell 1.000000 \stopxcell
+  \stopxrow
+  \stopxtablefoot
+  \stopxtable
+}
+
+\placetable[here][t-3-3]{超几何分布：$N,M,n=100,50,10$}
+{\startxtable[offset=0pt]
+  \setupinterlinespace[line=1.2em]
+  \startxtablehead[topframe=on, rulethickness=1.5pt]
+  \startxrow
+  \startxcell[width=3cm] $r$ \stopxcell
+  \startxcell[width=3cm] $h(r)$ \stopxcell
+  \startxcell[width=3cm] $H(r)$ \stopxcell
+  \stopxrow
+  \stopxtablehead
+  \startxtablebody[height=fit]
+  \startxrow[topframe=on,rulethickness=0.75pt]
+  \startxcell 0 \stopxcell
+  \startxcell 0.000527 \stopxcell
+  \startxcell 0.000527 \stopxcell
+  \stopxrow
+  \startxrow
+  \startxcell 1 \stopxcell
+  \startxcell 0.006594 \stopxcell
+  \startxcell 0.007121 \stopxcell
+  \stopxrow
+  \startxrow
+  \startxcell 2 \stopxcell
+  \startxcell 0.035460 \stopxcell
+  \startxcell 0.042581 \stopxcell
+  \stopxrow
+  \startxrow
+  \startxcell 3 \stopxcell
+  \startxcell 0.108070 \stopxcell
+  \startxcell 0.150651 \stopxcell
+  \stopxrow
+  \startxrow
+  \startxcell 4 \stopxcell
+  \startxcell 0.206715 \stopxcell
+  \startxcell 0.357367 \stopxcell
+  \stopxrow
+  \startxrow
+  \startxcell 5 \stopxcell
+  \startxcell 0.259334 \stopxcell
+  \startxcell 0.616700 \stopxcell
+  \stopxrow
+  \startxrow
+  \startxcell 6 \stopxcell
+  \startxcell 0.216111 \stopxcell
+  \startxcell 0.832812 \stopxcell
+  \stopxrow
+  \startxrow
+  \startxcell 7 \stopxcell
+  \startxcell 0.118123 \stopxcell
+  \startxcell 0.950934 \stopxcell
+  \stopxrow
+  \startxrow
+  \startxcell 8 \stopxcell
+  \startxcell 0.040526 \stopxcell
+  \startxcell 0.991461 \stopxcell
+  \stopxrow
+  \startxrow
+  \startxcell 9 \stopxcell
+  \startxcell 0.007880 \stopxcell
+  \startxcell 0.999341 \stopxcell
+  \stopxrow
+  \stopxtablebody
+  \startxtablefoot[bottomframe=on,rulethickness=1.5pt]
+  \startxrow
+  \startxcell 10 \stopxcell
+  \startxcell 0.000659 \stopxcell
+  \startxcell 1.000000 \stopxcell
+  \stopxrow
+  \stopxtablefoot
+  \stopxtable
+}
+
+超几何分布还有两个不直观甚至在 (\in[3-22]) 中也难以发现的对称性质。我们问机器人索求第二次取到红球的概率 $P(R_2|B)$。这与 (\in[3-8]) 的计算并不相同，因为机器人知道，在进行第二次取球之前，瓮内只有 $(N - 1)$ 个球，而非 $N$ 个。但是，机器人不知道第一次取球而导致瓮内少了的那个球的颜色，因此它不知道瓮内剩下的红球的数量是 $M$ 还是 $(M - 1)$。这样一来，Bernoulli 瓮的基本结果

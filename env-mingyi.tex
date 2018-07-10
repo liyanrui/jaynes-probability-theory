@@ -171,7 +171,9 @@ drawpath p; drawpoints p;
 \setupformulas[numberseparatorset=none]
 
 % 三线表的一般设置
-\setupxtable[offset=4pt,align={broad,middle,lohi},frame=off]
+%\setupxtable[offset=4pt,align={broad,middle,lohi},frame=off]
+\setupxtable[align={broad,middle,lohi},frame=off]
+\setupcaption[table][location=top]
 
 % 罗马数字
 \def\Roman#1{\convertnumber{R}{#1}}
