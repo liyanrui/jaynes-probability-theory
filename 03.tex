@@ -39,7 +39,7 @@ P(A|B) = \frac{M}{N}
 
 在本章中，我们的概率论，它的第一个应用与我们之后所期望达到的严肃科学推断相比，相当简单和幼稚。无论如何，我们从细节上来考虑这些，原因并不仅仅是面向教学。对于这些最为简单的应用，对其逻辑的误解，是几十年来阻碍科学推断发展进程——也包含科学本身——的主要原因之一。因而我们强烈建议读者，即使你早已熟悉初等采样理论，在处理更为复杂的问题之前，也应当认真消化本章内容。
 
-\section{无放回采样}
+\section[sec-3-1]{无放回采样}
 
 为了让 Bernoulli 瓮更为明确，我们定义了以下命题：
 
@@ -276,7 +276,7 @@ h(n - r|N, M, n) = h(r|N, M, n)
 
 这正是在表 \in[t-3-1] 中我们所看到的尖峰的对称性。根据 (\in[3-29])，当 $n = \frac{N}{2}$ 时，尖峰也是对称的。
 
-\placetable[here][t-3-1]{超几何分布：$N,M,n=100,10,50$}
+\placetable[here,force][t-3-1]{超几何分布：$N,M,n=100,10,50$}
 {\startxtable[offset=0pt]
   \setupinterlinespace[line=1.2em]
   \startxtablehead[topframe=on, rulethickness=1.5pt]
@@ -348,7 +348,7 @@ h(n - r|N, M, n) = h(r|N, M, n)
   \stopxtable
 }
 
-\placetable[here][t-3-2]{超几何分布：$N,M,n=100,50,10$}
+\placetable[here,force][t-3-2]{超几何分布：$N,M,n=100,50,10$}
 {\startxtable[offset=0pt]
   \setupinterlinespace[line=1.2em]
   \startxtablehead[topframe=on, rulethickness=1.5pt]
@@ -420,7 +420,7 @@ h(n - r|N, M, n) = h(r|N, M, n)
   \stopxtable
 }
 
-\placetable[here][t-3-3]{超几何分布：$N,M,n=100,50,10$}
+\placetable[here,force][t-3-3]{超几何分布：$N,M,n=100,50,10$}
 {\startxtable[offset=0pt]
   \setupinterlinespace[line=1.2em]
   \startxtablehead[topframe=on, rulethickness=1.5pt]
@@ -492,4 +492,86 @@ h(n - r|N, M, n) = h(r|N, M, n)
   \stopxtable
 }
 
-超几何分布还有两个不直观甚至在 (\in[3-22]) 中也难以发现的对称性质。我们问机器人索求第二次取到红球的概率 $P(R_2|B)$。这与 (\in[3-8]) 的计算并不相同，因为机器人知道，在进行第二次取球之前，瓮内只有 $(N - 1)$ 个球，而非 $N$ 个。但是，机器人不知道第一次取球而导致瓮内少了的那个球的颜色，因此它不知道瓮内剩下的红球的数量是 $M$ 还是 $(M - 1)$。这样一来，Bernoulli 瓮的基本结果
+超几何分布还有两个不直观甚至在 (\in[3-22]) 中也难以发现的对称性质。我们问机器人索求第二次取到红球的概率 $P(R_2|B)$。这与 (\in[3-8]) 的计算并不相同，因为机器人知道，在进行第二次取球之前，瓮内只有 $(N - 1)$ 个球，而非 $N$ 个。但是，机器人不知道第一次取球而导致瓮内少了的那个球的颜色，因此它不知道瓮内剩下的红球的数量是 $M$ 还是 $(M - 1)$。这样一来，Bernoulli 瓮的的根基 (\in[3-5]) 就丢了，从而导致问题似乎变得不可判定起来。
+
+然而，这个问题终究是可判定的；下面便是概率计算中有用的技巧的第一个示例，其原理是将一个命题分解为几个更为简单的命题的析取，这个原理在第 1 章和第 2 章讨论过了。机器人知道 $R_1$ 和 $W_1$ 必有一个为真，因而基于布尔代数，我们就有
+
+\placeformula[3-32]
+\startformula
+R_2 = (R_1 + W_1)R_2 = R_1R_2 + W_1R_2
+\stopformula
+
+应用加法规则和乘法规则，可得
+
+\placeformula[3-33]
+\startformula
+\startmathalignment[style=\displaystyle]
+\NC P(R_2|B)\NC = P(R_1R_2|B) + P(W_1R_2|B)\NR
+\NC \NC = P(R_2|R_1B)P(R_1|B) + P(R_2|W_1B)P(W_1|B)\NR
+\stopmathalignment
+\stopformula
+
+然而
+
+\placeformula[3-34]
+\startformula
+P(R_2|R_1B) = \frac{M - 1}{N - 1}\quad\quad P(R_2|W_1B) = \frac{M}{N - 1}
+\stopformula
+
+因此
+
+\placeformula[3-35]
+\startformula
+P(R_2|B) = \frac{M - 1}{N - 1}\frac{M}{N} + \frac{M}{N - 1}\frac{N - M}{N} = \frac{M}{N}
+\stopformula
+
+复杂性顷刻之间便消失了，而且第一次和第二次取到红球的概率是相同的。下面继续看第三次会发生什么
+
+\placeformula[3-36]
+\startformula
+R_3 = (R_1 + W_1)(R_2 + W_2)R_3 = R_1R_2R_3 + R_1W_2R_3 + W_1R_2R_3 + W_1W_2R_3
+\stopformula
+
+因此
+
+\placeformula[3-37]
+\startformula
+\startmathalignment[style=\displaystyle]
+\NC P(R_3|B)\NC = \frac{M}{N}\frac{M - 1}{N - 1}\frac{M - 2}{N - 2} + \frac{M}{N}\frac{N - M}{N - 1}\frac{M - 1}{N - 2}\NR
+\NC \NC +  \frac{N - M}{N}\frac{M}{N - 1}\frac{M - 1}{N - 2} + \frac{N - M}{N}\frac{N - M - 1}{N - 1}\frac{M}{N - 2}\NR
+\NC \NC = \frac{M}{N}
+\stopmathalignment
+\stopformula
+
+复杂性又一次被我们消除了。对于任意一次取到红球，机器人{\bf 如果不知道任何其他次取球的结果}，它总会赋以与 Bernoulli 瓮的结果 (\in[3-5]) 相同的概率。这就是第一个不明显的对称性。在此，我们不对这个结论的一般性给出证明，因为这个结论是一个更具一般性的结果的特殊情况；见后文的方程 (\in[3-118])。
+
+(\in[3-32]) 和 (\in[3-26]) 所展示的计算方法总结如下：对于需要赋以概率的量，将其分解为相互独立的子命题，然后运用加法规则和乘法规则。若子命题经过合理挑选（亦即，如果他们在问题的语境中有着简单的含义），那么它们的概率通常易于计算。若挑选不当（如同第 2 章末尾所给出的企鹅的例子），则与之相关的计算过程自然是毫无帮助。
+
+\section{逻辑 vs 偏好}
+
+\in[sec-3-1] 节的结果给我们带来了新的问题。在索求第 $k$ 次取球结果为红球的概率时，在之前的取球过程中所取到了何种颜色的球，这一知识显然与我们要解决的问题有关系，因为之前的取球结果会影响在第 $k$ 次取球时瓮内红球的数量 $M_k$。那么之后取球结果会不会也对第 $k$ 次有影响呢？第一感觉是没有影响，因为之后的取球结果不会影响到 $M_k$ 的值。例如，广为人知的统计力学的阐述（Penrose，1979）依赖一个基本公理，现在发生的事情仅依赖之前发生的事，并不依赖之后发生的事。Penrose 认为这是\quotation{因果}所必须的客观条件。
+
+因而，如同在第 1 章所作的那样，我们需要再一次强调，推断关心的是{\bf 逻辑}联系，它可能与具有赢过关系的物理影响有关，也可能无关。为了表明为什么之后发生的事件的知识与之前发生的事件的概率存在联系，不妨考虑一个已知（背景信息 $B$）仅包含一个红球和一个白球的瓮：$N = 2$，$M = 1$。仅给定这个信息，第一次取到红球的概率为 $P(R_1|B) = \frac{1}{2}$。但是，倘若机器人知道第二次抽到了红球，那么第一次便不可能取到红球，即
+
+\placeformula[3-38]
+\startformula
+P(R_1|R_2B) = 0
+\stopformula
+
+更为一般的是，乘法规则给出
+
+\placeformula[3-39]
+\startformula
+P(R_jR_k|B) = P(R_j|R_kB)P(R_k|B) = P(R_k|R_jB)P(R_j|B)
+\stopformula
+
+但是我们已经看到了，对于所有的 $j$、$k$，$P(R_j|B) = P(R_k|B) = \frac{M}{N}$，因此
+
+\placeformula[3-40]
+\startformula
+P(R_j|R_kB) = P(R_k|R_jB)
+\stopformula
+
+概率论告诉我们的是，后续的取球结果与第 $k$ 次取球结果的相关性与之前的取球结果完全相同！尽管完成后续的某次取球并不会对第 $k$ 次取球时瓮内的红球数量 $M_k$ 产生物理影响，但是与下一次取球有关的{\bf 信息}与之前的某次取球相比，在我们的在第 $k$ 次取球时的{\bf 知识状态}上有着同样的影响。这就是第二个不明显的对称性。
+
+这个结果可能会让一些关心\quotation{概率的含义}的一些派系非常不安。尽管逻辑蕴含与物理因果并不相同这一点广为人知，但是尝试将概率 $P(A|B)$ 解释为 $B$ 对 $A$ 的某种程度上的因果影响，这种倾向依然非常顽固。不仅上述的 Penrose 的工作体现了这种倾向，哲学家 Karl Popper\footnote{在第九次 Colston 研讨会上，Popper (1957) 将他的偏好解释描述为\quotation{纯客观的}，只是回避了\quotation{物理影响}这种描述。实际上，他会认为，抛掷一个骰子，出现哪一面的概率并非骰子的物理形式（如同 Cram\'er (1946) 所坚持的那样），而是整个实验装置的客观性质。}将概率解释为\quotation{偏好}则更强烈地体现了这一倾向。
