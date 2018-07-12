@@ -630,7 +630,7 @@ P(R_jR_k|B) = P(R_1R_2|B) = \frac{M(M - 1)}{N(N - 1)}
 P(W_jR_k|B) = P(W_1R_2|B) = \frac{(N - M)M}{N(N - 1)}
 \stopformula
 
-因此，根据乘法规则，有
+因此，根据乘法规则，对于 $j < k$ 有
 
 \placeformula[3-47]
 \startformula
@@ -643,3 +643,7 @@ P(R_k|R_jB) = \frac{P(R_jR_k|B}{P(R_j|B} = \frac{M - 1}{N - 1}
 \startformula
 P(R_k|W_jB) = \frac{P(W_jR_k|B}{P(W_j|B} = \frac{M}{N - 1}
 \stopformula
+
+根据 (\in[3-40])，结果 (\in[3-47]) 和 (\in[3-48]) 对于所有 $j\ne k$ 成立。
+
+正如我们所言，这个结论会让许多人吃惊，因此我们要通过一种不同的说法再解释一遍，论述一下要点。机器人知道瓮内一开始有 $M$ 个红球和 $(N - M)$ 个白球。然后，获知前一次取出了一个红球，它就知道了对于后续的取球而言，红球少了一个。
