@@ -720,11 +720,11 @@ p(A_1 + A_2 + A_3|B) = p(A_1 + A_2|B) + p(A_3|B) - p(A_1A_3 + A_2A_3|B)
 
 \placeformula[2-82]
 \startformula
-\startmathmatrix[align={middle, middle, left}]
-\NC p(A_1 + A_2 + A_3|B) \NC = \NC p(A_1|B) + p(A_2|B) + p(A_3|B)\NR
-\NC \NC \NC -p(A_1A_2|B) - p(A_2A_3|B) - p(A_3A_2|B)\NR
-\NC \NC \NC +p(A_1A_2A_3|B)\NR
-\stopmathmatrix
+\startmathalignment
+\NC p(A_1 + A_2 + A_3|B) \NC = p(A_1|B) + p(A_2|B) + p(A_3|B)\NR
+\NC \NC - p(A_1A_2|B) - p(A_2A_3|B) - p(A_3A_2|B)\NR
+\NC \NC + p(A_1A_2A_3|B)\NR
+\stopmathalignment
 \stopformula
 
 现在假设这些命题相互独立；亦即，证据 $B$ 暗示着这些命题中任意两个能够同时为真：

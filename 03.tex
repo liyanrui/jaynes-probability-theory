@@ -648,6 +648,60 @@ P(R_k|W_jB) = \frac{P(W_jR_k|B}{P(W_j|B} = \frac{M}{N - 1}
 
 正如我们所言，这个结论会让许多人吃惊，因此我们要通过一种不同的说法再解释一遍，论述一下要点。机器人知道瓮内一开始有 $M$ 个红球和 $(N - M)$ 个白球。然后，一旦获知前一次取出了一个红球，它就知道了对于后续的取球而言，红球少了一个。于是，问题就变为，瓮中含有 $(N - 1)$ 个球，其中有 $(M - 1)$ 个红球，从这样瓮中取球；这样，(\in[3-47]) 不过是 (\in[3-37]) 在不同问题中的解。
 
-但是为什么知道后续某次取球的结果会产生同样的效力？这是因为机器人知道红球在后续某次会被取出，在效果上，必须有个红球被\quotation{隔离}出去方能使之成立。这一信息所带来的结果是，之前可取的红球，其数量需要减一。上例 (\in[3-38]) 是这种情况的特例，其结论相当清楚。
+但是，知道后续某次取球的结果，为什么同样有效？这是因为机器人知道红球在后续某次被取出，那么必须将一个红球\quotation{搁置}出去方能使得这一效果成为可能。这一信息所带来的结果是，之前可取的红球，其数量需要减一。上例 (\in[3-38]) 是这种情况的特例，其结论相当清楚。
 
-\section{基于非精确信息的推断}
+\section{基于非精确信息的推理}
+
+现在我们尝试将这一认识应用于更复杂的问题。假设机器人知道后续取球过程中至少有一次会取到红球，但是却不知道是哪一次。亦即，这个新的信息，可以表示为布尔代数的命题
+
+\placeformula[3-49]
+\startformula
+R_{\text{later}} \equiv R_{k + 1} + R_{k+2} + \cdots + R_n
+\stopformula
+
+这个信息至少将第 $k$ 次取球时红球有效的数量减去了一个，但是我们并不清楚 $R_{\text{later}}$ 是否有着 $R_n$ 那样的确切的蕴含。为了弄清楚这一点，我们再一次动用乘法规则的对称性：
+
+\placeformula[3-50]
+\startformula
+P(R_kR_{\text{later}}|B) = P(R_k|R_{\text{later}}B)P(R_{\text{later}}|B) = P(R_{\text{later}}|R_kB)P(R_k|B)
+\stopformula
+
+由它可得
+
+\placeformula[3-51]
+\startformula
+P(R_k|R_{\text{later}}B) = P(R_k|B)\frac{P(R_{\text{later}}|R_kB)}{P(R_{\text{later}}|B)}
+\stopformula
+
+右侧所有的量都很容易计算。
+
+观察 (\in[3-49])，有人可能会像下面这样推理，
+
+
+\placeformula[3-52]
+\startformula
+P(R_{\text{later}}|B) = \sum_{j = k + 1}^nP(R_j|B)
+\stopformula
+
+这是错误的，原因是，除非 $M = 1$，事件 $R_j$ 并非相互独立。再者，由 (\in[2-82]) 可知，还有许多项有待增补。即便如此，这种计算方法也会非常冗长乏味。
+
+为了便于计算，要注意 $R_{\text{later}}$ 的反命题为后续的取球过程取到的都是白球
+
+\placeformula[3-53]
+\startformula
+\itbar{R}_{\text{later}} = W_{k + 1}W_{k + 2}\cdots W_n
+\stopformula
+
+因此 $P(\itbar{R}_{\text{later}}|B)$ 是后续取到的皆为白球的概率，这与之前的取球结果无关（亦即，此时的机器人并不知道之前的取球结果）。根据可交换性，这个概率与一开始 $(n - k)$ 次连续的取球结果皆为白球的概率相同，后者也与之后的取球结果无关；根据 (\in[3-13])，
+
+\placeformula[3-54]
+\startformula
+P(\itbar{R}_{\text{later}}|B) = \frac{(N - M)!(N - n + k)!}{N!(N - M - n + k)!} = \startpmatrix N - M\NR n - k\NR\stoppmatrix\startpmatrix N \NR n - k\NR\stoppmatrix^{-1}
+\stopformula
+
+同样，$P(\itbar{R}_{\text{later}}|R_kB)$ 应当与 $(N - 1)$ 个球并且其中有 $(M - 1)$ 个为红球的情况的概率相同：
+
+\placeformula[3-55]
+\startformula
+P(\itbar{R}_{\text{later}}|R_kB) = \frac{(N - M)!(N - n + k - 1)!}{(N - 1)!(N - M - n + k)!} = \startpmatrix N - M\NR n - k\NR\stoppmatrix\startpmatrix N - 1 \NR n - k\NR\stoppmatrix^{-1}
+\stopformula
