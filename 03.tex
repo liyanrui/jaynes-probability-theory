@@ -843,7 +843,7 @@ P(R_2R_3|R_{\text{later}}B) = \frac{1}{5}
 
 这样我们在直觉上所谓的 $M$ 的\quotation{有效}值，实际上就是 $M$ 的期望。
 
-现在，我们能够以中肯的方式给出 (\in[3-63]) 的阐释：若红球的比例 $F = \frac{M}{N}$ 已知，那么应用 Bernoulli 瓮的规则以及 $P(R_1|B) = F$。若 $F$ 未知，红球的概率就是 $F$ 的期望：
+现在，我们能够以中肯的方式给出 (\in[3-63]) 的阐释：若红球的比例 $F = \frac{M}{N}$ 已知，那么应用 Bernoulli 瓮的规则，可得 $P(R_1|B) = F$。若 $F$ 未知，则红球的概率就是 $F$ 的期望：
 
 \placeformula[3-72]
 \startformula
@@ -853,3 +853,30 @@ P(R_1|B) = \langle F\rangle \equiv E(F)
 如果 $M$ 和 $N$ 皆为未知，这个期望就是 $M$ 和 $N$ 的联合概率分布。
 
 概率在数值上等于分数的期望，这一点将会被证明是一个通用的规则，它在成千上万的更为复杂的情形下依然成立，从而为现实预测提供了最为有用也最为普遍的规则之一。更为一般的结果 (\in[3-56]) 也能按照 (\in[3-72]) 的方式算出，我们将这个作为练习留给读者去证明。
+
+\section{其他形式和扩展}
+
+超几何分布 (\in[3-22]) 有多种形式，它的九个阶乘可以像下面这样组织成二项式系数：
+
+\placeformula[3-73]
+\startformula
+h(r|N,M,n) = \frac{\startpmatrix n\NR r\NR\stoppmatrix\startpmatrix N - n\NR M - r\NR\stoppmatrix}{\startpmatrix N\NR M\NR\stoppmatrix}
+\stopformula
+
+但是对于 $M$ 和 $n$ 的交换，其对称性仍不够明显；要看清这一点，我们必须将 (\in[3-22]) 或 (\in[3-73]) 完全展开。
+
+为了方便记忆，我们也可以基于一种更为对称的形式重写 (\in[3-22])：从含有 $R$ 个红球和 $W$ 个白球的瓮中，在 $n = r + w$ 次的抽取中，恰好取到 $r$ 个红球和 $w$ 个白球的概率。这个概率为
+
+\placeformula[3-74]
+\startformula
+h(r|N,M,n) = \frac{\startpmatrix R\NR r\NR\stoppmatrix\startpmatrix W\NR w\NR\stoppmatrix}{\startpmatrix R + W\NR r + w\NR\stoppmatrix}
+\stopformula
+
+这种形式的通用性更好。假设，瓮内的球不止两种颜色，而是 $k$ 种，颜色 1 为 $N_1$，颜色 2 为 $N_2$，$cdots$，颜色 $k$ 为 $N_k$。在 $n = \sum r_i$ 次抽取中，取到 $r_1$ 个颜色 1 的球、$r_2$ 个颜色 2 的球、$\cdots$，$r_k$ 个颜色 $k$ 的球的概率就是通用的超几何分布：
+
+\placeformula[3-75]
+\startformula
+h(r_1\cdots r_k|N_1\cdots N_k) = \frac{\startpmatrix N_1\NR r_1\NR\stoppmatrix\cdots\startpmatrix N_k\NR r_k\NR\stoppmatrix}{\startpmatrix \sum N_i\NR\sum r_i\NR\stoppmatrix}
+\stopformula
+
+读者可自行验证。
