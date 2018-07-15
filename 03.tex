@@ -816,3 +816,40 @@ P(R_1|R_{\text{later}}B) = \frac{\displaystyle\frac{4}{5}}{2} = \frac{2}{5}
 \startformula
 R_2W_3\quad W_2R_3\quad R_2R_3
 \stopformula
+
+它们分别与 $M = (1, 1, 0)$ 相对应，并且它们概率就像 (\in[3-64]) 和 (\in[3-65]) 那样：
+
+\placeformula[3-68]
+\startformula
+P(R_2W_3|R_{\text{later}}B) = \frac{R_2W_3|B}{P(R_{\text{later}}|B)} = \frac{\displaystyle\frac{1}{2}\times\frac{2}{3}}{\displaystyle\frac{5}{6}} = \frac{2}{5}
+\stopformula
+
+\placeformula[3-69]
+\startformula
+P(W_2R_3|R_{\text{later}}B) = \frac{2}{5}
+\stopformula
+
+\placeformula[3-70]
+\startformula
+P(R_2R_3|R_{\text{later}}B) = \frac{1}{5}
+\stopformula
+
+因此
+
+\placeformula[3-71]
+\startformula
+\langle M\rangle = 1\times\frac{2}{5} + 1\times\frac{2}{5} + 0\times\frac{1}{5} = \frac{4}{5}
+\stopformula
+
+这样我们在直觉上所谓的 $M$ 的\quotation{有效}值，实际上就是 $M$ 的期望。
+
+现在，我们能够以中肯的方式给出 (\in[3-63]) 的阐释：若红球的比例 $F = \frac{M}{N}$ 已知，那么应用 Bernoulli 瓮的规则以及 $P(R_1|B) = F$。若 $F$ 未知，红球的概率就是 $F$ 的期望：
+
+\placeformula[3-72]
+\startformula
+P(R_1|B) = \langle F\rangle \equiv E(F)
+\stopformula
+
+如果 $M$ 和 $N$ 皆为未知，这个期望就是 $M$ 和 $N$ 的联合概率分布。
+
+概率在数值上等于分数的期望，这一点将会被证明是一个通用的规则，它在成千上万的更为复杂的情形下依然成立，从而为现实预测提供了最为有用也最为普遍的规则之一。更为一般的结果 (\in[3-56]) 也能按照 (\in[3-72]) 的方式算出，我们将这个作为练习留给读者去证明。
