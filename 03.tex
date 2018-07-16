@@ -879,4 +879,21 @@ h(r|N,M,n) = \frac{\startpmatrix R\NR r\NR\stoppmatrix\startpmatrix W\NR w\NR\st
 h(r_1\cdots r_k|N_1\cdots N_k) = \frac{\startpmatrix N_1\NR r_1\NR\stoppmatrix\cdots\startpmatrix N_k\NR r_k\NR\stoppmatrix}{\startpmatrix \sum N_i\NR\sum r_i\NR\stoppmatrix}
 \stopformula
 
-读者可自行验证。
+对此，读者可自行验证。
+
+\section{作为数学工具的概率}
+
+根据结果 (\in[3-75])，可以获得一些具有二项式系数的等式。例如，我们可以决定不区分颜色 1 和 2；亦即，球的颜色有两种皆称为\quotation{$a$}。然后，根据 (\in[3-75])，在一方面可得
+
+\placeformula[3-76]
+\startformula
+h(r_a,r_3,\cdots,r_k|N_a,N_3,\cdots,N_k) = \frac{\startpmatrix N_a\NR r_a\NR\stoppmatrix\startpmatrix N_3\NR r_3\NR\stoppmatrix\cdots\startpmatrix N_k\NR r_k\NR\stoppmatrix}{\startpmatrix \sum N_i\NR \sum r_i\NR\stoppmatrix}
+\stopformula
+
+其中，
+
+\placeformula[3-77]
+\startformula
+N_a = N_1 + N_2\quad\quad r_a = r_1 + r_2
+\stopformula
+
