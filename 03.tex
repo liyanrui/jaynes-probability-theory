@@ -852,7 +852,7 @@ P(R_1|B) = \langle F\rangle \equiv E(F)
 
 如果 $M$ 和 $N$ 皆为未知，这个期望就是 $M$ 和 $N$ 的联合概率分布。
 
-概率在数值上等于分数的期望，这一点将会被证明是一个通用的规则，它在成千上万的更为复杂的情形下依然成立，从而为现实预测提供了最为有用也最为普遍的规则之一。更为一般的结果 (\in[3-56]) 也能按照 (\in[3-72]) 的方式算出，我们将这个作为练习留给读者去证明。
+概率在数值上等于分数的期望，这一点将会被证明是一个广义规则，它在成千上万的更为复杂的情形下依然成立，从而为现实预测提供了最为有用也最为普遍的规则之一。更为一般的结果 (\in[3-56]) 也能按照 (\in[3-72]) 的方式算出，我们将这个作为练习留给读者去证明。
 
 \section{其他形式和扩展}
 
@@ -872,7 +872,7 @@ h(r|N,M,n) = \frac{\startpmatrix n\NR r\NR\stoppmatrix\startpmatrix N - n\NR M -
 h(r|N,M,n) = \frac{\startpmatrix R\NR r\NR\stoppmatrix\startpmatrix W\NR w\NR\stoppmatrix}{\startpmatrix R + W\NR r + w\NR\stoppmatrix}
 \stopformula
 
-这种形式的通用性更好。假设，瓮内的球不止两种颜色，而是 $k$ 种，颜色 1 为 $N_1$，颜色 2 为 $N_2$，$\cdots$，颜色 $k$ 为 $N_k$。在 $n = \sum r_i$ 次抽取中，取到 $r_1$ 个颜色 1 的球、$r_2$ 个颜色 2 的球、$\cdots$，$r_k$ 个颜色 $k$ 的球的概率就是通用的超几何分布：
+这种形式的通用性更好。假设，瓮内的球不止两种颜色，而是 $k$ 种，颜色 1 为 $N_1$，颜色 2 为 $N_2$，$\cdots$，颜色 $k$ 为 $N_k$。在 $n = \sum r_i$ 次抽取中，取到 $r_1$ 个颜色 1 的球、$r_2$ 个颜色 2 的球、$\cdots$，$r_k$ 个颜色 $k$ 的球的概率就是广义超几何分布：
 
 \placeformula[3-75]
 \startformula
@@ -931,3 +931,66 @@ h(r_a,r_3,\cdots,r_k|N_a,N_3,\cdots,N_k) = \sum_{r_1 = 0}^{r_a}h(r_1,r_a - r_1, 
 h(r|N,M,n) = \frac{\left[\displaystyle\frac{1}{N^r}\startpmatrix M\NR r\NR\stoppmatrix\right]\left[\displaystyle\frac{1}{N^{n - r}}\startpmatrix N - M \NR n - r\NR\stoppmatrix\right]}{\left[\displaystyle\frac{1}{N^n}\startpmatrix N\NR n\NR\stoppmatrix\right]}
 \stopformula
 
+第一个因子是
+
+\placeformula[3-82]
+\startformula
+\frac{1}{N^r}\startpmatrix M\NR r\NR\stoppmatrix = \frac{1}{r!}\frac{M}{N}\left(\frac{M}{N} - \frac{1}{N}\right)\left(\frac{M}{N} - \frac{2}{N}\right)\cdots\left(\frac{M}{N} - \frac{r - 1}{N}\right)
+\stopformula
+
+在极限 $N\rightarrow\infty$、$M\rightarrow\infty$ 以及 $\frac{M}{N}\rightarrow f$ 的情况下，有
+
+\placeformula[3-83]
+\startformula
+\frac{1}{N^r}\startpmatrix M\NR r\NR\stoppmatrix\rightarrow\frac{f^r}{r!}
+\stopformula
+
+同样地
+
+\placeformula[3-84]
+\startformula
+\frac{1}{N^{n - r}}\startpmatrix N - M\NR n - r\NR\stoppmatrix\rightarrow\frac{(1 - f)^{n - r}}{(n - r)!}
+\stopformula
+
+\placeformula[3-85]
+\startformula
+\frac{1}{N^n}\startpmatrix N\NR n - r\NR\stoppmatrix\rightarrow\frac{1}{n!}
+\stopformula
+
+原则上，我们应当取 (\in[3-81]) 的积的极限，而不是极限的积。但是在 (\in[3-81]) 里所定义的各个因子，它们的极限是相互独立的，因此所得结果与极限的积相同。如此，超几何分布便转化为
+
+\placeformula[3-86]
+\startformula
+h(r|N, M, n)\rightarrow b(r|n, f) \equiv\startpmatrix n\NR r\NR\stoppmatrix f^r(1 - f)^{n - r}
+\stopformula
+
+将这一分布称为{\bf 二项}分布。之所以如此命名，是因为那个生成函数 (\in[3-24]) 现在可约化为
+
+\placeformula[3-87]
+\startformula
+G(t) \equiv \sum_{r = 0}^n b(r|n, f)t^r = (1 - f + ft)^n
+\stopformula
+
+这是牛顿二项式定理的一个特例。
+
+\strut 图 \in[fig-3-1] 比较了三种超几何分布与二项分布。这三种超几何分布，相关参数为 $N = 15, 30, 100$，$\frac{M}{N} = 0.4$ 以及 $n = 10$。二项分布的相关参数为 $n = 10$ 和 $f = 0.4$。它们的波峰皆位于 $r = 4$ 时出现，并且所有的分布都有相同的一阶矩 $\langle r\rangle = E(r) = 4$，但二项分布更宽。
+
+\placefigure[here][fig-3-1]{\switchtobodyfont[9pt]{$N = 15, 30, 100, \infty$} 时的超几何分布}{\externalfigure[figures/3-1.pdf][width=.8\textwidth]}
+
+\indentation $N = 15$ 对应的超几何分布在 $r = 0$ 与 $r > 6$ 时为 $0$，这是因为从只包含 6 个红球和 9 个白球的瓮中取 10 个球，取到的红球数量不可能取到比 1 个更少或者比 6 个更多。当 $N > 100$ 时，超几何分布便于二项分布相当吻合，对于大部分目的而言，这两个用哪一个都可以。第 7 章会给出二项分布的分析学性质。在第 9 章中，我们发现二项分布不过是有限采样空间中的单纯的组合推理罢了，这种推理与显著性测试有关，见方程 (\in[9-46])。
+
+我们可以对广义超几何分布 (\in[3-75]) 执行相似的求极限过程。若 $N_i\rightarrow\infty$，证明以分数
+
+\placeformula[3-88]
+\startformula
+f_i \equiv \frac{N_i}{\sum N_j}
+\stopformula
+
+趋向于常量的极限的情况下，(\in[3-75]) 会转变为{\bf 多项分布}
+
+\placeformula[3-89]
+\startformula
+m(r_1\cdots r_k|f_1\cdots f_k) = \frac{r!}{r_1!\cdots r_k!}f_1^{r_1}\cdots f_k^{r_k}
+\stopformula
+
+其中 $r \equiv \sum r_i$。如同 (\in[3-87])，可以定义 $(k - 1)$ 个变量的生成函数，由该函数可以证明 (\in[3-89]) 是被正确地归一化了的，并且可推导出许多其他有用的结果。
