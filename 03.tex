@@ -922,4 +922,12 @@ h(r_a,r_3,\cdots,r_k|N_a,N_3,\cdots,N_k) = \sum_{r_1 = 0}^{r_a}h(r_1,r_a - r_1, 
 
 \section{二项分布}
 
-尽管数学上相当复杂，但是超几何分布来源于一个概念上清晰且简单的问题；
+尽管数学上相当复杂，但是超几何分布却来源于一个概念上清晰且简单的问题；仅存在有限种可能性，并且以上所有结果也与所述的问题相符。作为对数学上更简单但概念上更难的一个问题的介绍，我们要考查超几何分布的极限形式。
+
+超几何分布之所以复杂，是因为它考虑的是瓮内之物的变化；知悉任何一次抽取的结果，都会改变任何其他次取到红球的概率。但是，如果瓮内的球数 $N$ 远大于抽取次数（$N \gg n$），那么这个概率的改变就会非常小，并且在极限 $N\rightarrow\infty$ 情况下，我们应当有一个更简单的结果独立于此类依赖。为了验证这一点，我们将超几何分布 (\in[3-22]) 写为
+
+\placeformula[3-81]
+\startformula
+h(r|N,M,n) = \frac{\left[\displaystyle\frac{1}{N^r}\startpmatrix M\NR r\NR\stoppmatrix\right]\left[\displaystyle\frac{1}{N^{n - r}}\startpmatrix N - M \NR n - r\NR\stoppmatrix\right]}{\left[\displaystyle\frac{1}{N^n}\startpmatrix N\NR n\NR\stoppmatrix\right]}
+\stopformula
+
