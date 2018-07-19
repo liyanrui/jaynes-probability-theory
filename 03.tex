@@ -276,7 +276,7 @@ h(n - r|N, M, n) = h(r|N, M, n)
 
 这正是在表 \in[t-3-1] 中我们所看到的尖峰的对称性。根据 (\in[3-29])，当 $n = \frac{N}{2}$ 时，尖峰也是对称的。
 
-\placetable[here,force][t-3-1]{超几何分布：$N,M,n=100,10,50$}
+\placetable[here,force][t-3-1]{超几何分布：{\switchtobodyfont[9pt]{$N,M,n=100,10,50$}}}
 {\startxtable[offset=0pt]
   \setupinterlinespace[line=1.2em]
   \startxtablehead[topframe=on, rulethickness=1.5pt]
@@ -348,7 +348,7 @@ h(n - r|N, M, n) = h(r|N, M, n)
   \stopxtable
 }
 
-\placetable[here,force][t-3-2]{超几何分布：$N,M,n=100,50,10$}
+\placetable[here,force][t-3-2]{超几何分布：{\switchtobodyfont[9pt]{$N,M,n=100,50,10$}}}
 {\startxtable[offset=0pt]
   \setupinterlinespace[line=1.2em]
   \startxtablehead[topframe=on, rulethickness=1.5pt]
@@ -420,7 +420,7 @@ h(n - r|N, M, n) = h(r|N, M, n)
   \stopxtable
 }
 
-\placetable[here,force][t-3-3]{超几何分布：$N,M,n=100,50,10$}
+\placetable[here,force][t-3-3]{超几何分布：{\switchtobodyfont[9pt]{$N,M,n=100,50,10$}}}
 {\startxtable[offset=0pt]
   \setupinterlinespace[line=1.2em]
   \startxtablehead[topframe=on, rulethickness=1.5pt]
@@ -876,7 +876,7 @@ h(r|N,M,n) = \frac{\startpmatrix R\NR r\NR\stoppmatrix\startpmatrix W\NR w\NR\st
 
 \placeformula[3-75]
 \startformula
-h(r_1\cdots r_k|N_1\cdots N_k) = \frac{\startpmatrix N_1\NR r_1\NR\stoppmatrix\cdots\startpmatrix N_k\NR r_k\NR\stoppmatrix}{\startpmatrix \sum N_i\NR\sum r_i\NR\stoppmatrix}
+h(r_1\cdots r_k|N_1,\cdots,N_k) = \frac{\startpmatrix N_1\NR r_1\NR\stoppmatrix\cdots\startpmatrix N_k\NR r_k\NR\stoppmatrix}{\startpmatrix \sum N_i\NR\sum r_i\NR\stoppmatrix}
 \stopformula
 
 对此，读者可自行验证。
@@ -975,7 +975,7 @@ G(t) \equiv \sum_{r = 0}^n b(r|n, f)t^r = (1 - f + ft)^n
 
 \strut 图 \in[fig-3-1] 比较了三种超几何分布与二项分布。这三种超几何分布，相关参数为 $N = 15, 30, 100$，$\frac{M}{N} = 0.4$ 以及 $n = 10$。二项分布的相关参数为 $n = 10$ 和 $f = 0.4$。它们的波峰皆位于 $r = 4$ 时出现，并且所有的分布都有相同的一阶矩 $\langle r\rangle = E(r) = 4$，但二项分布更宽。
 
-\placefigure[here][fig-3-1]{\switchtobodyfont[9pt]{$N = 15, 30, 100, \infty$} 时的超几何分布}{\externalfigure[figures/3-1.pdf][width=.8\textwidth]}
+\placefigure[here][fig-3-1]{{\switchtobodyfont[9pt]{$N = 15, 30, 100, \infty$}} 时的超几何分布}{\externalfigure[figures/3-1.pdf][width=.8\textwidth]}
 
 \indentation $N = 15$ 对应的超几何分布在 $r = 0$ 与 $r > 6$ 时为 $0$，这是因为从只包含 6 个红球和 9 个白球的瓮中取 10 个球，取到的红球数量不可能取到比 1 个更少或者比 6 个更多。当 $N > 100$ 时，超几何分布便于二项分布相当吻合，对于大部分目的而言，这两个用哪一个都可以。第 7 章会给出二项分布的分析学性质。在第 9 章中，我们发现二项分布不过是有限采样空间中的单纯的组合推理罢了，这种推理与显著性测试有关，见方程 (\in[9-46])。
 
@@ -996,7 +996,7 @@ m(r_1\cdots r_k|f_1\cdots f_k) = \frac{r!}{r_1!\cdots r_k!}f_1^{r_1}\cdots f_k^{
 其中 $r \equiv \sum r_i$。如同 (\in[3-87])，可以定义 $(k - 1)$ 个变量的生成函数，由该函数可以证明 (\in[3-89]) 是被正确地归一化了的，并且可推导出许多其他有用的结果。
 
 \startExercise
-假设瓮内含有 $N = \sum N_i$ 个球，$N_1$ 个颜色 $1$ 的，$N_2$ 个颜色 $2$ 的，$\cdots$，$N_k$ 个颜色 $k$ 的。从瓮中无放回地取出 $m$ 个球；每种颜色的球至少取一个的概率是多大？假设 $k = 5$，所有的 $N_i = 10$，要得到一个颜色完全的集合？
+假设瓮内含有 $N = \sum N_i$ 个球，$N_1$ 个颜色 $1$ 的，$N_2$ 个颜色 $2$ 的，$\cdots$，$N_k$ 个颜色 $k$ 的。从瓮中无放回地取出 $m$ 个球；每种颜色的球至少取一个的概率是多大？假设 $k = 5$，所有的 $N_i = 10$，要取多少次球方能使得出现颜色完全的集合的概率至少为 90\%？
 \stopExercise
 
 \startExercise
@@ -1020,13 +1020,3 @@ h = \sum_{k = 1}^M \frac{(-1)^{k + 1}}{k!}
 将 $N$ 个球掷入 $M$ 个瓮内；显然有 $M^N$ 种方式。如果机器人公平地考虑这些方式，那么每个瓮内至少获得一个球的概率是多大？
 \stopExercise
 
-\defineenumeration
-  [remark]
-  [text=,headstyle=bold, way=bychapter, alternative=serried, width=fit,
-  headcommand={习题 \headnumber[chapter].\headnumber[remark]}]
-
-\remark \input knuth
-
-\chapter{aaa}
-
-\remark

@@ -74,9 +74,14 @@
 \stopsetups
 
 % 习题
+\defineenumeration
+  [exercise]
+  [text=, headstyle=bold, way=bychapter,
+    alternative=serried, width=fit,
+    headcommand={习题 \headnumber[chapter].\headnumber[exercise]}]
 \definestartstop
   [Exercise]
-  [before={\startframedtext[width=broad]}, after={\stopframedtext}]
+  [before={\startframedtext[width=broad]\startexercise}, after={\stopexercise\stopframedtext}]
 
 % 标题
 \setupheads[indentnext=yes]
