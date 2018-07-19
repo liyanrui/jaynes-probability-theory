@@ -577,18 +577,18 @@ p(A + B | C) = p(A|C) + p(B|C) - p(AB|C)
 
 这是最实用的通用加法法则。显然，在 $B = \itbar{A}$ 时，基本加法法则 (\in[2-64]) 是 (\in[2-66]) 的特例。
 
-\startframedtext[width=broad]
-\exercise{} 能够像 (\in[2-66]) 那样基于乘法与加法规则为 $p(C|A + B)$ 找到通用的公式吗？如果能，就把它推导出来，否则就解释一下为什么不能。
-\stopframedtext
+\startExercise
+能够像 (\in[2-66]) 那样基于乘法与加法规则为 $p(C|A + B)$ 找到通用的公式吗？如果能，就把它推导出来，否则就解释一下为什么不能。
+\stopExercise
 
-\startframedtext[width=broad]
-\exercise{} 假设存在命题集合 $\{A_1,\cdots,A_n\}$ 在 $X$ 上相互独立：$p(A_iA_j|X) = p(A_i|X)\delta_{ij}$。证明 $p(C|(A_1 + \cdots + A_n)X)$ 为各个 $P(C|A_iX)$ 的加权平均：
+\startExercise
+假设存在命题集合 $\{A_1,\cdots,A_n\}$ 在 $X$ 上相互独立：$p(A_iA_j|X) = p(A_i|X)\delta_{ij}$。证明 $p(C|(A_1 + \cdots + A_n)X)$ 为各个 $P(C|A_iX)$ 的加权平均：
 
 \placeformula[2-67]
 \startformula
 p(C|(A_1 + \cdots + A_n)X) = p(C|A_1X + \cdots + A_nX) = \frac{\sum_i p(A_i|X)p(C|A_iX)}{\sum_i p(A_i|X)}
 \stopformula
-\stopframedtext
+\stopExercise
 
 为了扩展 (\in[2-66])，在 (\in[1-17]) 之后，我们注意到除了没什么价值的自相矛盾的逻辑函数之外，任何一个逻辑函数皆能表示为析取范式，即作为诸如 (\in[1-17]) 所示的基本合取运算的逻辑和。现在，任何一个基本的合取运算的可信性 $\{Q_i,\; 1\le i \le 2^n\}$ 可由乘法规则的反复应用而确定；然后反复应用 (\in[2-66]) 便可确定 $Q_i$ 所形成的任何逻辑和的可信性。实际上，这些合取运算是相互独立的，因此我们将会发现（见 (\in[2-85])）这种逻辑和可约化为 $(2^n - 1)$ 个项构成的简单求和运算 $\sum_ip(Q_i|C)$。
 
@@ -898,9 +898,9 @@ p(A|B) = \frac{M}{N}
 
 {\small 一个事件的概率，是有利于它的情况数量与所有可能情况的数量的比值。我们无法期待这些情况中的任意一个比其他情况更应当发生，正因为如此，我们认为它们的可能性相同。}
 
-\startframedtext[width=broad]
-\exercise{} 一旦我们有了数值 $a = P(A|C)$ 和 $b = P(B|C)$，乘法和加法规则就会在这两个命题的合取与析取的可能数值上设立一些限制。假设 $a\le b$，证明合取不能超过可能性最小的命题：$0\le P(AB|C) \le a$，析取不能小于可能性最大的命题：$b \le P(A+B|C) \le 1$。然后证明，若 $a + b > 1$，那么，对于合取，存在着一个更强的不等式；若 $a + b > 1$，对于析取，也存在一个更强的不等式。这些必须的通用不等式有助于检验计算错误。
-\stopframedtext
+\startExercise
+一旦我们有了数值 $a = P(A|C)$ 和 $b = P(B|C)$，乘法和加法规则就会在这两个命题的合取与析取的可能数值上设立一些限制。假设 $a\le b$，证明合取不能超过可能性最小的命题：$0\le P(AB|C) \le a$，析取不能小于可能性最大的命题：$b \le P(A+B|C) \le 1$。然后证明，若 $a + b > 1$，那么，对于合取，存在着一个更强的不等式；若 $a + b > 1$，对于析取，也存在一个更强的不等式。这些必须的通用不等式有助于检验计算错误。
+\stopExercise
 
 \section{记法和有限集策略}
 

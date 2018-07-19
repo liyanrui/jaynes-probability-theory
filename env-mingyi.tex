@@ -73,19 +73,12 @@
 \setupfootertexts[text][][\PageNumber][\PageNumber][]
 \stopsetups
 
-% 标题
-\definehead[exercise][subsection]
-\setuphead
-  [exercise]
-  [alternative=text,
-    style=bold,
-    before={{\bf 习题 }},
-    numbercommand={\headnumber[chapter].\determineheadnumber[subsection]\currentheadnumber\gobbleoneargument}]
-
+% 习题
 \definestartstop
   [Exercise]
-  [before={\startframedtext[width=broad]\exercise{}}, after={\stopframedtext}]
+  [before={\startframedtext[width=broad]}, after={\stopframedtext}]
 
+% 标题
 \setupheads[indentnext=yes]
 \definepagebreak[headpagebreak][yes, header, footer, odd]
 \setuphead
