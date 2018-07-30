@@ -138,6 +138,12 @@ drawpath p; drawpoints p;
     distance=0em,
     itemalign=flushright]
 
+\defineitemgroup[smallitemize][levels=3]
+\setupitemgroup
+  [smallitemize][1]
+  [paragraph, packed, broad]
+  [left=(, right=), stopper=, distance=0em, itemalign=flushright]
+
 % misc
 \setupheadtext[en][pubs=参考文献]
 \setupheadtext[en][content=目录]
